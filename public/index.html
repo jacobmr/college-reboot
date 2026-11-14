@@ -320,7 +320,7 @@ details.card summary { list-style: revert; }
   <p>This is an imaginary college. You will replace every number with yours in Phase 1.</p>
 
   <div class="worksheet">
-    <div class="worksheet-header">Example College — The Gap</div>
+    <div class="worksheet-header">Example College: The Gap</div>
     <table>
       <tr><td class="label">Students</td><td>1,500</td><td class="how">Fall enrollment</td></tr>
       <tr><td class="label">Sticker tuition</td><td>$50,000</td><td class="how">Published price</td></tr>
@@ -401,22 +401,22 @@ details.card summary { list-style: revert; }
         <td><input type="number" id="gc_students" placeholder="e.g. 1500" oninput="calcGap()"></td>
       </tr>
       <tr>
-        <td><strong>—</strong></td>
+        <td></td>
         <td class="label">Sticker tuition ($)</td>
         <td><input type="number" id="gc_sticker" placeholder="e.g. 50000" oninput="calcGap()"></td>
       </tr>
       <tr>
-        <td><strong>—</strong></td>
+        <td></td>
         <td class="label">Discount rate (%)</td>
         <td><input type="number" id="gc_discount" placeholder="e.g. 55" step="0.1" oninput="calcGap()"></td>
       </tr>
       <tr>
-        <td><strong>—</strong></td>
+        <td></td>
         <td class="label">Net tuition per student ($)</td>
         <td><input type="number" id="gc_nettuition" class="computed" readonly></td>
       </tr>
       <tr>
-        <td><strong>—</strong></td>
+        <td></td>
         <td class="label">Housing, dining &amp; other net revenue per student ($)</td>
         <td><input type="number" id="gc_housing" placeholder="e.g. 8000" oninput="calcGap()"></td>
       </tr>
@@ -1189,8 +1189,7 @@ function calcGap() {
       summary.className = 'callout warning';
       summaryText.innerHTML = `<strong>Annual deficit: $${(absGap/1000000).toFixed(2)}M</strong> ($${Math.abs(Math.round(gapStud)).toLocaleString()} per student). ` +
         `You need <strong>${Math.round(needed)} additional students</strong> at current contribution to close the gap. ` +
-        `A one-point increase in discount rate costs <strong>$${Math.round(discEffect).toLocaleString()}</strong> per year.` +
-        '';
+        `A one-point increase in discount rate costs <strong>$${Math.round(discEffect).toLocaleString()}</strong> per year.`;
     } else {
       summary.className = 'callout';
       summaryText.innerHTML = `<strong>Operating surplus: $${(gap/1000000).toFixed(2)}M.</strong> The college is covering its costs.`;
@@ -1262,7 +1261,7 @@ function calcRunway() {
     summary.style.display = 'block';
     if (cushion < 12) {
       summary.className = 'callout warning';
-      summaryText.innerHTML = `<strong>Cushion is ${cushion.toFixed(1)} months — under 12.</strong> Brief the board this week. The college has ${months.toFixed(1)} months of runway and needs ${transition} months to transition.`;
+      summaryText.innerHTML = `<strong>Cushion is ${cushion.toFixed(1)} months, under the 12 to aim for.</strong> Brief the board this week. The college has ${months.toFixed(1)} months of runway and needs ${transition} months to transition.`;
     } else {
       summary.className = 'callout';
       summaryText.innerHTML = `<strong>${months.toFixed(1)} months of runway</strong> with a ${cushion.toFixed(1)}-month cushion after transition. You have time to plan, but start now.`;
