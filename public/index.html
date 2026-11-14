@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The College Reboot Workbook</title>
+<meta name="description" content="A fill-in-the-blanks guide for presidents, boards and campus teams at small private colleges.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --navy: #0f1f3d;
+  --blue: #1a5276;
+  --steel: #2980b9;
+  --gold: #c19a3e;
+  --red: #c0392b;
+  --green: #27ae60;
+  --cream: #faf8f5;
+  --warm: #f0ebe3;
+  --white: #ffffff;
+  --gray100: #f7f7f7;
+  --gray200: #e8e8e8;
+  --gray300: #d0d0d0;
+  --gray500: #888;
+  --gray700: #444;
+  --gray900: #1a1a1a;
+  --radius: 8px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', system-ui, sans-serif; background: var(--cream); color: var(--gray900); -webkit-font-smoothing: antialiased; line-height: 1.65; }
+
+/* Header */
+header { background: var(--navy); color: white; padding: 32px 0 0; position: sticky; top: 0; z-index: 100; }
+.header-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.header-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+.header-title { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.6rem; font-weight: 700; line-height: 1.2; }
+.header-title span { color: var(--gold); }
+.header-sub { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 4px; font-weight: 400; }
+.header-actions { display: flex; gap: 10px; align-items: center; }
+.btn-print { background: transparent; border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.7); padding: 6px 14px; border-radius: 4px; font-size: 0.75rem; cursor: pointer; transition: all 0.2s; }
+.btn-print:hover { border-color: rgba(255,255,255,0.5); color: white; }
+.progress-bar { width: 100%; height: 3px; background: rgba(255,255,255,0.1); margin-top: 4px; }
+.progress-fill { height: 100%; background: var(--gold); transition: width 0.5s ease; width: 0%; }
+
+/* Tabs */
+.tabs { display: flex; gap: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.tabs::-webkit-scrollbar { display: none; }
+.tab { padding: 10px 18px; font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.45); cursor: pointer; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.2s; position: relative; letter-spacing: 0.02em; }
+.tab:hover { color: rgba(255,255,255,0.7); }
+.tab.active { color: white; border-bottom-color: var(--gold); }
+.tab .tab-num { display: inline-block; width: 18px; height: 18px; border-radius: 50%; background: rgba(255,255,255,0.1); text-align: center; line-height: 18px; font-size: 0.65rem; margin-right: 5px; }
+.tab.active .tab-num { background: var(--gold); color: var(--navy); }
+.tab.completed .tab-num { background: var(--green); color: white; }
+
+/* Main */
+main { max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; }
+.tab-content { display: none; animation: fadeIn 0.3s ease; }
+.tab-content.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Typography */
+h2 { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.8rem; color: var(--navy); margin-bottom: 8px; line-height: 1.2; }
+h3 { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.25rem; color: var(--navy); margin: 32px 0 12px; line-height: 1.3; }
+h4 { font-size: 0.9rem; font-weight: 700; color: var(--blue); margin: 24px 0 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+.phase-intro { font-size: 1rem; color: var(--gray700); max-width: 700px; margin-bottom: 28px; line-height: 1.75; }
+p { margin-bottom: 14px; font-size: 0.92rem; color: var(--gray700); }
+.highlight { background: linear-gradient(to bottom, transparent 60%, rgba(193,154,62,0.15) 60%); font-weight: 600; }
+.callout { background: var(--white); border-left: 4px solid var(--gold); padding: 16px 20px; margin: 20px 0; border-radius: 0 var(--radius) var(--radius) 0; box-shadow: var(--shadow); }
+.callout p { margin-bottom: 0; }
+.callout.warning { border-left-color: var(--red); background: #fdf2f0; }
+.callout.insight { border-left-color: var(--steel); }
+.callout-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; color: var(--gold); }
+.callout.warning .callout-label { color: var(--red); }
+.callout.insight .callout-label { color: var(--steel); }
+
+/* Cards */
+.card { background: var(--white); border-radius: var(--radius); padding: 24px; margin: 16px 0; box-shadow: var(--shadow); }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin: 20px 0; }
+.idea-card { background: var(--white); border: 2px dashed var(--gray300); border-radius: var(--radius); padding: 20px; }
+.idea-card:focus-within { border-color: var(--steel); border-style: solid; }
+
+/* Worksheets / Tables */
+.worksheet { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); margin: 20px 0; }
+.worksheet-header { background: var(--navy); color: white; padding: 12px 20px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em; display: flex; justify-content: space-between; align-items: center; }
+.worksheet-header .ws-tag { background: var(--gold); color: var(--navy); padding: 2px 8px; border-radius: 3px; font-size: 0.65rem; font-weight: 700; }
+table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+th { background: var(--gray100); text-align: left; padding: 10px 14px; font-size: 0.75rem; font-weight: 700; color: var(--gray700); text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid var(--gray200); }
+td { padding: 10px 14px; border-bottom: 1px solid var(--gray200); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+td.label { font-weight: 600; color: var(--navy); min-width: 200px; }
+td.how { font-size: 0.8rem; color: var(--gray500); }
+.result-row { background: #f0f7ed; }
+.result-row td { font-weight: 700; color: var(--green); }
+.warning-row { background: #fdf2f0; }
+.warning-row td { color: var(--red); font-weight: 600; }
+
+/* Inputs */
+input[type="text"], input[type="number"], textarea, select {
+  width: 100%; padding: 8px 12px; border: 1.5px solid var(--gray300); border-radius: 5px;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--gray900);
+  background: var(--white); transition: border-color 0.2s;
+}
+input:focus, textarea:focus, select:focus { outline: none; border-color: var(--steel); box-shadow: 0 0 0 3px rgba(41,128,185,0.1); }
+input[type="number"] { text-align: right; }
+input.computed { background: var(--gray100); border-style: dashed; color: var(--blue); font-weight: 600; }
+input.computed-warning { background: #fdf2f0; border-color: var(--red); color: var(--red); font-weight: 700; }
+textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif; }
+.input-group { margin-bottom: 14px; }
+.input-label { font-size: 0.78rem; font-weight: 600; color: var(--gray700); margin-bottom: 4px; display: block; }
+.input-hint { font-size: 0.72rem; color: var(--gray500); margin-top: 3px; }
+.input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 600px) { .input-row { grid-template-columns: 1fr; } }
+
+/* Checklists */
+.checklist { list-style: none; margin: 16px 0; }
+.checklist li { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--gray200); font-size: 0.88rem; }
+.checklist li:last-child { border-bottom: none; }
+.checklist input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--green); cursor: pointer; flex-shrink: 0; }
+
+/* Role tags */
+.tag { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.05em; margin-right: 4px; }
+.tag-pres { background: #e8d5e8; color: #6b2d6b; }
+.tag-cfo { background: #d5e8d5; color: #2d6b2d; }
+.tag-board { background: #e8e0d5; color: #6b4e2d; }
+.tag-cabinet { background: #d5dfe8; color: #2d4e6b; }
+.tag-faculty { background: #e8d5d5; color: #6b2d2d; }
+.tag-students { background: #d5e8e8; color: #2d6b6b; }
+.tag-all { background: var(--gray200); color: var(--gray700); }
+
+/* Numbered list */
+.num-list { counter-reset: numlist; list-style: none; margin: 16px 0; }
+.num-list li { counter-increment: numlist; display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--gray200); font-size: 0.9rem; }
+.num-list li::before { content: counter(numlist); display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: var(--navy); color: white; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
+
+/* Tab navigation buttons */
+.tab-nav { display: flex; justify-content: space-between; margin-top: 40px; padding-top: 24px; border-top: 2px solid var(--gray200); }
+.btn { padding: 10px 24px; border-radius: 5px; font-size: 0.85rem; font-weight: 600; cursor: pointer; border: none; transition: all 0.2s; }
+.btn-primary { background: var(--navy); color: white; }
+.btn-primary:hover { background: var(--blue); }
+.btn-secondary { background: var(--gray200); color: var(--gray700); }
+.btn-secondary:hover { background: var(--gray300); }
+.btn-gold { background: var(--gold); color: white; }
+.btn-gold:hover { background: #a8832e; }
+
+/* Campus OS module cards */
+.module-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin: 20px 0; }
+.module-card { background: var(--white); border-radius: var(--radius); padding: 16px; border-left: 4px solid var(--steel); box-shadow: var(--shadow); }
+.module-card h5 { font-size: 0.85rem; color: var(--navy); margin-bottom: 4px; }
+.module-card p { font-size: 0.8rem; color: var(--gray500); margin: 0; }
+.module-num { font-family: 'JetBrains Mono'; font-size: 0.7rem; color: var(--steel); font-weight: 700; }
+
+/* AI table */
+.ai-table td:nth-child(2), .ai-table td:nth-child(3), .ai-table td:nth-child(4) { text-align: center; width: 100px; }
+.ai-check { color: var(--green); font-weight: 700; font-size: 1.1rem; }
+.ai-x { color: var(--gray300); }
+
+/* Print */
+@media print {
+  header { position: static; }
+  .tabs, .tab-nav, .btn-print, .header-actions { display: none; }
+  .tab-content { display: block !important; page-break-before: always; }
+  .tab-content:first-child { page-break-before: auto; }
+  body { background: white; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-title { font-size: 1.2rem; }
+  h2 { font-size: 1.4rem; }
+  .tab { padding: 10px 12px; font-size: 0.7rem; }
+  main { padding: 20px 16px 60px; }
+  .card-grid { grid-template-columns: 1fr; }
+  td.label { min-width: auto; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-top">
+      <div>
+        <div class="header-title">The College <span>Reboot</span> Workbook</div>
+        <div class="header-sub">A fill-in-the-blanks guide for presidents, boards and campus teams</div>
+      </div>
+      <div class="header-actions">
+        <button class="btn-print" onclick="window.print()">Print / PDF</button>
+      </div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="tabs" id="tabs">
+      <div class="tab active" data-tab="0"><span class="tab-num">1</span>Here We Are</div>
+      <div class="tab" data-tab="1"><span class="tab-num">2</span>Face the Numbers</div>
+      <div class="tab" data-tab="2"><span class="tab-num">3</span>Market Research</div>
+      <div class="tab" data-tab="3"><span class="tab-num">4</span>Design &amp; Test</div>
+      <div class="tab" data-tab="4"><span class="tab-num">5</span>Decide &amp; Rebuild</div>
+      <div class="tab" data-tab="5"><span class="tab-num">6</span>Technology Layer</div>
+      <div class="tab" data-tab="6"><span class="tab-num">7</span>Appendices</div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- TAB 1: HERE WE ARE -->
+<div class="tab-content active" id="tab-0">
+  <h2>Here We Are</h2>
+  <p class="phase-intro">Our college spends more each year than it brings in, and doing a little less of the same thing will not fix that. This section explains why in plain terms, and why the answer depends on all of us.</p>
+
+  <div class="card">
+    <h3>Fewer students, more choices</h3>
+    <p>The number of Americans finishing high school peaked in 2025 at roughly 3.8 to 3.9 million. It is projected to fall about <span class="highlight">13 percent by 2041</span>, and 38 states will have fewer graduates in 2041 than in 2023. The Northeast and Midwest have already started to decline.</p>
+    <p>Fewer students means every college competes harder for each one. The most common response is a bigger scholarship. Private colleges now give back an average of about <span class="highlight">57 percent of sticker tuition</span> to first-year students as their own aid, a record. Each point of discount is money the college never collects.</p>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The core question</div>
+    <p>Even after the decline, more than three million people will finish high school every year. Millions of adults want a degree or a new skill. They will all go somewhere. <strong>How do we make sure it is here?</strong></p>
+  </div>
+
+  <div class="card">
+    <h3>What the market wants decides what we can sell</h3>
+    <p>Think of a concert hall with empty seats. If people do not want to hear the program, a bigger poster will not fill the hall. Better marketing tells more people what we offer. It cannot make them want it.</p>
+    <p>Business people call this <strong>product/market fit</strong>: offering something enough people want, at a price they will pay, that costs less to deliver than it brings in. When a college has a fit problem, the offering has to change: what we teach, how, when, where, for whom and at what price.</p>
+  </div>
+
+  <div class="card">
+    <h3>Why the people closest to the college should not set the direction</h3>
+    <p>Current students chose us. Faculty built what we offer. Both are the people for whom the current college already works. That makes them the right people to tell us <strong>what must not be lost</strong>, and the wrong people to tell us what the students who are not choosing us want.</p>
+    <p>This workbook asks faculty and students to do real work: supply facts, propose ideas, test them, design the new offering and deliver it. The direction itself comes from evidence about the students we are trying to reach.</p>
+  </div>
+
+  <div class="card">
+    <h3>Why we are sharing more than usual</h3>
+    <p>Colleges in trouble often keep the numbers quiet, hope next year's class is bigger and protect the identity they have. Each of those feels prudent. Together they use up the time and money needed to change.</p>
+    <p>Plans also fail when leaders decide in a small room, agree too quickly and avoid being wrong in public. The cure is more people looking at the same facts, and someone whose job is to say the plan will not work.</p>
+  </div>
+
+  <h3>The Seven Ideas That Explain Every College Budget</h3>
+  <p>You do not need a business degree to use them, and you do need all seven to judge any idea for the college's future.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <h4>1. Sticker Price &amp; Net Price</h4>
+      <p>The sticker price is the published tuition. Almost no one pays it. The <strong>net price</strong> is what a student actually pays after the college's own scholarships and grants.</p>
+    </div>
+    <div class="card">
+      <h4>2. Discount Rate</h4>
+      <p>The share of sticker tuition the college gives back as its own aid. If tuition is $50,000 and the average student receives $27,500 in college-funded aid, the discount rate is 55%.</p>
+    </div>
+    <div class="card">
+      <h4>3. Net Tuition Revenue</h4>
+      <p>Students times net price. This is the money that pays salaries. A college can enroll more students and still collect less money if it discounts more to get them.</p>
+    </div>
+    <div class="card">
+      <h4>4. Cost Per Student</h4>
+      <p>Total operating spending divided by students. Most of that cost is fixed in the short run: buildings, debt, most salaries.</p>
+    </div>
+    <div class="card">
+      <h4>5. Contribution</h4>
+      <p>What one more student or program brings in minus the costs that go away if it goes away. A program with negative contribution makes the gap bigger every year it runs.</p>
+    </div>
+    <div class="card">
+      <h4>6. Cash Runway</h4>
+      <p>How many months the college can pay its bills from cash and investments it is allowed to spend, at its current rate of loss. <strong>Runway is the clock.</strong></p>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--gold);">
+      <h4>7. The Technology Cost Curve</h4>
+      <p>The cost of personalizing instruction, advising a student and assessing learning is falling fast. An AI tutor trained on your curriculum can do parts of that work at pennies per session, available at 2 a.m., in any language, without adding staff.</p>
+      <p>A college that restructures but delivers the old way is budgeting for 2024. A college that rebuilds with AI handling the repetitive work can serve more students at a lower cost without cutting what a professor actually does.</p>
+    </div>
+  </div>
+
+  <h3>A Worked Example</h3>
+  <p>This is an imaginary college. You will replace every number with yours in Phase 1.</p>
+
+  <div class="worksheet">
+    <div class="worksheet-header">Example College — The Gap</div>
+    <table>
+      <tr><td class="label">Students</td><td>1,500</td><td class="how">Fall enrollment</td></tr>
+      <tr><td class="label">Sticker tuition</td><td>$50,000</td><td class="how">Published price</td></tr>
+      <tr><td class="label">Discount rate</td><td>55%</td><td class="how">College aid ÷ sticker tuition</td></tr>
+      <tr><td class="label">Net tuition per student</td><td>$22,500</td><td class="how">$50,000 × (1 − 0.55)</td></tr>
+      <tr><td class="label">Housing, dining &amp; other net revenue</td><td>$8,000</td><td class="how">After costs of running housing and dining</td></tr>
+      <tr><td class="label">Net revenue per student</td><td>$30,500</td><td class="how">$22,500 + $8,000</td></tr>
+      <tr><td class="label">Cost per student</td><td>$38,000</td><td class="how">Total spending ÷ students</td></tr>
+      <tr class="warning-row"><td class="label">Gap per student</td><td>−$7,500</td><td class="how">$38,000 − $30,500</td></tr>
+      <tr class="warning-row"><td class="label">Annual gap</td><td>−$11.25 million</td><td class="how">$7,500 × 1,500</td></tr>
+    </table>
+  </div>
+
+  <div class="callout warning">
+    <div class="callout-label">Key lesson</div>
+    <p><strong>Discounting more to fill seats can make the gap worse.</strong> Raise the discount rate from 55% to 60% and each student brings in $2,500 less. Across 1,500 students that is $3.75 million a year.</p>
+  </div>
+
+  <h3>Three Rules for the Whole Year</h3>
+  <ol class="num-list">
+    <li><strong>Numbers first, opinions second.</strong> Every idea gets tested against the same worksheets.</li>
+    <li><strong>The people who are here help build the future, and the people who are not here tell us what it must be.</strong> Prospective students set the direction.</li>
+    <li><strong>Change moves at the speed of trust.</strong> Share more than feels comfortable, on a schedule, and never share a number you will have to take back.</li>
+  </ol>
+
+  <h3>Who Does What</h3>
+  <div class="worksheet">
+    <div class="worksheet-header">Role Assignments</div>
+    <table>
+      <tr><td><span class="tag tag-pres">PRES</span></td><td class="label">President</td><td>Own the process. Fill in Phase 1 with the CFO.</td></tr>
+      <tr><td><span class="tag tag-cfo">CFO</span></td><td class="label">Chief Financial Officer</td><td>Supply every number in Phase 1, honestly and on time.</td></tr>
+      <tr><td><span class="tag tag-board">BOARD</span></td><td class="label">Trustees</td><td>Set decision rights and stopping rules. Appoint the red team.</td></tr>
+      <tr><td><span class="tag tag-cabinet">CABINET</span></td><td class="label">Senior Leaders</td><td>Run the market research and the working teams.</td></tr>
+      <tr><td><span class="tag tag-faculty">FACULTY</span></td><td class="label">Faculty &amp; Academic Staff</td><td>Supply program facts and ideas. Design and teach the pilot.</td></tr>
+      <tr><td><span class="tag tag-students">STUDENTS</span></td><td class="label">Current Students</td><td>Test ideas, help with research, tell us what must not be lost.</td></tr>
+    </table>
+  </div>
+
+  <div class="tab-nav">
+    <div></div>
+    <button class="btn btn-primary" onclick="goTab(1)">Begin Phase 1: Face the Numbers →</button>
+  </div>
+</div>
+
+<!-- TAB 2: PHASE 1 -->
+<div class="tab-content" id="tab-1">
+  <span class="tag tag-pres">PRES</span> <span class="tag tag-cfo">CFO</span>
+  <h2>Phase 1: Face the Numbers</h2>
+  <p class="phase-intro">By day 30, the president and CFO produce one page that states the size of the gap, the months of runway and the enrollment the college can expect.</p>
+
+  <h3>Gather First</h3>
+  <ul class="checklist" id="gatherList">
+    <li><input type="checkbox"> Five to ten years of audited financial statements</li>
+    <li><input type="checkbox"> Five to ten years of IRS Form 990 filings</li>
+    <li><input type="checkbox"> Five to ten years of fall enrollment, entering class, yield and retention (IPEDS reports)</li>
+    <li><input type="checkbox"> Each year's original budget beside actual results</li>
+    <li><input type="checkbox"> Current debt schedule and loan covenants</li>
+    <li><input type="checkbox"> Revenue and direct cost by program and by school</li>
+  </ul>
+
+  <h3>The Gap Calculator</h3>
+  <p>Enter your numbers. The workbook computes the rest.</p>
+
+  <div class="worksheet">
+    <div class="worksheet-header">
+      Worksheet 1.2: The Gap Calculator
+      <span class="ws-tag">INTERACTIVE</span>
+    </div>
+    <table>
+      <tr>
+        <th style="width:40px;">Line</th>
+        <th>Item</th>
+        <th style="width:200px;">Your Number</th>
+      </tr>
+      <tr>
+        <td><strong>A</strong></td>
+        <td class="label">Students enrolled this fall</td>
+        <td><input type="number" id="gc_students" placeholder="e.g. 1500" oninput="calcGap()"></td>
+      </tr>
+      <tr>
+        <td><strong>—</strong></td>
+        <td class="label">Sticker tuition ($)</td>
+        <td><input type="number" id="gc_sticker" placeholder="e.g. 50000" oninput="calcGap()"></td>
+      </tr>
+      <tr>
+        <td><strong>—</strong></td>
+        <td class="label">Discount rate (%)</td>
+        <td><input type="number" id="gc_discount" placeholder="e.g. 55" step="0.1" oninput="calcGap()"></td>
+      </tr>
+      <tr>
+        <td><strong>—</strong></td>
+        <td class="label">Net tuition per student ($)</td>
+        <td><input type="number" id="gc_nettuition" class="computed" readonly></td>
+      </tr>
+      <tr>
+        <td><strong>—</strong></td>
+        <td class="label">Housing, dining &amp; other net revenue per student ($)</td>
+        <td><input type="number" id="gc_housing" placeholder="e.g. 8000" oninput="calcGap()"></td>
+      </tr>
+      <tr>
+        <td><strong>B</strong></td>
+        <td class="label">Net revenue per student ($)</td>
+        <td><input type="number" id="gc_netrev" class="computed" readonly></td>
+      </tr>
+      <tr>
+        <td><strong>C</strong></td>
+        <td class="label">Student revenue ($)</td>
+        <td><input type="number" id="gc_studrev" class="computed" readonly></td>
+      </tr>
+      <tr>
+        <td><strong>D</strong></td>
+        <td class="label">Other dependable revenue ($)</td>
+        <td><input type="number" id="gc_otherrev" placeholder="e.g. 2000000" oninput="calcGap()"></td>
+      </tr>
+      <tr>
+        <td><strong>E</strong></td>
+        <td class="label">Total operating spending ($)</td>
+        <td><input type="number" id="gc_spending" placeholder="e.g. 60000000" oninput="calcGap()"></td>
+      </tr>
+      <tr id="gapRow">
+        <td><strong>F</strong></td>
+        <td class="label">Annual gap ($)</td>
+        <td><input type="number" id="gc_gap" class="computed" readonly></td>
+      </tr>
+      <tr>
+        <td><strong>G</strong></td>
+        <td class="label">Gap per student ($)</td>
+        <td><input type="number" id="gc_gapstud" class="computed" readonly></td>
+      </tr>
+      <tr>
+        <td><strong>H</strong></td>
+        <td class="label">Cost that goes away with one fewer student ($)</td>
+        <td><input type="number" id="gc_varcost" placeholder="e.g. 12000" oninput="calcGap()"></td>
+      </tr>
+      <tr>
+        <td><strong>I</strong></td>
+        <td class="label">Contribution of one more student ($)</td>
+        <td><input type="number" id="gc_contrib" class="computed" readonly></td>
+      </tr>
+      <tr>
+        <td><strong>J</strong></td>
+        <td class="label">Added students needed to close the gap</td>
+        <td><input type="number" id="gc_needed" class="computed" readonly></td>
+      </tr>
+      <tr>
+        <td><strong>K</strong></td>
+        <td class="label">Effect of a one-point rise in discount rate ($)</td>
+        <td><input type="number" id="gc_disceffect" class="computed" readonly></td>
+      </tr>
+      <tr>
+        <td><strong>M</strong></td>
+        <td class="label">Annual cost of software AI could replace ($)</td>
+        <td><input type="number" id="gc_software" placeholder="e.g. 800000" oninput="calcGap()"></td>
+      </tr>
+      <tr>
+        <td><strong>N</strong></td>
+        <td class="label">Hours/week staff spend on AI-automatable tasks</td>
+        <td><input type="number" id="gc_hours" placeholder="e.g. 200" oninput="calcGap()"></td>
+      </tr>
+      <tr>
+        <td><strong>N</strong></td>
+        <td class="label">Estimated annual value of those hours ($)</td>
+        <td><input type="number" id="gc_hourscost" class="computed" readonly></td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="gapSummary" class="callout warning" style="display:none;">
+    <div class="callout-label">Gap Summary</div>
+    <p id="gapSummaryText"></p>
+  </div>
+
+  <h3>The Runway Calculator</h3>
+
+  <div class="worksheet">
+    <div class="worksheet-header">
+      Worksheet 1.3: The Runway
+      <span class="ws-tag">INTERACTIVE</span>
+    </div>
+    <table>
+      <tr><th>Line</th><th>Item</th><th style="width:200px;">Your Number</th></tr>
+      <tr><td><strong>R1</strong></td><td class="label">Unrestricted cash &amp; investments available in 90 days ($)</td><td><input type="number" id="rw_cash" oninput="calcRunway()"></td></tr>
+      <tr><td><strong>R2</strong></td><td class="label">Amount required for loan covenants / reserves ($)</td><td><input type="number" id="rw_reserve" oninput="calcRunway()"></td></tr>
+      <tr><td><strong>R3</strong></td><td class="label">Usable cash ($)</td><td><input type="number" id="rw_usable" class="computed" readonly></td></tr>
+      <tr><td><strong>R4</strong></td><td class="label">Average monthly cash loss ($)</td><td><input type="number" id="rw_monthly" oninput="calcRunway()"></td></tr>
+      <tr id="runwayRow"><td><strong>R5</strong></td><td class="label">Months of runway</td><td><input type="number" id="rw_months" class="computed" readonly></td></tr>
+      <tr><td><strong>R6</strong></td><td class="label">Months a full transition will take</td><td><input type="number" id="rw_transition" oninput="calcRunway()"></td></tr>
+      <tr id="cushionRow"><td><strong>R7</strong></td><td class="label">Cushion (months)</td><td><input type="number" id="rw_cushion" class="computed" readonly></td></tr>
+    </table>
+  </div>
+
+  <div id="runwaySummary" class="callout warning" style="display:none;">
+    <div class="callout-label">Runway Alert</div>
+    <p id="runwaySummaryText"></p>
+  </div>
+
+  <h3>Decision Rights, Stopping Rules &amp; Red Team</h3>
+
+  <div class="card">
+    <h4>Stopping Rules</h4>
+    <p>A stopping rule is a promise made in advance: if this measure crosses this line, we will take this action. The board votes on these before any idea is on the table.</p>
+    <table>
+      <tr><th>Measure</th><th>Our Line</th><th>If crossed, we will...</th><th>How Often</th></tr>
+      <tr><td>Months of runway</td><td><input type="text" placeholder="e.g. < 12 months"></td><td><input type="text" placeholder="Action"></td><td>Monthly</td></tr>
+      <tr><td>Total transition losses ($)</td><td><input type="text" placeholder="e.g. $3M max"></td><td><input type="text" placeholder="Action"></td><td>Quarterly</td></tr>
+      <tr><td>First-year deposits by May 1</td><td><input type="text" placeholder="e.g. < 200"></td><td><input type="text" placeholder="Action"></td><td>Weekly in spring</td></tr>
+      <tr><td>Net revenue per student ($)</td><td><input type="text" placeholder="e.g. < $20,000"></td><td><input type="text" placeholder="Action"></td><td>Each term</td></tr>
+      <tr><td>First-to-second-year retention (%)</td><td><input type="text" placeholder="e.g. < 65%"></td><td><input type="text" placeholder="Action"></td><td>Each fall</td></tr>
+      <tr><td>Pilot deposits vs. target</td><td><input type="text" placeholder="e.g. < 50%"></td><td><input type="text" placeholder="Action"></td><td>At deadline</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h4>Red Team Checklist</h4>
+    <ul class="checklist">
+      <li><input type="checkbox"> Three to five people, named by the board</li>
+      <li><input type="checkbox"> At least one with finance expertise from outside the college</li>
+      <li><input type="checkbox"> At least one from outside higher education</li>
+      <li><input type="checkbox"> No one who wrote the plan under review</li>
+      <li><input type="checkbox"> Access to the same data as the cabinet</li>
+    </ul>
+  </div>
+
+  <div class="callout insight">
+    <div class="callout-label">Habits that keep a small room honest</div>
+    <p><strong>The president speaks last</strong> in every decision meeting. <strong>Run a premortem:</strong> before approving a plan, everyone writes privately why it failed two years from now. <strong>Write forecasts down</strong> with dates and authors. <strong>Reward the bad news.</strong></p>
+  </div>
+
+  <div class="tab-nav">
+    <button class="btn btn-secondary" onclick="goTab(0)">← Here We Are</button>
+    <button class="btn btn-primary" onclick="goTab(2)">Phase 2: Market Research →</button>
+  </div>
+</div>
+
+<!-- TAB 3: PHASE 2 -->
+<div class="tab-content" id="tab-2">
+  <span class="tag tag-cabinet">CABINET</span> <span class="tag tag-students">STUDENTS</span>
+  <h2>Phase 2: Ask the People Who Did Not Choose Us</h2>
+  <p class="phase-intro">By day 60, enrollment leadership delivers a demand brief built on professional research with people who looked at the college and went elsewhere, and people who never looked. Their answers set the direction.</p>
+
+  <div class="card">
+    <h3>Who to Talk To</h3>
+    <table>
+      <tr><th>Group</th><th>Why They Matter</th><th>Minimum</th></tr>
+      <tr><td class="label">Admitted students who enrolled elsewhere</td><td>They wanted us enough to apply and still said no. Their reasons are the most useful data we have.</td><td>30 interviews + survey</td></tr>
+      <tr><td class="label">People who inquired and never applied</td><td>They looked and lost interest</td><td>20 interviews</td></tr>
+      <tr><td class="label">People who never considered us</td><td>The students we need and do not reach</td><td>30 interviews</td></tr>
+      <tr><td class="label">Current students</td><td>What we do well and must protect</td><td>20 interviews</td></tr>
+      <tr><td class="label">Employers and community partners</td><td>What work students can count on</td><td>10 interviews</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Interview Guide</h3>
+    <ol class="num-list">
+      <li>Tell me how you decided where to go. What were the finalists?</li>
+      <li>What did the place you chose offer that the others did not?</li>
+      <li>What did you think of us? Where did that impression come from?</li>
+      <li>What did it cost you in the end, after aid? How much did price matter?</li>
+      <li>What would have to be true for you to choose a college like ours?</li>
+      <li>If we offered [describe an idea in one sentence], would you have considered it?</li>
+      <li>What do you want to be able to do in five years that college should help with?</li>
+      <li><strong style="color:var(--gold);">When you picture a college that uses technology well, what does that look like?</strong></li>
+      <li><strong style="color:var(--gold);">Have you used AI tools for learning? What worked and what did not?</strong></li>
+    </ol>
+  </div>
+
+  <h3>Demand Evidence Worksheet</h3>
+  <div class="worksheet">
+    <div class="worksheet-header">Worksheet 2.1: Demand Evidence <span class="ws-tag">FILL IN</span></div>
+    <table>
+      <tr><th>What They Want</th><th>Who Said It</th><th>How Many</th><th>What They Chose Instead</th><th>Price They'd Pay</th></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number" style="width:60px"></td><td><input type="text"></td><td><input type="number"></td></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number" style="width:60px"></td><td><input type="text"></td><td><input type="number"></td></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number" style="width:60px"></td><td><input type="text"></td><td><input type="number"></td></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number" style="width:60px"></td><td><input type="text"></td><td><input type="number"></td></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="number" style="width:60px"></td><td><input type="text"></td><td><input type="number"></td></tr>
+    </table>
+  </div>
+
+  <h3>Prompts for Faculty</h3>
+  <div class="card-grid">
+    <div class="card"><p>Which students outside our current pool could your field serve well, and how would they study?</p></div>
+    <div class="card"><p>Which courses could be shared across programs, or with a partner college?</p></div>
+    <div class="card"><p>What does your program do that students cannot get cheaper or closer to home?</p></div>
+    <div class="card"><p>If your program had to double enrollment or halve its cost in three years, what would you change first?</p></div>
+    <div class="card" style="border-left: 4px solid var(--gold);"><p><strong>Which parts of your teaching work are repetitive and individual?</strong> If a tool handled that work reliably, what would you do with the time it freed?</p></div>
+  </div>
+
+  <h3>Demand Brief Deliverable (Due Day 60)</h3>
+  <ul class="checklist">
+    <li><input type="checkbox"> The three groups of students most likely to choose us, and how many are within reach</li>
+    <li><input type="checkbox"> The top reasons admitted students went elsewhere, with counts</li>
+    <li><input type="checkbox"> The net price each group will pay</li>
+    <li><input type="checkbox"> What current students say we must not lose</li>
+    <li><input type="checkbox"> Employer commitments in writing</li>
+  </ul>
+
+  <div class="tab-nav">
+    <button class="btn btn-secondary" onclick="goTab(1)">← Face the Numbers</button>
+    <button class="btn btn-primary" onclick="goTab(3)">Phase 3: Design &amp; Test →</button>
+  </div>
+</div>
+
+<!-- TAB 4: PHASE 3 -->
+<div class="tab-content" id="tab-3">
+  <span class="tag tag-cabinet">CABINET</span> <span class="tag tag-faculty">FACULTY</span> <span class="tag tag-students">STUDENTS</span>
+  <h2>Phase 3: Design and Test Ideas</h2>
+  <p class="phase-intro">By day 120, working teams turn the strongest ideas into one-page A3 proposals that the red team has tried to break and the CFO has priced. Anyone can submit an idea.</p>
+
+  <h3>Step 1: The Idea Card</h3>
+  <p>One idea per card. Keep it to one page.</p>
+
+  <div class="idea-card">
+    <div class="input-group"><label class="input-label">Name of the idea</label><input type="text"></div>
+    <div class="input-group"><label class="input-label">Who is the student? (age, location, current situation)</label><textarea></textarea></div>
+    <div class="input-group"><label class="input-label">Why would they choose us over their next best option?</label><textarea></textarea></div>
+    <div class="input-row">
+      <div class="input-group"><label class="input-label">What would they pay after aid?</label><input type="number" placeholder="$"></div>
+      <div class="input-group"><label class="input-label">How many students by year three?</label><input type="number"></div>
+    </div>
+    <div class="input-row">
+      <div class="input-group"><label class="input-label">What would it cost to start?</label><input type="number" placeholder="$"></div>
+      <div class="input-group"><label class="input-label">What would we stop doing to make room?</label><input type="text"></div>
+    </div>
+  </div>
+
+  <h3>Step 2: The Screen</h3>
+  <p>An idea moves to an A3 team only if the answer to all six is yes.</p>
+  <ul class="checklist">
+    <li><input type="checkbox"> We have evidence of demand from people who are not current students</li>
+    <li><input type="checkbox"> At full size it closes a meaningful percent of the annual gap within three years</li>
+    <li><input type="checkbox"> We can test it with real applications and deposits within twelve months</li>
+    <li><input type="checkbox"> We have, or can affordably get, the people and space to deliver it</li>
+    <li><input type="checkbox"> It does not weaken a program or school that earns a real surplus</li>
+    <li><input type="checkbox" style="accent-color: var(--gold);"> <strong>The proposal accounts for how AI changes the cost to deliver it</strong></li>
+  </ul>
+
+  <h3>Step 3: The Strategy A3 Proposal</h3>
+
+  <div class="worksheet">
+    <div class="worksheet-header">Worksheet 3.1: Strategy A3 <span class="ws-tag">FILL IN</span></div>
+    <table>
+      <tr><td class="label" style="width:180px;">1. Background</td><td><textarea placeholder="Why this matters to the college, in two sentences. Which line of the gap calculator does it change?"></textarea></td></tr>
+      <tr><td class="label">2. Current State</td><td><textarea placeholder="The numbers today: students, net revenue, cost, contribution."></textarea></td></tr>
+      <tr><td class="label">3. Target State</td><td><textarea placeholder="What success looks like by a date: students, net revenue per student, contribution."></textarea></td></tr>
+      <tr><td class="label">4. Gap &amp; Root Cause</td><td><textarea placeholder="Why are students not choosing this today? Cite the demand brief."></textarea></td></tr>
+      <tr><td class="label">5. Countermeasures</td><td><textarea placeholder="Two or three ways to close the gap. Which one we pick, and why."></textarea></td></tr>
+      <tr style="background: rgba(193,154,62,0.08);"><td class="label" style="color:var(--gold);">5a. Technology Layer</td><td><textarea placeholder="Which parts of this offering use AI to reduce cost, personalize the experience, or free faculty time? Cost difference with vs. without AI?"></textarea></td></tr>
+      <tr><td class="label">6. Test Plan</td><td><textarea placeholder="The smallest real pilot: who, how many, what price, what deposit target, by what date."></textarea></td></tr>
+      <tr><td class="label">7. Follow-up</td><td><textarea placeholder="Owner, check dates, what gets reported to the board and when."></textarea></td></tr>
+    </table>
+  </div>
+
+  <h3>Step 4: Three Alternatives for the Board</h3>
+
+  <div class="worksheet">
+    <div class="worksheet-header">Board Alternatives (Due Day 120)</div>
+    <table>
+      <tr><th></th><th>A: Redesigned College</th><th>B: Smaller College</th><th>C: Partnership / Exit</th></tr>
+      <tr><td class="label">Students served</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <tr><td class="label">Enrollment in year five</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <tr><td class="label">Net revenue/student yr 5</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <tr><td class="label">Transition cost</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <tr><td class="label">Lowest cash point</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <tr><td class="label">Programs kept/changed/closed</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <tr><td class="label">Biggest risk</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+    </table>
+  </div>
+
+  <div class="tab-nav">
+    <button class="btn btn-secondary" onclick="goTab(2)">← Market Research</button>
+    <button class="btn btn-primary" onclick="goTab(4)">Phase 4: Decide &amp; Rebuild →</button>
+  </div>
+</div>
+
+<!-- TAB 5: PHASE 4 -->
+<div class="tab-content" id="tab-4">
+  <span class="tag tag-board">BOARD</span> <span class="tag tag-pres">PRES</span> <span class="tag tag-all">ALL</span>
+  <h2>Phase 4: Decide, Pilot and Rebuild Once</h2>
+  <p class="phase-intro">By day 365, the college has chosen a direction, proven demand with real deposits and made its structural changes in a single funded round.</p>
+
+  <h3>Step 1: The Board Decides (Day 120)</h3>
+  <ul class="checklist">
+    <li><input type="checkbox"> Board reviews the three alternatives, red team report and independent advisor's view</li>
+    <li><input type="checkbox"> Board picks one alternative and records why</li>
+    <li><input type="checkbox"> Board funds the transition, including a reserve for the fallback</li>
+    <li><input type="checkbox"> Board names who is responsible for each part of execution</li>
+    <li><input type="checkbox"> Board confirms the stopping rules still hold</li>
+  </ul>
+
+  <h3>Step 2: Pilot with Real Deposits</h3>
+  <p>A survey says what people would like. A deposit says what they will do.</p>
+
+  <div class="worksheet">
+    <div class="worksheet-header">Pilot Design <span class="ws-tag">FILL IN</span></div>
+    <table>
+      <tr><td class="label">Who the pilot serves</td><td><textarea></textarea></td></tr>
+      <tr><td class="label">What the student gets</td><td><textarea></textarea></td></tr>
+      <tr><td class="label">Price after aid ($)</td><td><input type="number"></td></tr>
+      <tr><td class="label">Deposit amount ($)</td><td><input type="number"></td></tr>
+      <tr><td class="label">Deposit target (# students)</td><td><input type="number"></td></tr>
+      <tr><td class="label">Deadline for deposits</td><td><input type="text" placeholder="e.g. July 1"></td></tr>
+      <tr><td class="label">Cost to run the pilot ($)</td><td><input type="number"></td></tr>
+      <tr style="background:#f0f7ed;"><td class="label">Result that means EXPAND</td><td><input type="text" placeholder="e.g. 25+ deposits"></td></tr>
+      <tr><td class="label">Result that means REVISE</td><td><input type="text" placeholder="e.g. 15-24 deposits"></td></tr>
+      <tr style="background:#fdf2f0;"><td class="label">Result that means STOP</td><td><input type="text" placeholder="e.g. < 15 deposits"></td></tr>
+    </table>
+  </div>
+
+  <div class="callout warning">
+    <div class="callout-label">Critical rule</div>
+    <p>Set the three results before the pilot opens. <strong>Do not change them after.</strong></p>
+  </div>
+
+  <h3>Step 3: Restructure Once</h3>
+  <p>Make the foreseeable structural changes together, fund them fully and announce them clearly. Repeated small rounds of cuts keep everyone uncertain, hurt recruiting and use up trust.</p>
+
+  <ul class="checklist">
+    <li><input type="checkbox"> Which students the college will serve</li>
+    <li><input type="checkbox"> Which programs, schools and services stay, change or end</li>
+    <li><input type="checkbox"> Which costs actually disappear (cash the college stops spending)</li>
+    <li><input type="checkbox"> What the college will invest in, and how much</li>
+    <li><input type="checkbox"> How current students will finish, program by program</li>
+    <li><input type="checkbox"> How affected employees will be treated</li>
+    <li><input type="checkbox"> Contract, accreditation and regulatory steps</li>
+    <li><input type="checkbox"> Cost of running old and new programs side by side</li>
+    <li><input type="checkbox"> Space and administration the smaller college will need</li>
+    <li><input type="checkbox"> <strong>Technology infrastructure: which systems stay, which are replaced, annual cost difference</strong></li>
+    <li><input type="checkbox"> <strong>Faculty technology adoption plan that scales with the restructuring</strong></li>
+  </ul>
+
+  <h3>Transition Budget</h3>
+  <div class="worksheet">
+    <div class="worksheet-header">Worksheet 4.1: Transition Budget <span class="ws-tag">INTERACTIVE</span></div>
+    <table>
+      <tr><th>Item</th><th style="width:150px;">One-Time Cost ($)</th><th style="width:100px;">Months</th><th style="width:150px;">Owner</th></tr>
+      <tr><td>Severance and benefits</td><td><input type="number" class="tb-cost" oninput="calcTransition()"></td><td><input type="number"></td><td><input type="text"></td></tr>
+      <tr><td>Teach-out for current students</td><td><input type="number" class="tb-cost" oninput="calcTransition()"></td><td><input type="number"></td><td><input type="text"></td></tr>
+      <tr><td>Contracts and leases to exit</td><td><input type="number" class="tb-cost" oninput="calcTransition()"></td><td><input type="number"></td><td><input type="text"></td></tr>
+      <tr><td>Accreditation and regulatory work</td><td><input type="number" class="tb-cost" oninput="calcTransition()"></td><td><input type="number"></td><td><input type="text"></td></tr>
+      <tr><td>Running old and new programs side by side</td><td><input type="number" class="tb-cost" oninput="calcTransition()"></td><td><input type="number"></td><td><input type="text"></td></tr>
+      <tr><td>Launch of new offering</td><td><input type="number" class="tb-cost" oninput="calcTransition()"></td><td><input type="number"></td><td><input type="text"></td></tr>
+      <tr><td>Reserve for fallback alternative</td><td><input type="number" class="tb-cost" oninput="calcTransition()"></td><td><input type="number"></td><td><input type="text"></td></tr>
+      <tr class="result-row"><td class="label">Total</td><td><input type="number" id="tb_total" class="computed" readonly></td><td></td><td></td></tr>
+    </table>
+  </div>
+
+  <div class="tab-nav">
+    <button class="btn btn-secondary" onclick="goTab(3)">← Design &amp; Test</button>
+    <button class="btn btn-primary" onclick="goTab(5)">The Technology Layer →</button>
+  </div>
+</div>
+
+<!-- TAB 6: TECHNOLOGY LAYER -->
+<div class="tab-content" id="tab-5">
+  <span class="tag tag-cabinet">CABINET</span> <span class="tag tag-faculty">FACULTY</span>
+  <h2>Appendix C: The Technology Layer</h2>
+  <p class="phase-intro">A college that restructures its programs and governance but runs them on the same technology has solved half the problem. This appendix covers the other half.</p>
+
+  <div class="card" style="border-left: 4px solid var(--gold);">
+    <h3>The Duolingo Ceiling</h3>
+    <p>Duolingo teaches 100 million people a month with almost no human instructors. It is also, for most learners, a vocabulary drill. It works brilliantly for the structured, repetitive part of learning. It fails at the rest: holding a real conversation, understanding a poem, navigating a culture.</p>
+    <p>No amount of AI improvement fixes this, because the limitation is not the technology. <strong>It is the nature of the work.</strong></p>
+    <p>AI handles the individual, repetitive, structured parts of learning very well and at very low cost. It does not handle judgment, meaning, relationship or surprise.</p>
+    <div class="callout" style="margin-top:16px;">
+      <div class="callout-label">The principle</div>
+      <p><strong>AI prepares the ground. Humans lead the learning that matters.</strong></p>
+    </div>
+    <p style="margin-top:16px;"><strong>Practical example:</strong> An AI tool clusters student responses to a reading assignment before class. The professor sees that 40% misunderstood the central argument, 30% understood it but cannot apply it, and 30% are ready to move on. The professor walks in and teaches three different groups in one session. Without the tool, the professor lectures to the middle and hopes for the best. The AI did not teach. It made the teaching better.</p>
+  </div>
+
+  <h3>Where AI Changes the Cost</h3>
+  <div class="worksheet">
+    <div class="worksheet-header">AI Capability Map</div>
+    <table class="ai-table">
+      <tr><th>Work</th><th>AI Handles Well</th><th>AI Assists</th><th>AI Adds Little</th></tr>
+      <tr><td>Advising triage, scheduling, routine questions</td><td class="ai-check">●</td><td></td><td></td></tr>
+      <tr><td>First-pass feedback on writing and problem sets</td><td class="ai-check">●</td><td></td><td></td></tr>
+      <tr><td>Personalized study plans and practice</td><td class="ai-check">●</td><td></td><td></td></tr>
+      <tr><td>Translation and accessibility</td><td class="ai-check">●</td><td></td><td></td></tr>
+      <tr><td>Report generation, dashboards, compliance</td><td class="ai-check">●</td><td></td><td></td></tr>
+      <tr><td>Curriculum mapping and outcome alignment</td><td></td><td class="ai-check" style="color:var(--steel);">●</td><td></td></tr>
+      <tr><td>Assessment design and rubric calibration</td><td></td><td class="ai-check" style="color:var(--steel);">●</td><td></td></tr>
+      <tr><td>Career exploration and job matching</td><td></td><td class="ai-check" style="color:var(--steel);">●</td><td></td></tr>
+      <tr><td>Enrollment prediction and financial modeling</td><td></td><td class="ai-check" style="color:var(--steel);">●</td><td></td></tr>
+      <tr><td>Mentoring, coaching, relationship-building</td><td></td><td></td><td class="ai-check" style="color:var(--gray500);">●</td></tr>
+      <tr><td>Judging complex, ambiguous, creative work</td><td></td><td></td><td class="ai-check" style="color:var(--gray500);">●</td></tr>
+      <tr><td>Leading discussion, debate, lab, clinical</td><td></td><td></td><td class="ai-check" style="color:var(--gray500);">●</td></tr>
+      <tr><td>Crisis intervention, counseling, pastoral care</td><td></td><td></td><td class="ai-check" style="color:var(--gray500);">●</td></tr>
+    </table>
+  </div>
+  <p><em>Read the left column as cost you can reduce. Read the right column as value you must protect.</em></p>
+
+  <h3>Technology Audit</h3>
+  <div class="worksheet">
+    <div class="worksheet-header">Worksheet C.1: Current Technology Costs <span class="ws-tag">FILL IN</span></div>
+    <table>
+      <tr><th>System</th><th>What It Does</th><th style="width:120px;">Annual Cost ($)</th><th style="width:110px;">Contract Ends</th><th style="width:120px;">AI Replace?</th></tr>
+      <tr><td>LMS (Canvas, Blackboard, etc.)</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partially</option><option>No</option></select></td></tr>
+      <tr><td>SIS (student info system)</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partially</option><option>No</option></select></td></tr>
+      <tr><td>ERP (finance, HR, facilities)</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partially</option><option>No</option></select></td></tr>
+      <tr><td>CRM (enrollment, advancement)</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partially</option><option>No</option></select></td></tr>
+      <tr><td>Assessment tools</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partially</option><option>No</option></select></td></tr>
+      <tr><td>Advising platform</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partially</option><option>No</option></select></td></tr>
+      <tr><td>Other</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partially</option><option>No</option></select></td></tr>
+      <tr class="result-row"><td class="label" colspan="2">Total Annual Technology Cost</td><td><input type="number" id="ta_total" class="computed" readonly></td><td></td><td></td></tr>
+    </table>
+  </div>
+
+  <h3>What Faculty Fear and What to Do About It</h3>
+  <ol class="num-list">
+    <li><strong>Name the ceiling.</strong> AI handles drill, practice and routine feedback. It does not handle what you do. We are investing in AI so that more of your time goes to the work only you can do.</li>
+    <li><strong>Start with tools that help faculty.</strong> An AI that clusters student responses before class makes the professor more effective. An AI that grades essays makes the professor feel watched. Start with the first kind.</li>
+    <li><strong>Let faculty choose their pace.</strong> The pilot should have early adopters who want to experiment, not a mandate. Adoption spreads through proof, not policy.</li>
+    <li><strong>Protect academic judgment.</strong> The professor decides the grade, designs the assignment, leads the class. AI prepares, sorts, drafts, and flags. The human decides.</li>
+    <li><strong>Show the math.</strong> If AI-assisted advising frees 200 staff hours a month, show faculty that those hours went to student support, not to a budget line that disappeared.</li>
+  </ol>
+
+  <h3>Campus OS: A Worked Example</h3>
+  <p>What an AI-integrated campus operating system looks like when the pieces are designed as one system instead of twelve vendor platforms.</p>
+
+  <div class="module-grid">
+    <div class="module-card"><span class="module-num">01</span><h5>Instruction Engine</h5><p>AI-powered personalized learning paths. Faculty set goals and judge outcomes.</p></div>
+    <div class="module-card"><span class="module-num">02</span><h5>Student Pulse</h5><p>Real-time early alerts from attendance, grades, engagement and advising data.</p></div>
+    <div class="module-card"><span class="module-num">03</span><h5>Skill Map</h5><p>Bayesian proficiency tracking — what a student actually knows, not just courses passed.</p></div>
+    <div class="module-card"><span class="module-num">04</span><h5>Entry Ticket</h5><p>AI clusters student responses before class so the professor knows where everyone stands.</p></div>
+    <div class="module-card"><span class="module-num">05</span><h5>Advisor Hub</h5><p>AI handles scheduling, routine questions, triage. Humans handle the conversations that matter.</p></div>
+    <div class="module-card"><span class="module-num">06</span><h5>Program Analytics</h5><p>Contribution, enrollment trends and outcome data for every program on one screen.</p></div>
+    <div class="module-card"><span class="module-num">07</span><h5>Enrollment Intelligence</h5><p>Predictive modeling for yield, retention and net revenue per student.</p></div>
+    <div class="module-card"><span class="module-num">08</span><h5>Operations Dashboard</h5><p>Facilities, finance, HR and compliance in one view.</p></div>
+    <div class="module-card"><span class="module-num">09</span><h5>Community Bridge</h5><p>Employer partnerships, internship matching, career exploration.</p></div>
+  </div>
+
+  <p>No college needs all nine on day one. Start with one or two modules during Phase 3 pilots and add others as the restructuring proceeds.</p>
+
+  <div class="callout" style="margin-top: 24px;">
+    <div class="callout-label">See the prototype</div>
+    <p><a href="https://jeffritter.ai/projects/campus-os.html" target="_blank" style="color:var(--steel); font-weight:600;">jeffritter.ai/projects/campus-os.html</a></p>
+  </div>
+
+  <div class="callout" style="border-left-color: var(--navy); margin-top: 20px;">
+    <div class="callout-label" style="color: var(--navy);">The one sentence to remember</div>
+    <p><strong>Technology does not save a college.</strong> A better offering for students who will pay for it saves a college. Technology makes that offering cheaper to deliver, better for the student, and possible to run with the smaller staff and budget the restructured college will have.</p>
+  </div>
+
+  <div class="tab-nav">
+    <button class="btn btn-secondary" onclick="goTab(4)">← Decide &amp; Rebuild</button>
+    <button class="btn btn-primary" onclick="goTab(6)">Appendices →</button>
+  </div>
+</div>
+
+<!-- TAB 7: APPENDICES -->
+<div class="tab-content" id="tab-6">
+  <h2>Appendices</h2>
+
+  <h3>A3 Thinking</h3>
+  <p>An A3 is a single page that walks one idea from the facts to a plan. Two kinds matter here:</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <h4>Problem A3</h4>
+      <p><strong>Question:</strong> Why is this measure falling short, and how do we fix it?</p>
+      <p><strong>Time frame:</strong> Weeks to months</p>
+      <p><strong>Example:</strong> First-year retention fell from 78 to 70 percent</p>
+      <p><strong>Use when:</strong> The offering is right and something about delivery has slipped</p>
+    </div>
+    <div class="card">
+      <h4>Strategy A3</h4>
+      <p><strong>Question:</strong> Where should we go, and how will we prove it works?</p>
+      <p><strong>Time frame:</strong> One to five years</p>
+      <p><strong>Example:</strong> An evening degree for working adults in our region</p>
+      <p><strong>Use when:</strong> The question is whether the offering itself is right</p>
+    </div>
+  </div>
+
+  <div class="callout insight">
+    <div class="callout-label">Common mistake</div>
+    <p>Treating a fit problem as a delivery problem. If several problem A3s point back to the same answer — people do not want this enough at this price — stop fixing and write a strategy A3.</p>
+  </div>
+
+  <h3>A3 Review Questions</h3>
+  <div class="worksheet">
+    <div class="worksheet-header">What the Reviewer Asks</div>
+    <table>
+      <tr><td class="label">Background</td><td>Is this tied to the gap, or is it a project someone already wanted?</td></tr>
+      <tr><td class="label">Current state</td><td>Are these the same numbers the CFO uses? What is missing?</td></tr>
+      <tr><td class="label">Target state</td><td>Is the target big enough to matter and specific enough to miss?</td></tr>
+      <tr><td class="label">Gap analysis</td><td>Whose voice is this? Current students, or the people we need to attract?</td></tr>
+      <tr><td class="label">Options</td><td>Was a cheaper option considered? Was "stop doing something" an option?</td></tr>
+      <tr><td class="label">Test plan</td><td>Does the pilot ask for real money? Were the stop results set before launch?</td></tr>
+      <tr><td class="label">Follow-up</td><td>Is one person accountable? Will the board see results on original targets?</td></tr>
+    </table>
+  </div>
+
+  <h3>The Year at a Glance</h3>
+  <div class="worksheet">
+    <div class="worksheet-header">Timeline</div>
+    <table>
+      <tr><th>Day</th><th>Milestone</th><th>Lead</th><th style="width:120px;">Owner</th><th style="width:60px;">Done</th></tr>
+      <tr><td>1</td><td>President and CFO start Phase 1</td><td><span class="tag tag-pres">PRES</span><span class="tag tag-cfo">CFO</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
+      <tr><td>30</td><td>One-page summary; rules and red team approved</td><td><span class="tag tag-pres">PRES</span><span class="tag tag-board">BOARD</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
+      <tr><td>35</td><td>Faculty and staff briefing; owners named</td><td><span class="tag tag-pres">PRES</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
+      <tr><td>40</td><td>Student briefing; completion promise published</td><td><span class="tag tag-pres">PRES</span><span class="tag tag-cabinet">CABINET</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
+      <tr><td>60</td><td>Demand brief and program fact sheets delivered</td><td><span class="tag tag-cabinet">CABINET</span><span class="tag tag-faculty">FACULTY</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
+      <tr><td>75</td><td>Idea card window closes; program review done</td><td><span class="tag tag-cabinet">CABINET</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
+      <tr><td>90</td><td>A3 proposals drafted; student panel and donor map done</td><td><span class="tag tag-cabinet">CABINET</span><span class="tag tag-faculty">FACULTY</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
+      <tr><td>100</td><td>Transition cost estimate and space plan done</td><td><span class="tag tag-cabinet">CABINET</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
+      <tr><td>110</td><td>CFO prices every surviving A3 and alternatives</td><td><span class="tag tag-cfo">CFO</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
+      <tr><td>120</td><td>Board chooses a direction and funds it</td><td><span class="tag tag-board">BOARD</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
+      <tr><td>150</td><td>Pilot opens for applications and deposits</td><td><span class="tag tag-cabinet">CABINET</span><span class="tag tag-faculty">FACULTY</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
+      <tr><td>240</td><td>Pilot deposit deadline; expand, revise or stop</td><td><span class="tag tag-pres">PRES</span><span class="tag tag-board">BOARD</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
+      <tr><td>270</td><td>Restructuring plan announced in one round</td><td><span class="tag tag-pres">PRES</span><span class="tag tag-board">BOARD</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
+      <tr><td>365</td><td>Annual review; run Phase 1 again</td><td><span class="tag tag-all">ALL</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
+    </table>
+  </div>
+
+  <h3>Words to Know</h3>
+  <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+    <div class="card"><h4>A3</h4><p>A one-page problem-solving format with seven boxes, used here to test each idea.</p></div>
+    <div class="card"><h4>Contribution</h4><p>What a program brings in minus the costs that go away without it.</p></div>
+    <div class="card"><h4>Discount Rate</h4><p>College-funded aid as a share of sticker tuition.</p></div>
+    <div class="card" style="border-left: 4px solid var(--gold);"><h4>Duolingo Ceiling</h4><p>The limit of what AI can do alone without human pedagogy. AI handles structured work; humans handle judgment, meaning and relationship.</p></div>
+    <div class="card"><h4>Red Team</h4><p>A small group whose job is to show how a plan could fail.</p></div>
+    <div class="card"><h4>Runway</h4><p>Months of spendable cash at the current rate of loss.</p></div>
+    <div class="card"><h4>Stopping Rule</h4><p>A line set in advance that triggers a set action when crossed.</p></div>
+    <div class="card"><h4>Teach-out</h4><p>A plan that lets current students finish their degree when a program ends.</p></div>
+  </div>
+
+  <div style="text-align:center; margin-top:48px; padding: 32px; background: var(--navy); border-radius: var(--radius); color: white;">
+    <div style="font-family:'Source Serif 4'; font-size: 1.3rem; margin-bottom: 8px;">The College Reboot Workbook</div>
+    <div style="font-size: 0.8rem; color: rgba(255,255,255,0.5);">The College Reboot Consortium · 2026</div>
+    <div style="font-size: 0.75rem; color: var(--gold); margin-top: 12px;">jeffritter.ai</div>
+  </div>
+
+  <div class="tab-nav">
+    <button class="btn btn-secondary" onclick="goTab(5)">← Technology Layer</button>
+    <button class="btn btn-gold" onclick="goTab(0)">Back to Start</button>
+  </div>
+</div>
+
+</main>
+
+<script>
+// Tab navigation
+const tabs = document.querySelectorAll('.tab');
+const contents = document.querySelectorAll('.tab-content');
+
+function goTab(index) {
+  tabs.forEach(t => t.classList.remove('active'));
+  contents.forEach(c => c.classList.remove('active'));
+  tabs[index].classList.add('active');
+  contents[index].classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  updateProgress();
+  tabs[index].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+}
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => goTab(parseInt(tab.dataset.tab)));
+});
+
+// Progress bar
+function updateProgress() {
+  const allChecks = document.querySelectorAll('input[type="checkbox"]');
+  const checked = document.querySelectorAll('input[type="checkbox"]:checked');
+  const pct = allChecks.length > 0 ? (checked.length / allChecks.length * 100) : 0;
+  document.getElementById('progressFill').style.width = pct + '%';
+}
+document.addEventListener('change', e => { if (e.target.type === 'checkbox') updateProgress(); });
+
+// Gap Calculator
+function calcGap() {
+  const students = parseFloat(document.getElementById('gc_students').value) || 0;
+  const sticker = parseFloat(document.getElementById('gc_sticker').value) || 0;
+  const discount = parseFloat(document.getElementById('gc_discount').value) || 0;
+  const housing = parseFloat(document.getElementById('gc_housing').value) || 0;
+  const otherRev = parseFloat(document.getElementById('gc_otherrev').value) || 0;
+  const spending = parseFloat(document.getElementById('gc_spending').value) || 0;
+  const varCost = parseFloat(document.getElementById('gc_varcost').value) || 0;
+  const hours = parseFloat(document.getElementById('gc_hours').value) || 0;
+
+  const netTuition = sticker * (1 - discount / 100);
+  const netRev = netTuition + housing;
+  const studRev = netRev * students;
+  const gap = studRev + otherRev - spending;
+  const gapStud = students > 0 ? gap / students : 0;
+  const contrib = netRev - varCost;
+  const needed = contrib !== 0 ? Math.abs(gap / contrib) : 0;
+  const discEffect = sticker * 0.01 * students;
+  const hoursCost = hours * 48 * 35; // 48 weeks, $35/hr avg
+
+  document.getElementById('gc_nettuition').value = netTuition ? Math.round(netTuition) : '';
+  document.getElementById('gc_netrev').value = netRev ? Math.round(netRev) : '';
+  document.getElementById('gc_studrev').value = studRev ? Math.round(studRev) : '';
+  document.getElementById('gc_gap').value = gap ? Math.round(gap) : '';
+  document.getElementById('gc_gapstud').value = gapStud ? Math.round(gapStud) : '';
+  document.getElementById('gc_contrib').value = contrib ? Math.round(contrib) : '';
+  document.getElementById('gc_needed').value = needed ? Math.round(needed) : '';
+  document.getElementById('gc_disceffect').value = discEffect ? Math.round(discEffect) : '';
+  document.getElementById('gc_hourscost').value = hours ? Math.round(hoursCost) : '';
+
+  // Style the gap field
+  const gapInput = document.getElementById('gc_gap');
+  const gapRow = document.getElementById('gapRow');
+  if (gap < 0) {
+    gapInput.className = 'computed-warning';
+    gapRow.className = 'warning-row';
+  } else {
+    gapInput.className = 'computed';
+    gapRow.className = gap > 0 ? 'result-row' : '';
+  }
+
+  // Summary
+  const summary = document.getElementById('gapSummary');
+  const summaryText = document.getElementById('gapSummaryText');
+  if (gap && students) {
+    summary.style.display = 'block';
+    if (gap < 0) {
+      const absGap = Math.abs(gap);
+      summary.className = 'callout warning';
+      summaryText.innerHTML = `<strong>Annual deficit: $${(absGap/1000000).toFixed(2)}M</strong> ($${Math.abs(Math.round(gapStud)).toLocaleString()} per student). ` +
+        `You need <strong>${Math.round(needed)} additional students</strong> at current contribution to close the gap. ` +
+        `A one-point increase in discount rate costs <strong>$${Math.round(discEffect).toLocaleString()}</strong> per year.` +
+        (hours ? ` AI-automatable staff time is worth approximately <strong>$${Math.round(hoursCost).toLocaleString()}/year</strong>.` : '');
+    } else {
+      summary.className = 'callout';
+      summaryText.innerHTML = `<strong>Operating surplus: $${(gap/1000000).toFixed(2)}M.</strong> The college is covering its costs.`;
+    }
+  } else {
+    summary.style.display = 'none';
+  }
+}
+
+// Runway Calculator
+function calcRunway() {
+  const cash = parseFloat(document.getElementById('rw_cash').value) || 0;
+  const reserve = parseFloat(document.getElementById('rw_reserve').value) || 0;
+  const monthly = parseFloat(document.getElementById('rw_monthly').value) || 0;
+  const transition = parseFloat(document.getElementById('rw_transition').value) || 0;
+
+  const usable = cash - reserve;
+  const months = monthly > 0 ? usable / monthly : 0;
+  const cushion = months - transition;
+
+  document.getElementById('rw_usable').value = usable ? Math.round(usable) : '';
+  document.getElementById('rw_months').value = months ? months.toFixed(1) : '';
+  document.getElementById('rw_cushion').value = cushion ? cushion.toFixed(1) : '';
+
+  // Style
+  const monthsInput = document.getElementById('rw_months');
+  const cushionInput = document.getElementById('rw_cushion');
+  monthsInput.className = months < 24 ? 'computed-warning' : 'computed';
+  cushionInput.className = cushion < 12 ? 'computed-warning' : 'computed';
+
+  // Summary
+  const summary = document.getElementById('runwaySummary');
+  const summaryText = document.getElementById('runwaySummaryText');
+  if (months > 0) {
+    summary.style.display = 'block';
+    if (cushion < 12) {
+      summary.className = 'callout warning';
+      summaryText.innerHTML = `<strong>Cushion is ${cushion.toFixed(1)} months — under 12.</strong> Brief the board this week. The college has ${months.toFixed(1)} months of runway and needs ${transition} months to transition.`;
+    } else {
+      summary.className = 'callout';
+      summaryText.innerHTML = `<strong>${months.toFixed(1)} months of runway</strong> with a ${cushion.toFixed(1)}-month cushion after transition. You have time to plan, but start now.`;
+    }
+  } else {
+    summary.style.display = 'none';
+  }
+}
+
+// Transition budget
+function calcTransition() {
+  let total = 0;
+  document.querySelectorAll('.tb-cost').forEach(input => {
+    total += parseFloat(input.value) || 0;
+  });
+  document.getElementById('tb_total').value = total || '';
+}
+
+// Tech audit total
+function calcTechAudit() {
+  let total = 0;
+  document.querySelectorAll('.ta-cost').forEach(input => {
+    total += parseFloat(input.value) || 0;
+  });
+  document.getElementById('ta_total').value = total || '';
+}
+</script>
+
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
