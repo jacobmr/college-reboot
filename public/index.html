@@ -229,6 +229,42 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
   </div>
 
   <div class="card">
+    <h3>How big is the market? TAM, SAM and SOM</h3>
+    <p>Before anyone argues for an idea, we should know how many people might want it. Investors size a market in three steps, and the same steps work for a college.</p>
+    <table>
+      <tr><th style="width:170px;">Term</th><th>What it means for a college</th></tr>
+      <tr><td class="label">TAM: Total Addressable Market</td><td>Everyone who could want this kind of education and whom we could plausibly reach. For example, adults in our region who started college and never finished.</td></tr>
+      <tr><td class="label">SAM: Serviceable Available Market</td><td>The part of the TAM we can actually serve: close enough to campus or within our online reach, interested in fields we teach, ready for our academic level and able to pay our net price.</td></tr>
+      <tr><td class="label">SOM: Serviceable Obtainable Market</td><td>The share of the SAM we can realistically win each year within three years, after the community college, the state university and the big online programs take their share.</td></tr>
+    </table>
+    <p style="margin-top:14px;">The TAM always looks large and means little. The SOM is the number that pays salaries. Be wary of any SOM above a few percent of the SAM unless the interviews in Phase 2 back it up, because every competitor is reading the same demographic charts we are.</p>
+  </div>
+
+  <div class="worksheet">
+    <div class="worksheet-header">Example College: Sizing One Idea</div>
+    <table>
+      <tr><td class="label">The idea</td><td>Evening degree completion for working adults</td><td class="how">Numbers are imaginary</td></tr>
+      <tr><td class="label">TAM</td><td>400,000 people</td><td class="how">Adults in our region with some college and no degree</td></tr>
+      <tr><td class="label">SAM</td><td>30,000 people</td><td class="how">Within a 45-minute drive or our online reach, in fields we teach, able to pay about $14,000 a year</td></tr>
+      <tr><td class="label">SOM</td><td>150 students a year</td><td class="how">0.5% of the SAM</td></tr>
+      <tr><td class="label">Contribution per student</td><td>$8,000</td><td class="how">$14,000 net revenue − $6,000 in costs that come with each added student</td></tr>
+      <tr class="result-row"><td class="label">Annual contribution at SOM</td><td>$1.2 million</td><td class="how">150 × $8,000</td></tr>
+      <tr class="warning-row"><td class="label">Share of the $11.25 million gap</td><td>About 11%</td><td class="how">$1.2M ÷ $11.25M</td></tr>
+    </table>
+  </div>
+
+  <div class="callout insight">
+    <div class="callout-label">What the example teaches</div>
+    <p>A good idea with real demand closed about a tenth of the gap. Most colleges will need two or three ideas, a smaller cost base, or both. The board should expect that answer and plan for it from the start.</p>
+  </div>
+
+  <div class="card">
+    <h3>Every college needs its own answer</h3>
+    <p>There is no template for a rescued college. What works for a nursing college in a small city will not work for an arts college in the mountains or a faith-based college in the suburbs. The plan that saves us will build on what is already true about us: our place, our people, our reputation and the things students say we do better than anyone nearby.</p>
+    <p>The tools in this workbook are the same for every college. The answer will be ours, and it will come from the evidence we gather in Phase 2 and from an honest look at who we are.</p>
+  </div>
+
+  <div class="card">
     <h3>Why the people closest to the college should not set the direction</h3>
     <p>Current students chose us. Faculty built what we offer. Both are the people for whom the current college already works. That makes them the right people to tell us <strong>what must not be lost</strong>, and the wrong people to tell us what the students who are not choosing us want.</p>
     <p>This workbook asks faculty and students to do real work: supply facts, propose ideas, test them, design the new offering and deliver it. The direction itself comes from evidence about the students we are trying to reach.</p>
@@ -538,6 +574,29 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
     </table>
   </div>
 
+  <h3>Market Sizing Worksheet</h3>
+  <p>Fill this in once for each group of students in the demand brief. Write down where every number came from, so the red team can check it.</p>
+  <div class="worksheet">
+    <div class="worksheet-header">Worksheet 2.2: TAM, SAM and SOM <span class="ws-tag">INTERACTIVE</span></div>
+    <table>
+      <tr><th style="width:40px;">Line</th><th>Item</th><th style="width:170px;">Your Number</th><th>Source</th></tr>
+      <tr><td><strong>M1</strong></td><td class="label">Group of students</td><td colspan="2"><input type="text" placeholder="e.g. working adults within 45 minutes"></td></tr>
+      <tr><td><strong>M2</strong></td><td class="label">TAM: everyone who could want this (people)</td><td><input type="number" id="ms_tam" oninput="calcMarket()"></td><td><input type="text"></td></tr>
+      <tr><td><strong>M3</strong></td><td class="label">SAM: those we can actually serve (people)</td><td><input type="number" id="ms_sam" oninput="calcMarket()"></td><td><input type="text"></td></tr>
+      <tr><td><strong>M4</strong></td><td class="label">SOM: share of SAM we can win each year (%)</td><td><input type="number" id="ms_somp" step="0.1" oninput="calcMarket()"></td><td><input type="text"></td></tr>
+      <tr><td><strong>M5</strong></td><td class="label">SOM: students per year</td><td><input type="number" id="ms_som" class="computed" readonly></td><td class="how">M3 × M4</td></tr>
+      <tr><td><strong>M6</strong></td><td class="label">Net revenue per student ($)</td><td><input type="number" id="ms_netrev" oninput="calcMarket()"></td><td><input type="text"></td></tr>
+      <tr><td><strong>M7</strong></td><td class="label">Costs that come with each added student ($)</td><td><input type="number" id="ms_var" oninput="calcMarket()"></td><td><input type="text"></td></tr>
+      <tr><td><strong>M8</strong></td><td class="label">Annual contribution at SOM ($)</td><td><input type="number" id="ms_contrib" class="computed" readonly></td><td class="how">M5 × (M6 − M7)</td></tr>
+      <tr><td><strong>M9</strong></td><td class="label">Share of the annual gap it closes (%)</td><td><input type="number" id="ms_gapshare" class="computed" readonly></td><td class="how">M8 ÷ line F of the Gap Calculator</td></tr>
+    </table>
+  </div>
+
+  <div id="marketSummary" class="callout" style="display:none;">
+    <div class="callout-label">Market Check</div>
+    <p id="marketSummaryText"></p>
+  </div>
+
   <h3>Prompts for Faculty</h3>
   <div class="card-grid">
     <div class="card"><p>Which students outside our current pool could your field serve well, and how would they study?</p></div>
@@ -548,7 +607,7 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
 
   <h3>Demand Brief Deliverable (Due Day 60)</h3>
   <ul class="checklist">
-    <li><input type="checkbox"> The three groups of students most likely to choose us, and how many are within reach</li>
+    <li><input type="checkbox"> The three groups of students most likely to choose us, with a TAM, SAM and SOM for each (Worksheet 2.2)</li>
     <li><input type="checkbox"> The top reasons admitted students went elsewhere, with counts</li>
     <li><input type="checkbox"> The net price each group will pay</li>
     <li><input type="checkbox"> What current students say we must not lose</li>
@@ -877,6 +936,7 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
     <div class="card"><h4>Contribution</h4><p>What a program brings in minus the costs that go away without it.</p></div>
     <div class="card"><h4>Discount Rate</h4><p>College-funded aid as a share of sticker tuition.</p></div>
     <div class="card"><h4>Red Team</h4><p>A small group whose job is to show how a plan could fail.</p></div>
+    <div class="card"><h4>TAM, SAM, SOM</h4><p>Everyone who could want an offering, the part we can serve, and the share we can realistically win.</p></div>
     <div class="card"><h4>Runway</h4><p>Months of spendable cash at the current rate of loss.</p></div>
     <div class="card"><h4>Stopping Rule</h4><p>A line set in advance that triggers a set action when crossed.</p></div>
     <div class="card"><h4>Teach-out</h4><p>A plan that lets current students finish their degree when a program ends.</p></div>
@@ -979,6 +1039,40 @@ function calcGap() {
       summary.className = 'callout';
       summaryText.innerHTML = `<strong>Operating surplus: $${(gap/1000000).toFixed(2)}M.</strong> The college is covering its costs.`;
     }
+  } else {
+    summary.style.display = 'none';
+  }
+  calcMarket();
+}
+
+// Market sizing (TAM, SAM, SOM)
+function calcMarket() {
+  const tam = parseFloat(document.getElementById('ms_tam').value) || 0;
+  const sam = parseFloat(document.getElementById('ms_sam').value) || 0;
+  const somPct = parseFloat(document.getElementById('ms_somp').value) || 0;
+  const netRev = parseFloat(document.getElementById('ms_netrev').value) || 0;
+  const varCost = parseFloat(document.getElementById('ms_var').value) || 0;
+  const gap = parseFloat(document.getElementById('gc_gap').value) || 0;
+
+  const som = sam * somPct / 100;
+  const contrib = som * (netRev - varCost);
+  const share = gap < 0 ? contrib / Math.abs(gap) * 100 : 0;
+
+  document.getElementById('ms_som').value = som ? Math.round(som) : '';
+  document.getElementById('ms_contrib').value = contrib ? Math.round(contrib) : '';
+  document.getElementById('ms_gapshare').value = share ? share.toFixed(1) : '';
+
+  const summary = document.getElementById('marketSummary');
+  const text = document.getElementById('marketSummaryText');
+  const notes = [];
+  if (tam && sam > tam) notes.push('The SAM is larger than the TAM. The SAM should be a slice of the TAM; check both numbers.');
+  if (somPct > 5) notes.push(`A SOM of ${somPct}% of the SAM is ambitious. Show the interview evidence that supports it.`);
+  if (contrib && gap < 0) notes.push(`At this SOM the idea closes about <strong>${share.toFixed(1)}%</strong> of the annual gap.`);
+  else if (contrib) notes.push(`At this SOM the idea contributes <strong>$${Math.round(contrib).toLocaleString()}</strong> a year. Fill in the Gap Calculator to see its share of the gap.`);
+  if (notes.length) {
+    summary.style.display = 'block';
+    summary.className = (tam && sam > tam) || somPct > 5 ? 'callout warning' : 'callout';
+    text.innerHTML = notes.join(' ');
   } else {
     summary.style.display = 'none';
   }
