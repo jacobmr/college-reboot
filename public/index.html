@@ -153,6 +153,16 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
 .module-card p { font-size: 0.8rem; color: var(--gray500); margin: 0; }
 .module-num { font-family: 'JetBrains Mono'; font-size: 0.7rem; color: var(--steel); font-weight: 700; }
 
+/* Market examples */
+.market-card { border-left: 4px solid var(--gold); }
+.market-claim { font-size: 1rem; color: var(--navy); }
+.market-list { margin: 0 0 8px 18px; }
+.market-list li { font-size: 0.86rem; color: var(--gray700); margin-bottom: 6px; }
+.src-wrap { font-size: 0.75rem; color: var(--gray500); white-space: nowrap; }
+a.src { color: var(--steel); }
+details.card summary { list-style: revert; }
+@media print { details.card { display: block; } details.card > * { display: block; } }
+
 /* AI table */
 .ai-table td:nth-child(2), .ai-table td:nth-child(3), .ai-table td:nth-child(4) { text-align: center; width: 100px; }
 .ai-check { color: var(--green); font-weight: 700; font-size: 1.1rem; }
@@ -198,7 +208,7 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
       <div class="tab" data-tab="2"><span class="tab-num">3</span>Market Research</div>
       <div class="tab" data-tab="3"><span class="tab-num">4</span>Design &amp; Test</div>
       <div class="tab" data-tab="4"><span class="tab-num">5</span>Decide &amp; Rebuild</div>
-      <div class="tab" data-tab="5"><span class="tab-num">6</span>Tech Layer (Optional)</div>
+      <div class="tab" data-tab="5"><span class="tab-num">6</span>Market Examples</div>
       <div class="tab" data-tab="6"><span class="tab-num">7</span>Appendices</div>
     </div>
   </div>
@@ -627,7 +637,7 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
   <p class="phase-intro">By day 120, working teams turn the strongest ideas into one-page A3 proposals. Each A3 goes through at least three rounds of hard questions, gets priced by the CFO and faces the red team before the board sees it. Anyone can submit an idea.</p>
 
   <h3>Step 1: The Idea Card</h3>
-  <p>One idea per card. Keep it to one page.</p>
+  <p>One idea per card. Keep it to one page. To see what a market read looks like, study the <a href="#" onclick="goTab(5); return false;" style="color:var(--steel); font-weight:600;">Market Examples</a> tab, then do your own.</p>
 
   <div class="idea-card">
     <div class="input-group"><label class="input-label">Name of the idea</label><input type="text"></div>
@@ -831,102 +841,192 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
 
   <div class="tab-nav">
     <button class="btn btn-secondary" onclick="goTab(3)">← Design &amp; Test</button>
-    <button class="btn btn-primary" onclick="goTab(5)">Technology Layer (Optional) →</button>
+    <button class="btn btn-primary" onclick="goTab(5)">Market Examples →</button>
   </div>
 </div>
 
-<!-- TAB 6: TECHNOLOGY LAYER -->
+<!-- TAB 6: MARKET EXAMPLES -->
 <div class="tab-content" id="tab-5">
-  <span class="tag tag-cabinet">CABINET</span> <span class="tag tag-faculty">FACULTY</span>
-  <p class="small" style="color:var(--gray500); margin-bottom:8px; font-size:0.78rem;">OPTIONAL APPENDIX — by Jeff Ritter</p>
-  <h2>Appendix C: The Technology Layer</h2>
-  <p class="phase-intro">This appendix is a companion to the core workbook. A college that restructures its programs and governance but runs them on the same technology has solved half the problem. This section covers the other half — how AI and integrated systems can change the cost structure of the rebuilt college.</p>
+  <span class="tag tag-cabinet">CABINET</span> <span class="tag tag-board">BOARD</span> <span class="tag tag-faculty">FACULTY</span>
+  <h2>Market Examples: What a Market Read Looks Like</h2>
+  <p class="phase-intro">Six identities a college could choose to own, each with a real market read: who wants it, how big the demand is and which way it is moving, who already does it well, a warning, and the hard questions to ask. They are here to show the kind of thinking each college has to do for itself.</p>
 
-  <div class="card" style="border-left: 4px solid var(--gold);">
-    <h3>The Duolingo Ceiling</h3>
-    <p>Duolingo teaches 100 million people a month with almost no human instructors. It is also, for most learners, a vocabulary drill. It works brilliantly for the structured, repetitive part of learning. It fails at the rest: holding a real conversation, understanding a poem, navigating a culture.</p>
-    <p>No amount of AI improvement fixes this, because the limitation is not the technology. <strong>It is the nature of the work.</strong></p>
-    <p>AI handles the individual, repetitive, structured parts of learning very well and at very low cost. It does not handle judgment, meaning, relationship or surprise.</p>
-    <div class="callout" style="margin-top:16px;">
-      <div class="callout-label">The principle</div>
-      <p><strong>AI prepares the ground. Humans lead the learning that matters.</strong></p>
-    </div>
-    <p style="margin-top:16px;"><strong>Practical example:</strong> An AI tool clusters student responses to a reading assignment before class. The professor sees that 40% misunderstood the central argument, 30% understood it but cannot apply it, and 30% are ready to move on. The professor walks in and teaches three different groups in one session. Without the tool, the professor lectures to the middle and hopes for the best. The AI did not teach. It made the teaching better.</p>
+  <div class="callout">
+    <div class="callout-label">Read this first</div>
+    <p>None of these is your answer. A college that copies another college's identity is guessing. Yours has to come from what is already true about you (your place, your people, your history, what students say you do better than anyone nearby) and from the evidence you gather in Phase 2. Use these examples to practice the questions, then answer them for your own college.</p>
   </div>
 
-  <h3>Where AI Changes the Cost</h3>
+  <div class="card">
+    <h3>The anatomy of a market read</h3>
+    <ol class="num-list">
+      <li><div><strong>The claim.</strong> One sentence a family would repeat: what we are best at, and for whom.</div></li>
+      <li><div><strong>Who wants it.</strong> Students, employers and funders, with numbers and their direction of travel.</div></li>
+      <li><div><strong>Who is doing it.</strong> The colleges that already own this space, and what they did to earn it.</div></li>
+      <li><div><strong>A warning.</strong> Someone who tried and failed, and why.</div></li>
+      <li><div><strong>What it takes to win.</strong> The assets, partners and price it requires.</div></li>
+      <li><div><strong>Hard questions.</strong> The ones the A3 team and its hard-question teams should press on.</div></li>
+    </ol>
+  </div>
+
+  <div class="card market-card">
+    <span class="module-num">EXAMPLE 1</span>
+    <h3 style="margin-top:4px;">Faith and mission</h3>
+    <p class="market-claim"><strong>The claim:</strong> The college most fully shaped by the values of Christ, for families who want faith at the center of education.</p>
+    <h4>Who wants it</h4>
+    <ul class="market-list"><li>Catholic schools enrolled 1,683,506 students in 2024-25, a large pipeline of families who already pay for faith-based education. <span class="src-wrap">(<a href="https://ncea.org/NCEA/How_We_Serve/News/Press_Releases/Catholic-Schools-by-the-Numbers-New-Data-Reveals-Trends-in-Enrollment-Staffing-and-Demographics.aspx" target="_blank" rel="noopener" class="src">NCEA, 2025</a>)</span></li><li>That pipeline is shrinking: the number of Catholic K-12 schools fell 27% from 2000 to 2023, and 63 closed in 2024-25 while 24 opened. <span class="src-wrap">(<a href="https://www.highereddive.com/news/catholic-college-mergers-consolidation-demographics/754117/" target="_blank" rel="noopener" class="src">Higher Ed Dive, 2025</a>)</span></li><li>The sector is splitting. Colleges with a strong, explicit Catholic identity posted record enrollment in fall 2024, while 21 Catholic colleges announced closure or merger from 2016 to 2024. <span class="src-wrap">(<a href="https://www.ewtnnews.com/world/us/colleges-with-strong-catholic-identity-see-record-enrollment-in-fall-2024" target="_blank" rel="noopener" class="src">EWTN News, 2024; OSV News, 2025</a>)</span></li></ul>
+    <h4>Who is doing it</h4>
+    <ul class="market-list"><li>Franciscan University of Steubenville (Ohio) reported its tenth straight year of record enrollment in fall 2024, with 3,977 students, in the same region where other Catholic colleges are closing. <span class="src-wrap">(<a href="https://www.ewtnnews.com/world/us/colleges-with-strong-catholic-identity-see-record-enrollment-in-fall-2024" target="_blank" rel="noopener" class="src">EWTN News, 2024</a>)</span></li><li>Benedictine College (Kansas) grew to 2,247 full-time undergraduates in 2025 and recruits most students from out of state, from 48 states. <span class="src-wrap">(<a href="https://www.benedictine.edu/about/at-a-glance" target="_blank" rel="noopener" class="src">Benedictine College</a>)</span></li></ul>
+    <h4>A warning</h4>
+    <ul class="market-list"><li>Catholic affiliation alone did not save Cabrini University (Pennsylvania, closed 2024) or Notre Dame College (Ohio, closed 2024). Both cited years of deficits and falling enrollment. <span class="src-wrap">(<a href="https://phillyvoice.com/cabrini-university-closes-spring-2024-villanova-buys-campus-property" target="_blank" rel="noopener" class="src">PhillyVoice; EWTN News</a>)</span></li></ul>
+    <div class="input-row" style="margin-top:8px;">
+      <div><h4>What it takes to win</h4><ul class="market-list"><li>An identity that runs through the whole student experience, beyond a line in the mission statement.</li><li>National recruiting, so the college does not depend on a local school pipeline that is closing schools every year.</li><li>Willingness to stay small: several of the growing colleges cap enrollment near 550.</li></ul></div>
+      <div><h4>Hard questions for the A3 team</h4><ul class="market-list"><li>Are we willing to become more explicit about faith, knowing some current faculty, students and donors may leave? Or are we a Catholic-heritage college competing on price?</li><li>Can we recruit from 40 states, or only from nearby schools?</li><li>Why would a family choose us over the colleges that already own this niche nationally?</li></ul></div>
+    </div>
+  </div>
+  <div class="card market-card">
+    <span class="module-num">EXAMPLE 2</span>
+    <h3 style="margin-top:4px;">Career and the new economy</h3>
+    <p class="market-claim"><strong>The claim:</strong> The college where every student graduates with real work experience and a job that uses the degree.</p>
+    <h4>Who wants it</h4>
+    <ul class="market-list"><li>Business is the largest bachelor&#x27;s field: 375,400 degrees in 2021-22, 19% of all bachelor&#x27;s degrees. <span class="src-wrap">(<a href="https://nces.ed.gov/fastfacts/display.asp?id=37" target="_blank" rel="noopener" class="src">NCES Fast Facts</a>)</span></li><li>BLS projects about 886,600 openings a year in business and financial occupations through 2035, with a median wage of $82,660 against $50,980 for all occupations. <span class="src-wrap">(<a href="https://www.bls.gov/ooh/business-and-financial/" target="_blank" rel="noopener" class="src">BLS Occupational Outlook Handbook</a>)</span></li><li>Employers name internship experience among the most influential factors when choosing between equal candidates. <span class="src-wrap">(<a href="https://naceweb.org/talent-acquisition/candidate-selection/internship-experience-often-the-deciding-factor-between-equal-candidates" target="_blank" rel="noopener" class="src">NACE Job Outlook 2026</a>)</span></li></ul>
+    <h4>Who is doing it</h4>
+    <ul class="market-list"><li>Endicott College (Massachusetts) requires three internships of every student. It reports 99% of the Class of 2024 employed, in graduate school or in service, with 89% of those employed in work related to their major (college survey). <span class="src-wrap">(<a href="https://www.endicott.edu/experiential-edge" target="_blank" rel="noopener" class="src">Endicott College</a>)</span></li><li>Bentley University reports 98% of the Class of 2025 employed or in graduate school within six months, with a median starting salary of $75,000. <span class="src-wrap">(<a href="https://www.bentley.edu/news/98-bentley-class-2025-employed-or-graduate-school" target="_blank" rel="noopener" class="src">Bentley University, 2026</a>)</span></li></ul>
+    <h4>A warning</h4>
+    <ul class="market-list"><li>This is the most crowded market in higher education. Southern New Hampshire University enrolled 189,531 students in fall 2024, almost all online, and awarded 8,012 business bachelor&#x27;s degrees in one year. A small college selling only a business degree competes on price with that scale. <span class="src-wrap">(<a href="https://nces.ed.gov/collegenavigator/?id=183026" target="_blank" rel="noopener" class="src">NCES College Navigator</a>)</span></li></ul>
+    <div class="input-row" style="margin-top:8px;">
+      <div><h4>What it takes to win</h4><ul class="market-list"><li>Required, structured experience every year, built into the degree instead of offered as an elective.</li><li>Enough employers nearby to take interns every term.</li><li>Outcome numbers a skeptic would accept, including how many graduates responded.</li></ul></div>
+      <div><h4>Hard questions for the A3 team</h4><ul class="market-list"><li>Can we name the employers who will take every one of our students each year?</li><li>What would a student get here that a large online university cannot give them for less?</li><li>Will we publish outcomes with a response rate?</li></ul></div>
+    </div>
+  </div>
+  <div class="card market-card">
+    <span class="module-num">EXAMPLE 3</span>
+    <h3 style="margin-top:4px;">Public service</h3>
+    <p class="market-claim"><strong>The claim:</strong> The college that prepares people to serve: teachers, social workers, nonprofit and community leaders.</p>
+    <h4>Who wants it</h4>
+    <ul class="market-list"><li>At least 411,549 teaching positions, about 1 in 8, were vacant or filled by teachers not fully certified in 2025. <span class="src-wrap">(<a href="https://learningpolicyinstitute.org/product/overview-teacher-shortages-2025-factsheet" target="_blank" rel="noopener" class="src">Learning Policy Institute, 2025</a>)</span></li><li>BLS projects about 293,400 openings a year in community and social service occupations through 2035, growing much faster than average. <span class="src-wrap">(<a href="https://www.bls.gov/ooh/community-and-social-service/" target="_blank" rel="noopener" class="src">BLS Occupational Outlook Handbook</a>)</span></li><li>Nonprofits employed 12.8 million people in 2022, about 10% of private-sector jobs. <span class="src-wrap">(<a href="https://www.bls.gov/opub/mlr/2025/article/nonprofit-organizations-state-and-regional-employment-trends.htm" target="_blank" rel="noopener" class="src">BLS Monthly Labor Review, 2025</a>)</span></li></ul>
+    <h4>Who is doing it</h4>
+    <ul class="market-list"><li>Berea College (Kentucky) asks no admitted student to pay tuition out of pocket. Every student works on campus, and the endowment covers most of the $54,700 cost per student. <span class="src-wrap">(<a href="https://berea.smartcatalogiq.com/en/current/catalog/admissions-and-financial-aid/financial-aid-and-student-accounts" target="_blank" rel="noopener" class="src">Berea College catalog</a>)</span></li><li>Nine federally recognized work colleges, including Berea, Warren Wilson and Paul Quinn, build work and service into every residential student&#x27;s week. <span class="src-wrap">(<a href="https://wtop.com/news/2026/07/attending-a-federal-work-college-what-to-know/" target="_blank" rel="noopener" class="src">U.S. News via WTOP, 2026</a>)</span></li></ul>
+    <h4>A warning</h4>
+    <ul class="market-list"><li>Pay limits what students can borrow. Social workers earn a median $61,780 and elementary teachers $63,820. Federal loan forgiveness for public service is changing, with a new rule effective July 2026, so a plan should not depend on it. <span class="src-wrap">(<a href="https://www.ed.gov/about/news/press-release/us-department-of-education-announces-final-rule-public-service-loan-forgiveness-protect-american-taxpayers" target="_blank" rel="noopener" class="src">BLS; U.S. Department of Education, 2025</a>)</span></li></ul>
+    <div class="input-row" style="margin-top:8px;">
+      <div><h4>What it takes to win</h4><ul class="market-list"><li>A low net price, through endowment, a work model or partners who share the cost.</li><li>Signed pipelines: school districts and agencies that place and hire graduates.</li><li>Service built into the degree through field placements and work, more than a club.</li></ul></div>
+      <div><h4>Hard questions for the A3 team</h4><ul class="market-list"><li>At our net price, can a teacher or social worker repay what they borrow here without loan forgiveness?</li><li>Which districts and agencies will sign placement and hiring agreements, and will any help pay?</li><li>Without Berea&#x27;s endowment, what keeps our price low enough?</li></ul></div>
+    </div>
+  </div>
+  <div class="card market-card">
+    <span class="module-num">EXAMPLE 4</span>
+    <h3 style="margin-top:4px;">Environment and the outdoors</h3>
+    <p class="market-claim"><strong>The claim:</strong> The college for people who want to work on conservation, climate, energy and the land.</p>
+    <h4>Who wants it</h4>
+    <ul class="market-list"><li>BLS projects environmental scientists at 93,400 jobs, growing 6% through 2035, with about 7,300 openings a year and a median wage of $82,220. <span class="src-wrap">(<a href="https://www.bls.gov/ooh/life-physical-and-social-science/environmental-scientists-and-specialists.htm" target="_blank" rel="noopener" class="src">BLS Occupational Outlook Handbook</a>)</span></li><li>Solar installers and wind turbine technicians remain among the fastest-growing occupations, though BLS lowered both projections in its newest table, and the numbers of jobs are small. <span class="src-wrap">(<a href="https://www.bls.gov/emp/tables/fastest-growing-occupations.htm" target="_blank" rel="noopener" class="src">BLS Employment Projections</a>)</span></li><li>US demand for workers with green skills grew 9.8% while the supply grew 3.1%. <span class="src-wrap">(<a href="https://careers.environment.yale.edu/blog/2024/12/04/linkedin-2024-green-skills-report/" target="_blank" rel="noopener" class="src">LinkedIn Green Skills Report 2024, via Yale</a>)</span></li></ul>
+    <h4>Who is doing it</h4>
+    <ul class="market-list"><li>College of the Atlantic (Maine) has about 350 students, no departments and one degree, human ecology, with a required internship and capstone. Small, distinctive and coherent. <span class="src-wrap">(<a href="https://www.coa.edu/about/the-basics/index.php" target="_blank" rel="noopener" class="src">College of the Atlantic</a>)</span></li><li>Unity Environmental University (Maine) grew from about 600 students to more than 7,500 by 2023, almost entirely through distance education. Its residential program closed. <span class="src-wrap">(<a href="https://unity.edu/unity-news/unity-environmental-university-announces-largest-ever-incoming-class-after-embracing-innovative-model/" target="_blank" rel="noopener" class="src">Unity Environmental University</a>)</span></li></ul>
+    <h4>A warning</h4>
+    <ul class="market-list"><li>Green Mountain College (Vermont) built its brand on sustainability and closed in 2019, after undergraduate enrollment fell from 709 to 468. The mission fit; the economics of a small residential campus in a shrinking region did not. The 2025 federal tax law also cut clean energy credits, which makes that part of the job outlook less certain. <span class="src-wrap">(<a href="https://www.highereddive.com/news/vermonts-green-mountain-college-to-close-and-more-are-on-the-rocks/547082/" target="_blank" rel="noopener" class="src">Seven Days, 2019; FTI Consulting, 2025</a>)</span></li></ul>
+    <div class="input-row" style="margin-top:8px;">
+      <div><h4>What it takes to win</h4><ul class="market-list"><li>Place-based assets students cannot get elsewhere: land, water, farms, field stations.</li><li>Hiring partners beyond advocacy groups: agencies, utilities, land trusts and consultancies.</li><li>A delivery model whose costs match demand.</li></ul></div>
+      <div><h4>Hard questions for the A3 team</h4><ul class="market-list"><li>Which bachelor&#x27;s-level jobs will our graduates fill, and who hires them in our region?</li><li>Does our plan still hold if federal clean energy money shrinks further?</li><li>What do we offer that College of the Atlantic, Unity&#x27;s online programs and the state flagship do not?</li></ul></div>
+    </div>
+  </div>
+  <div class="card market-card">
+    <span class="module-num">EXAMPLE 5</span>
+    <h3 style="margin-top:4px;">Government and policy</h3>
+    <p class="market-claim"><strong>The claim:</strong> The college that turns its location in a state capital or near Washington into careers in public life.</p>
+    <h4>Who wants it</h4>
+    <ul class="market-list"><li>State and local governments employed 20.3 million people in March 2025, up 1.4% in a year. <span class="src-wrap">(<a href="https://www.census.gov/library/publications/2025/econ/g25-aspep3.html" target="_blank" rel="noopener" class="src">Census Bureau, 2025</a>)</span></li><li>46% of state and local HR leaders say their biggest retirement wave is still ahead, and 61% have no succession plan. <span class="src-wrap">(<a href="https://www.missionsquare.com/about-us/news/msri-state-local-government-fewer-hiring-challenges" target="_blank" rel="noopener" class="src">MissionSquare Research Institute, 2025</a>)</span></li><li>Federal employment is shrinking: about 317,000 people left federal jobs in 2025 and 68,000 were hired. Universities near Washington have reported enrollment effects. <span class="src-wrap">(<a href="https://fedmanager.com/news/opm-reports-317000-fed-departures-in-2025-dod-largest-drop-by-number" target="_blank" rel="noopener" class="src">OPM via FEDmanager, 2026</a>)</span></li></ul>
+    <h4>Who is doing it</h4>
+    <ul class="market-list"><li>Willamette University sits across the street from Oregon&#x27;s capitol and leads with capitol internships. Full-time undergraduates rose from 1,637 to 1,715 in fall 2025, though the growth cannot be tied to the policy identity alone. <span class="src-wrap">(<a href="https://www.willamettecollegian.com/post/willamette-sees-positive-enrollment-trends-despite-demographic-cliff" target="_blank" rel="noopener" class="src">Willamette Collegian, 2025</a>)</span></li><li>Patrick Henry College (Virginia) built a government-focused college of 436 students with internships across federal agencies and Congress, and reports all of its 2024 graduates employed or in graduate school (college survey). <span class="src-wrap">(<a href="https://www.phc.edu/facts-about-phc" target="_blank" rel="noopener" class="src">Patrick Henry College</a>)</span></li></ul>
+    <h4>A warning</h4>
+    <ul class="market-list"><li>Location is not an identity. Millsaps College, in Mississippi&#x27;s capital, fell from 850 students in 2019 to 637 undergraduates in 2022. <span class="src-wrap">(<a href="https://www.yahoo.com/news/millsaps-turn-tide-declining-enrollment-095022256.html" target="_blank" rel="noopener" class="src">Clarion Ledger, 2024</a>)</span></li></ul>
+    <div class="input-row" style="margin-top:8px;">
+      <div><h4>What it takes to win</h4><ul class="market-list"><li>A placement pipeline families can see: named offices, agencies and employers, every year.</li><li>A focus on state and local roles and their retirement wave, more than federal jobs alone.</li><li>Published outcomes.</li></ul></div>
+      <div><h4>Hard questions for the A3 team</h4><ul class="market-list"><li>Is our plan tied to federal hiring that is shrinking, or to state and local hiring that is growing?</li><li>Which offices will take our students every year, in writing?</li><li>Why would a student pay our price instead of interning at the capitol from the public university nearby?</li></ul></div>
+    </div>
+  </div>
+  <div class="card market-card">
+    <span class="module-num">EXAMPLE 6</span>
+    <h3 style="margin-top:4px;">Working with AI</h3>
+    <p class="market-claim"><strong>The claim:</strong> The college whose graduates know how to do their field&#x27;s work well alongside AI.</p>
+    <h4>Who wants it</h4>
+    <ul class="market-list"><li>Job postings that ask for AI skills pay 28% more, about $18,000 a year, and 51% of them in 2024 were outside IT and computer science. <span class="src-wrap">(<a href="https://lightcast.io/resources/blog/beyond-the-buzz-press-release-2025-07-23" target="_blank" rel="noopener" class="src">Lightcast, 2025</a>)</span></li><li>86% of students use AI in their studies, and 58% say they lack enough AI knowledge and skill. <span class="src-wrap">(<a href="https://www.digitaleducationcouncil.com/post/what-students-want-key-results-from-dec-global-ai-student-survey-2024" target="_blank" rel="noopener" class="src">Digital Education Council, 2024</a>)</span></li><li>Employers are dropping degree requirements for AI-augmented jobs, from 66% to 59% between 2019 and 2024, which raises the bar for showing that a degree pays. <span class="src-wrap">(<a href="https://pwc.com/gx/en/news-room/press-releases/2025/ai-linked-to-a-fourfold-increase-in-productivity-growth.html" target="_blank" rel="noopener" class="src">PwC AI Jobs Barometer, 2025</a>)</span></li></ul>
+    <h4>Who is doing it</h4>
+    <ul class="market-list"><li>Babson College tied AI to its existing identity in entrepreneurship: an interdisciplinary AI lab, peer training for faculty and AI in the first-year management course. <span class="src-wrap">(<a href="https://www.newsfilecorp.com/release/225402/Babson-College-Announces-The-Generator-Interdisciplinary-Artificial-Intelligence-Lab?lang=fr" target="_blank" rel="noopener" class="src">Babson College, 2024</a>)</span></li><li>Connecticut College funded a three-year AI program for faculty with a bequest and plans to share its materials with other small liberal arts colleges. <span class="src-wrap">(<a href="https://aspen.conncoll.edu/news/news-archive/2025/aiconn" target="_blank" rel="noopener" class="src">Connecticut College, 2025</a>)</span></li></ul>
+    <h4>A warning</h4>
+    <ul class="market-list"><li>Everyone is claiming this. Ohio State promised AI fluency for every graduate starting with the Class of 2029, and Purdue made AI competency a graduation requirement. AI readiness alone will soon be expected everywhere and will not set a college apart. <span class="src-wrap">(<a href="https://news.osu.edu/ohio-state-launches-bold-ai-fluency-initiative-to-redefine-learning-and-innovation/" target="_blank" rel="noopener" class="src">Ohio State, 2025</a>)</span></li></ul>
+    <div class="input-row" style="margin-top:8px;">
+      <div><h4>What it takes to win</h4><ul class="market-list"><li>AI applied inside a field the college already owns, such as nursing, accounting, teaching or design.</li><li>Every faculty member trained and paid for it, beyond a few volunteers.</li><li>Proof: graduate portfolios and employers who hire for AI-augmented roles.</li></ul></div>
+      <div><h4>Hard questions for the A3 team</h4><ul class="market-list"><li>Large public universities promise AI fluency at public prices. What does our version give that theirs cannot?</li><li>Can our faculty teach this credibly within 18 months, and what does that cost?</li><li>Which of our existing strengths does AI make more valuable?</li></ul></div>
+    </div>
+  </div>
+
+  <p class="input-hint">Figures were gathered from public sources in November 2026 and are linked so teams can check them. Numbers that colleges report about themselves are marked as college surveys.</p>
+
+  <h3>Your College's Market Read</h3>
+  <p>Draft one row for each identity your college could credibly claim, from this list or, more likely, your own. Anything marked "Write an idea card" goes into Phase 3, where it gets sized with Worksheet 2.2 and built into an A3.</p>
   <div class="worksheet">
-    <div class="worksheet-header">AI Capability Map</div>
-    <table class="ai-table">
-      <tr><th>Work</th><th>AI Handles Well</th><th>AI Assists</th><th>AI Adds Little</th></tr>
+    <div class="worksheet-header">Worksheet C.1: Our Market Read <span class="ws-tag">FILL IN</span></div>
+    <table>
+      <tr><th>The claim we could own</th><th>Evidence of demand</th><th>Who already owns it near us</th><th>What we have that they do not</th><th style="width:170px;">Next step</th></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><select><option>—</option><option>Write an idea card</option><option>Watch for now</option><option>Not for us</option></select></td></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><select><option>—</option><option>Write an idea card</option><option>Watch for now</option><option>Not for us</option></select></td></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><select><option>—</option><option>Write an idea card</option><option>Watch for now</option><option>Not for us</option></select></td></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><select><option>—</option><option>Write an idea card</option><option>Watch for now</option><option>Not for us</option></select></td></tr>
+    </table>
+  </div>
+
+  <details class="card">
+    <summary style="cursor:pointer; font-weight:600; color:var(--navy);">More on AI inside the college: where it helps, what faculty worry about, and a technology audit (from Jeff Ritter's original appendix)</summary>
+
+    <h4>Where software helps, and where people matter most</h4>
+    <p>Duolingo teaches more than 100 million people a month with almost no human instructors. For most learners it is a vocabulary drill. It handles the structured, repetitive part of learning well and leaves the rest to people: holding a real conversation, reading a poem, finding your way in another culture. AI tools behave the same way on campus. They are good at sorting, drafting, answering routine questions and giving practice. Judgment, meaning, relationships and surprise belong to faculty and staff.</p>
+
+    <div class="worksheet">
+      <div class="worksheet-header">AI Capability Map</div>
+      <table class="ai-table">
+        <tr><th>Work</th><th>AI Handles Well</th><th>AI Assists</th><th>AI Adds Little</th></tr>
       <tr><td>Advising triage, scheduling, routine questions</td><td class="ai-check">●</td><td></td><td></td></tr>
       <tr><td>First-pass feedback on writing and problem sets</td><td class="ai-check">●</td><td></td><td></td></tr>
       <tr><td>Personalized study plans and practice</td><td class="ai-check">●</td><td></td><td></td></tr>
       <tr><td>Translation and accessibility</td><td class="ai-check">●</td><td></td><td></td></tr>
-      <tr><td>Report generation, dashboards, compliance</td><td class="ai-check">●</td><td></td><td></td></tr>
+      <tr><td>Reports, dashboards, compliance</td><td class="ai-check">●</td><td></td><td></td></tr>
       <tr><td>Curriculum mapping and outcome alignment</td><td></td><td class="ai-check" style="color:var(--steel);">●</td><td></td></tr>
       <tr><td>Assessment design and rubric calibration</td><td></td><td class="ai-check" style="color:var(--steel);">●</td><td></td></tr>
       <tr><td>Career exploration and job matching</td><td></td><td class="ai-check" style="color:var(--steel);">●</td><td></td></tr>
       <tr><td>Enrollment prediction and financial modeling</td><td></td><td class="ai-check" style="color:var(--steel);">●</td><td></td></tr>
-      <tr><td>Mentoring, coaching, relationship-building</td><td></td><td></td><td class="ai-check" style="color:var(--gray500);">●</td></tr>
+      <tr><td>Mentoring, coaching, relationship building</td><td></td><td></td><td class="ai-check" style="color:var(--gray500);">●</td></tr>
       <tr><td>Judging complex, ambiguous, creative work</td><td></td><td></td><td class="ai-check" style="color:var(--gray500);">●</td></tr>
       <tr><td>Leading discussion, debate, lab, clinical</td><td></td><td></td><td class="ai-check" style="color:var(--gray500);">●</td></tr>
       <tr><td>Crisis intervention, counseling, pastoral care</td><td></td><td></td><td class="ai-check" style="color:var(--gray500);">●</td></tr>
-    </table>
-  </div>
-  <p><em>Read the left column as cost you can reduce. Read the right column as value you must protect.</em></p>
+      </table>
+    </div>
+    <p><em>The left column is where costs can come down. The right column is the value to protect.</em></p>
 
-  <h3>Technology Audit</h3>
-  <div class="worksheet">
-    <div class="worksheet-header">Worksheet C.1: Current Technology Costs <span class="ws-tag">FILL IN</span></div>
-    <table>
-      <tr><th>System</th><th>What It Does</th><th style="width:120px;">Annual Cost ($)</th><th style="width:110px;">Contract Ends</th><th style="width:120px;">AI Replace?</th></tr>
-      <tr><td>LMS (Canvas, Blackboard, etc.)</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partially</option><option>No</option></select></td></tr>
-      <tr><td>SIS (student info system)</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partially</option><option>No</option></select></td></tr>
-      <tr><td>ERP (finance, HR, facilities)</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partially</option><option>No</option></select></td></tr>
-      <tr><td>CRM (enrollment, advancement)</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partially</option><option>No</option></select></td></tr>
-      <tr><td>Assessment tools</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partially</option><option>No</option></select></td></tr>
-      <tr><td>Advising platform</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partially</option><option>No</option></select></td></tr>
-      <tr><td>Other</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partially</option><option>No</option></select></td></tr>
-      <tr class="result-row"><td class="label" colspan="2">Total Annual Technology Cost</td><td><input type="number" id="ta_total" class="computed" readonly></td><td></td><td></td></tr>
-    </table>
-  </div>
+    <h4>What faculty worry about, and how to respond</h4>
+    <ol class="num-list">
+      <li><div><strong>Say where the tools stop.</strong> AI can handle drill, practice and routine feedback. Teaching, judging and mentoring stay with faculty.</div></li>
+      <li><div><strong>Start with tools that help faculty.</strong> A tool that sorts student responses before class makes the professor more effective. A tool that grades essays makes the professor feel watched. Start with the first kind.</div></li>
+      <li><div><strong>Let faculty choose their pace.</strong> Begin with volunteers. Others will follow when they see it work for colleagues.</div></li>
+      <li><div><strong>Protect academic judgment.</strong> The professor sets the grade, designs the assignment and leads the class.</div></li>
+      <li><div><strong>Show the math.</strong> If better advising tools free 200 staff hours a month, show faculty where those hours went.</div></li>
+    </ol>
 
-  <h3>What Faculty Fear and What to Do About It</h3>
-  <ol class="num-list">
-    <li><strong>Name the ceiling.</strong> AI handles drill, practice and routine feedback. It does not handle what you do. We are investing in AI so that more of your time goes to the work only you can do.</li>
-    <li><strong>Start with tools that help faculty.</strong> An AI that clusters student responses before class makes the professor more effective. An AI that grades essays makes the professor feel watched. Start with the first kind.</li>
-    <li><strong>Let faculty choose their pace.</strong> The pilot should have early adopters who want to experiment, not a mandate. Adoption spreads through proof, not policy.</li>
-    <li><strong>Protect academic judgment.</strong> The professor decides the grade, designs the assignment, leads the class. AI prepares, sorts, drafts, and flags. The human decides.</li>
-    <li><strong>Show the math.</strong> If AI-assisted advising frees 200 staff hours a month, show faculty that those hours went to student support, not to a budget line that disappeared.</li>
-  </ol>
+    <div class="worksheet">
+      <div class="worksheet-header">Worksheet C.2: Current Technology Costs <span class="ws-tag">FILL IN</span></div>
+      <table>
+        <tr><th>System</th><th>What It Does</th><th style="width:120px;">Annual Cost ($)</th><th style="width:110px;">Contract Ends</th><th style="width:130px;">Could We Spend Less?</th></tr>
+        <tr><td>LMS (Canvas, Blackboard, etc.)</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partly</option><option>No</option></select></td></tr>
+        <tr><td>SIS (student info system)</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partly</option><option>No</option></select></td></tr>
+        <tr><td>ERP (finance, HR, facilities)</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partly</option><option>No</option></select></td></tr>
+        <tr><td>CRM (enrollment, advancement)</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partly</option><option>No</option></select></td></tr>
+        <tr><td>Assessment tools</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partly</option><option>No</option></select></td></tr>
+        <tr><td>Advising platform</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partly</option><option>No</option></select></td></tr>
+        <tr><td>Other</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partly</option><option>No</option></select></td></tr>
+        <tr class="result-row"><td class="label" colspan="2">Total Annual Technology Cost</td><td><input type="number" id="ta_total" class="computed" readonly></td><td></td><td></td></tr>
+      </table>
+    </div>
 
-  <h3>Campus OS: A Worked Example</h3>
-  <p>What an AI-integrated campus operating system looks like when the pieces are designed as one system instead of twelve vendor platforms.</p>
-
-  <div class="module-grid">
-    <div class="module-card"><span class="module-num">01</span><h5>Instruction Engine</h5><p>AI-powered personalized learning paths. Faculty set goals and judge outcomes.</p></div>
-    <div class="module-card"><span class="module-num">02</span><h5>Student Pulse</h5><p>Real-time early alerts from attendance, grades, engagement and advising data.</p></div>
-    <div class="module-card"><span class="module-num">03</span><h5>Skill Map</h5><p>Bayesian proficiency tracking — what a student actually knows, not just courses passed.</p></div>
-    <div class="module-card"><span class="module-num">04</span><h5>Entry Ticket</h5><p>AI clusters student responses before class so the professor knows where everyone stands.</p></div>
-    <div class="module-card"><span class="module-num">05</span><h5>Advisor Hub</h5><p>AI handles scheduling, routine questions, triage. Humans handle the conversations that matter.</p></div>
-    <div class="module-card"><span class="module-num">06</span><h5>Program Analytics</h5><p>Contribution, enrollment trends and outcome data for every program on one screen.</p></div>
-    <div class="module-card"><span class="module-num">07</span><h5>Enrollment Intelligence</h5><p>Predictive modeling for yield, retention and net revenue per student.</p></div>
-    <div class="module-card"><span class="module-num">08</span><h5>Operations Dashboard</h5><p>Facilities, finance, HR and compliance in one view.</p></div>
-    <div class="module-card"><span class="module-num">09</span><h5>Community Bridge</h5><p>Employer partnerships, internship matching, career exploration.</p></div>
-  </div>
-
-  <p>No college needs all nine on day one. Start with one or two modules during Phase 3 pilots and add others as the restructuring proceeds.</p>
-
-  <div class="callout" style="margin-top: 24px;">
-    <div class="callout-label">See the prototype</div>
-    <p><a href="https://jeffritter.ai/projects/campus-os.html" target="_blank" style="color:var(--steel); font-weight:600;">jeffritter.ai/projects/campus-os.html</a></p>
-  </div>
-
-  <div class="callout" style="border-left-color: var(--navy); margin-top: 20px;">
-    <div class="callout-label" style="color: var(--navy);">The one sentence to remember</div>
-    <p><strong>Technology does not save a college.</strong> A better offering for students who will pay for it saves a college. Technology makes that offering cheaper to deliver, better for the student, and possible to run with the smaller staff and budget the restructured college will have.</p>
-  </div>
+    <p>Jeff Ritter's Campus OS prototype shows how several of these pieces can work as one system: <a href="https://jeffritter.ai/projects/campus-os.html" target="_blank" style="color:var(--steel); font-weight:600;">jeffritter.ai/projects/campus-os.html</a>.</p>
+  </details>
 
   <div class="tab-nav">
     <button class="btn btn-secondary" onclick="goTab(4)">← Decide &amp; Rebuild</button>
@@ -1005,7 +1105,7 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
   </div>
 
   <div class="tab-nav">
-    <button class="btn btn-secondary" onclick="goTab(5)">← Technology Layer</button>
+    <button class="btn btn-secondary" onclick="goTab(5)">← Market Examples</button>
     <button class="btn btn-gold" onclick="goTab(0)">Back to Start</button>
   </div>
 </div>
