@@ -624,7 +624,7 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
 <div class="tab-content" id="tab-3">
   <span class="tag tag-cabinet">CABINET</span> <span class="tag tag-faculty">FACULTY</span> <span class="tag tag-students">STUDENTS</span>
   <h2>Phase 3: Design and Test Ideas</h2>
-  <p class="phase-intro">By day 120, working teams turn the strongest ideas into one-page A3 proposals that the red team has tried to break and the CFO has priced. Anyone can submit an idea.</p>
+  <p class="phase-intro">By day 120, working teams turn the strongest ideas into one-page A3 proposals. Each A3 goes through at least three rounds of hard questions, gets priced by the CFO and faces the red team before the board sees it. Anyone can submit an idea.</p>
 
   <h3>Step 1: The Idea Card</h3>
   <p>One idea per card. Keep it to one page.</p>
@@ -633,6 +633,11 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
     <div class="input-group"><label class="input-label">Name of the idea</label><input type="text"></div>
     <div class="input-group"><label class="input-label">Who is the student? (age, location, current situation)</label><textarea></textarea></div>
     <div class="input-group"><label class="input-label">Why would they choose us over their next best option?</label><textarea></textarea></div>
+    <div class="input-group"><label class="input-label">What about us makes this believable? (our place, people, reputation, strengths)</label><textarea></textarea></div>
+    <div class="input-row">
+      <div class="input-group"><label class="input-label">SAM for this idea (people we can serve)</label><input type="number"></div>
+      <div class="input-group"><label class="input-label">SOM (students we can win each year)</label><input type="number"></div>
+    </div>
     <div class="input-row">
       <div class="input-group"><label class="input-label">What would they pay after aid?</label><input type="number" placeholder="$"></div>
       <div class="input-group"><label class="input-label">How many students by year three?</label><input type="number"></div>
@@ -651,20 +656,84 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
     <li><input type="checkbox"> We can test it with real applications and deposits within twelve months</li>
     <li><input type="checkbox"> We have, or can affordably get, the people and space to deliver it</li>
     <li><input type="checkbox"> It does not weaken a program or school that earns a real surplus</li>
+    <li><input type="checkbox"> It fits who we are: it builds on a strength, place or reputation we already have</li>
   </ul>
 
-  <h3>Step 3: The Strategy A3 Proposal</h3>
+  <h3>Step 3: Build the A3, Then Rebuild It</h3>
+  <p>Every idea that passes the screen gets an A3: one page, seven boxes, written by a small team. The first draft will be wrong, and that is fine. The value comes from the second and third drafts, after people whose job is to ask hard questions have had their turn.</p>
+
+  <h4>Form the A3 team</h4>
+  <div class="worksheet">
+    <div class="worksheet-header">A3 Team <span class="ws-tag">FILL IN</span></div>
+    <table>
+      <tr><th style="width:190px;">Role</th><th>Job</th><th style="width:200px;">Name</th></tr>
+      <tr><td class="label">Owner</td><td>Holds the pen, writes every version and decides what changes.</td><td><input type="text"></td></tr>
+      <tr><td class="label">Numbers person</td><td>From the CFO's office. Makes sure every figure matches the CFO's.</td><td><input type="text"></td></tr>
+      <tr><td class="label">Voice of the students we want</td><td>Someone who ran Phase 2 interviews. Brings the demand evidence.</td><td><input type="text"></td></tr>
+      <tr><td class="label">Builder</td><td>A faculty or staff member who would deliver it. Says what it takes to run.</td><td><input type="text"></td></tr>
+    </table>
+  </div>
+
+  <h4>Assign the hard-question teams</h4>
+  <p>Two or three people from outside the A3 team take each role below and review every draft of the A3s assigned to them. Rotate assignments so no group only reviews the work of friends. Their job is to ask, and the owner's job is to answer in the next draft.</p>
+  <div class="card-grid">
+    <div class="card"><h4>Demand</h4><p>Who outside this campus said they want this? How many? What did they choose instead? What would they pay?</p><input type="text" placeholder="Team members"></div>
+    <div class="card"><h4>Money</h4><p>Do these numbers match the CFO's? What happens if enrollment comes in at half the target? What does it cost to stop?</p><input type="text" placeholder="Team members"></div>
+    <div class="card"><h4>Identity</h4><p>Does this build on something true about us? Would our best graduates still recognize the college?</p><input type="text" placeholder="Team members"></div>
+    <div class="card"><h4>What we lose</h4><p>What does this draw people, money or space from? Does it weaken anything that earns a surplus? How do current students finish?</p><input type="text" placeholder="Team members"></div>
+    <div class="card"><h4>Delivery</h4><p>Who teaches it, where, starting when? What has to be true about accreditation, hiring and space?</p><input type="text" placeholder="Team members"></div>
+  </div>
+
+  <h4>Run the loop</h4>
+  <ol class="num-list">
+    <li><div><strong>Draft 1 (one week).</strong> Fill in boxes 1 to 4 only: background, current state, target and root cause. No solutions yet. Teams that jump to the answer skip the reason students are not coming.</div></li>
+    <li><div><strong>Review 1 (one hour).</strong> Each hard-question team asks its questions. The owner writes every question in the question log and does not argue in the room.</div></li>
+    <li><div><strong>Draft 2.</strong> Rewrite boxes 1 to 4 using what you learned. Add box 5 with at least three countermeasures.</div></li>
+    <li><div><strong>Review 2.</strong> Same teams. Did the answers hold up? What new questions did the rewrite raise?</div></li>
+    <li><div><strong>Draft 3.</strong> Add the test plan and follow-up. The CFO prices it.</div></li>
+    <li><div><strong>Review 3.</strong> The red team reads it. The A3 team decides to send it to the board, rework it once more, or stop.</div></li>
+  </ol>
+
+  <div class="callout insight">
+    <div class="callout-label">How to tell the loop is working</div>
+    <p>Each version should change in ways the team did not predict. If an A3 looks the same after review as it did before, nobody really reviewed it. A stopped A3 counts as a success: it saved the college time and money it did not have.</p>
+  </div>
 
   <div class="worksheet">
     <div class="worksheet-header">Worksheet 3.1: Strategy A3 <span class="ws-tag">FILL IN</span></div>
     <table>
-      <tr><td class="label" style="width:180px;">1. Background</td><td><textarea placeholder="Why this matters to the college, in two sentences. Which line of the gap calculator does it change?"></textarea></td></tr>
-      <tr><td class="label">2. Current State</td><td><textarea placeholder="The numbers today: students, net revenue, cost, contribution."></textarea></td></tr>
-      <tr><td class="label">3. Target State</td><td><textarea placeholder="What success looks like by a date: students, net revenue per student, contribution."></textarea></td></tr>
-      <tr><td class="label">4. Gap &amp; Root Cause</td><td><textarea placeholder="Why are students not choosing this today? Cite the demand brief."></textarea></td></tr>
-      <tr><td class="label">5. Countermeasures</td><td><textarea placeholder="Two or three ways to close the gap. Which one we pick, and why."></textarea></td></tr>
-      <tr><td class="label">6. Test Plan</td><td><textarea placeholder="The smallest real pilot: who, how many, what price, what deposit target, by what date."></textarea></td></tr>
-      <tr><td class="label">7. Follow-up</td><td><textarea placeholder="Owner, check dates, what gets reported to the board and when."></textarea></td></tr>
+      <tr><th style="width:170px;">Box</th><th>Your answer</th><th style="width:240px;">The hard question for this box</th></tr>
+      <tr><td class="label">1. Background</td><td><textarea placeholder="Why this matters to the college, in two sentences. Which line of the gap calculator does it change?"></textarea></td><td class="how">Is this tied to the gap, or is it a project someone already wanted?</td></tr>
+      <tr><td class="label">2. Current State</td><td><textarea placeholder="The numbers today: students, net revenue, cost, contribution."></textarea></td><td class="how">Are these the same numbers the CFO uses? What is missing?</td></tr>
+      <tr><td class="label">3. Target State</td><td><textarea placeholder="What success looks like by a date: students, net revenue per student, contribution. Include the SOM from Worksheet 2.2."></textarea></td><td class="how">Is the target big enough to matter and specific enough to miss?</td></tr>
+      <tr><td class="label">4. Gap &amp; Root Cause</td><td><textarea placeholder="Why are students not choosing this today? Cite the demand brief."></textarea></td><td class="how">Whose voice is this: current students, or the people we need to attract?</td></tr>
+      <tr><td class="label">5. Countermeasures</td><td><textarea placeholder="At least three ways to close the gap, including one that costs less and one that stops doing something. Which one we pick, and why."></textarea></td><td class="how">Was a cheaper option considered? Was stopping something an option?</td></tr>
+      <tr><td class="label">6. Test Plan</td><td><textarea placeholder="The smallest real pilot: who, how many, what price, what deposit target, by what date."></textarea></td><td class="how">Does the pilot ask for real money? Were the stop results set before launch?</td></tr>
+      <tr><td class="label">7. Follow-up</td><td><textarea placeholder="Owner, check dates, what gets reported to the board and when."></textarea></td><td class="how">Is one person accountable? Will the board see results against the original targets?</td></tr>
+    </table>
+  </div>
+
+  <div class="worksheet">
+    <div class="worksheet-header">Worksheet 3.2: Question Log <span class="ws-tag">FILL IN</span></div>
+    <table>
+      <tr><th style="width:70px;">Box</th><th>Question</th><th style="width:150px;">Asked by</th><th>What we changed</th></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+    </table>
+  </div>
+
+  <div class="worksheet">
+    <div class="worksheet-header">Worksheet 3.3: Version History <span class="ws-tag">FILL IN</span></div>
+    <table>
+      <tr><th style="width:80px;">Version</th><th style="width:120px;">Date</th><th>What changed</th><th>Which question drove it</th></tr>
+      <tr><td>1</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <tr><td>2</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <tr><td>3</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <tr><td>4</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
     </table>
   </div>
 
@@ -869,8 +938,8 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
 <div class="tab-content" id="tab-6">
   <h2>Appendices</h2>
 
-  <h3>A3 Thinking</h3>
-  <p>An A3 is a single page that walks one idea from the facts to a plan. Two kinds matter here:</p>
+  <h3>A3 Quick Reference</h3>
+  <p>The workflow lives in Phase 3, Step 3. Two kinds of A3 come up during the year:</p>
 
   <div class="card-grid">
     <div class="card">
@@ -891,21 +960,7 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
 
   <div class="callout insight">
     <div class="callout-label">Common mistake</div>
-    <p>Treating a fit problem as a delivery problem. If several problem A3s point back to the same answer — people do not want this enough at this price — stop fixing and write a strategy A3.</p>
-  </div>
-
-  <h3>A3 Review Questions</h3>
-  <div class="worksheet">
-    <div class="worksheet-header">What the Reviewer Asks</div>
-    <table>
-      <tr><td class="label">Background</td><td>Is this tied to the gap, or is it a project someone already wanted?</td></tr>
-      <tr><td class="label">Current state</td><td>Are these the same numbers the CFO uses? What is missing?</td></tr>
-      <tr><td class="label">Target state</td><td>Is the target big enough to matter and specific enough to miss?</td></tr>
-      <tr><td class="label">Gap analysis</td><td>Whose voice is this? Current students, or the people we need to attract?</td></tr>
-      <tr><td class="label">Options</td><td>Was a cheaper option considered? Was "stop doing something" an option?</td></tr>
-      <tr><td class="label">Test plan</td><td>Does the pilot ask for real money? Were the stop results set before launch?</td></tr>
-      <tr><td class="label">Follow-up</td><td>Is one person accountable? Will the board see results on original targets?</td></tr>
-    </table>
+    <p>Treating a fit problem as a delivery problem. If several problem A3s point back to the same answer, that people do not want this enough at this price, stop fixing and write a strategy A3.</p>
   </div>
 
   <h3>The Year at a Glance</h3>
@@ -918,10 +973,10 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
       <tr><td>35</td><td>Faculty and staff briefing; owners named</td><td><span class="tag tag-pres">PRES</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
       <tr><td>40</td><td>Student briefing; completion promise published</td><td><span class="tag tag-pres">PRES</span><span class="tag tag-cabinet">CABINET</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
       <tr><td>60</td><td>Demand brief and program fact sheets delivered</td><td><span class="tag tag-cabinet">CABINET</span><span class="tag tag-faculty">FACULTY</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
-      <tr><td>75</td><td>Idea card window closes; program review done</td><td><span class="tag tag-cabinet">CABINET</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
-      <tr><td>90</td><td>A3 proposals drafted; student panel and donor map done</td><td><span class="tag tag-cabinet">CABINET</span><span class="tag tag-faculty">FACULTY</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
+      <tr><td>75</td><td>Idea card window closes; A3 teams and hard-question teams named</td><td><span class="tag tag-cabinet">CABINET</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
+      <tr><td>90</td><td>A3 second drafts reviewed; student panel and donor map done</td><td><span class="tag tag-cabinet">CABINET</span><span class="tag tag-faculty">FACULTY</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
       <tr><td>100</td><td>Transition cost estimate and space plan done</td><td><span class="tag tag-cabinet">CABINET</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
-      <tr><td>110</td><td>CFO prices every surviving A3 and alternatives</td><td><span class="tag tag-cfo">CFO</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
+      <tr><td>110</td><td>A3 third reviews done; CFO prices every surviving A3 and alternatives</td><td><span class="tag tag-cfo">CFO</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
       <tr><td>120</td><td>Board chooses a direction and funds it</td><td><span class="tag tag-board">BOARD</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
       <tr><td>150</td><td>Pilot opens for applications and deposits</td><td><span class="tag tag-cabinet">CABINET</span><span class="tag tag-faculty">FACULTY</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
       <tr><td>240</td><td>Pilot deposit deadline; expand, revise or stop</td><td><span class="tag tag-pres">PRES</span><span class="tag tag-board">BOARD</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
@@ -932,9 +987,10 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
 
   <h3>Words to Know</h3>
   <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
-    <div class="card"><h4>A3</h4><p>A one-page problem-solving format with seven boxes, used here to test each idea.</p></div>
+    <div class="card"><h4>A3</h4><p>A one-page format with seven boxes. A small team writes it, hears hard questions and rewrites it, several times.</p></div>
     <div class="card"><h4>Contribution</h4><p>What a program brings in minus the costs that go away without it.</p></div>
     <div class="card"><h4>Discount Rate</h4><p>College-funded aid as a share of sticker tuition.</p></div>
+    <div class="card"><h4>Hard-Question Team</h4><p>Two or three people outside an A3 team who review each draft from one angle, such as demand or money.</p></div>
     <div class="card"><h4>Red Team</h4><p>A small group whose job is to show how a plan could fail.</p></div>
     <div class="card"><h4>TAM, SAM, SOM</h4><p>Everyone who could want an offering, the part we can serve, and the share we can realistically win.</p></div>
     <div class="card"><h4>Runway</h4><p>Months of spendable cash at the current rate of loss.</p></div>
