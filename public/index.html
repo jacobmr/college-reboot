@@ -198,7 +198,7 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
       <div class="tab" data-tab="2"><span class="tab-num">3</span>Market Research</div>
       <div class="tab" data-tab="3"><span class="tab-num">4</span>Design &amp; Test</div>
       <div class="tab" data-tab="4"><span class="tab-num">5</span>Decide &amp; Rebuild</div>
-      <div class="tab" data-tab="5"><span class="tab-num">6</span>Technology Layer</div>
+      <div class="tab" data-tab="5"><span class="tab-num">6</span>Tech Layer (Optional)</div>
       <div class="tab" data-tab="6"><span class="tab-num">7</span>Appendices</div>
     </div>
   </div>
@@ -240,8 +240,8 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
     <p>Plans also fail when leaders decide in a small room, agree too quickly and avoid being wrong in public. The cure is more people looking at the same facts, and someone whose job is to say the plan will not work.</p>
   </div>
 
-  <h3>The Seven Ideas That Explain Every College Budget</h3>
-  <p>You do not need a business degree to use them, and you do need all seven to judge any idea for the college's future.</p>
+  <h3>The Six Ideas That Explain Every College Budget</h3>
+  <p>You do not need a business degree to use them, and you do need all six to judge any idea for the college's future.</p>
 
   <div class="card-grid">
     <div class="card">
@@ -267,11 +267,6 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
     <div class="card">
       <h4>6. Cash Runway</h4>
       <p>How many months the college can pay its bills from cash and investments it is allowed to spend, at its current rate of loss. <strong>Runway is the clock.</strong></p>
-    </div>
-    <div class="card" style="border-left: 4px solid var(--gold);">
-      <h4>7. The Technology Cost Curve</h4>
-      <p>The cost of personalizing instruction, advising a student and assessing learning is falling fast. An AI tutor trained on your curriculum can do parts of that work at pennies per session, available at 2 a.m., in any language, without adding staff.</p>
-      <p>A college that restructures but delivers the old way is budgeting for 2024. A college that rebuilds with AI handling the repetitive work can serve more students at a lower cost without cutting what a professor actually does.</p>
     </div>
   </div>
 
@@ -429,21 +424,6 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
         <td class="label">Effect of a one-point rise in discount rate ($)</td>
         <td><input type="number" id="gc_disceffect" class="computed" readonly></td>
       </tr>
-      <tr>
-        <td><strong>M</strong></td>
-        <td class="label">Annual cost of software AI could replace ($)</td>
-        <td><input type="number" id="gc_software" placeholder="e.g. 800000" oninput="calcGap()"></td>
-      </tr>
-      <tr>
-        <td><strong>N</strong></td>
-        <td class="label">Hours/week staff spend on AI-automatable tasks</td>
-        <td><input type="number" id="gc_hours" placeholder="e.g. 200" oninput="calcGap()"></td>
-      </tr>
-      <tr>
-        <td><strong>N</strong></td>
-        <td class="label">Estimated annual value of those hours ($)</td>
-        <td><input type="number" id="gc_hourscost" class="computed" readonly></td>
-      </tr>
     </table>
   </div>
 
@@ -542,8 +522,6 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
       <li>What would have to be true for you to choose a college like ours?</li>
       <li>If we offered [describe an idea in one sentence], would you have considered it?</li>
       <li>What do you want to be able to do in five years that college should help with?</li>
-      <li><strong style="color:var(--gold);">When you picture a college that uses technology well, what does that look like?</strong></li>
-      <li><strong style="color:var(--gold);">Have you used AI tools for learning? What worked and what did not?</strong></li>
     </ol>
   </div>
 
@@ -566,7 +544,6 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
     <div class="card"><p>Which courses could be shared across programs, or with a partner college?</p></div>
     <div class="card"><p>What does your program do that students cannot get cheaper or closer to home?</p></div>
     <div class="card"><p>If your program had to double enrollment or halve its cost in three years, what would you change first?</p></div>
-    <div class="card" style="border-left: 4px solid var(--gold);"><p><strong>Which parts of your teaching work are repetitive and individual?</strong> If a tool handled that work reliably, what would you do with the time it freed?</p></div>
   </div>
 
   <h3>Demand Brief Deliverable (Due Day 60)</h3>
@@ -615,7 +592,6 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
     <li><input type="checkbox"> We can test it with real applications and deposits within twelve months</li>
     <li><input type="checkbox"> We have, or can affordably get, the people and space to deliver it</li>
     <li><input type="checkbox"> It does not weaken a program or school that earns a real surplus</li>
-    <li><input type="checkbox" style="accent-color: var(--gold);"> <strong>The proposal accounts for how AI changes the cost to deliver it</strong></li>
   </ul>
 
   <h3>Step 3: The Strategy A3 Proposal</h3>
@@ -628,7 +604,6 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
       <tr><td class="label">3. Target State</td><td><textarea placeholder="What success looks like by a date: students, net revenue per student, contribution."></textarea></td></tr>
       <tr><td class="label">4. Gap &amp; Root Cause</td><td><textarea placeholder="Why are students not choosing this today? Cite the demand brief."></textarea></td></tr>
       <tr><td class="label">5. Countermeasures</td><td><textarea placeholder="Two or three ways to close the gap. Which one we pick, and why."></textarea></td></tr>
-      <tr style="background: rgba(193,154,62,0.08);"><td class="label" style="color:var(--gold);">5a. Technology Layer</td><td><textarea placeholder="Which parts of this offering use AI to reduce cost, personalize the experience, or free faculty time? Cost difference with vs. without AI?"></textarea></td></tr>
       <tr><td class="label">6. Test Plan</td><td><textarea placeholder="The smallest real pilot: who, how many, what price, what deposit target, by what date."></textarea></td></tr>
       <tr><td class="label">7. Follow-up</td><td><textarea placeholder="Owner, check dates, what gets reported to the board and when."></textarea></td></tr>
     </table>
@@ -708,8 +683,6 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
     <li><input type="checkbox"> Contract, accreditation and regulatory steps</li>
     <li><input type="checkbox"> Cost of running old and new programs side by side</li>
     <li><input type="checkbox"> Space and administration the smaller college will need</li>
-    <li><input type="checkbox"> <strong>Technology infrastructure: which systems stay, which are replaced, annual cost difference</strong></li>
-    <li><input type="checkbox"> <strong>Faculty technology adoption plan that scales with the restructuring</strong></li>
   </ul>
 
   <h3>Transition Budget</h3>
@@ -730,15 +703,16 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
 
   <div class="tab-nav">
     <button class="btn btn-secondary" onclick="goTab(3)">← Design &amp; Test</button>
-    <button class="btn btn-primary" onclick="goTab(5)">The Technology Layer →</button>
+    <button class="btn btn-primary" onclick="goTab(5)">Technology Layer (Optional) →</button>
   </div>
 </div>
 
 <!-- TAB 6: TECHNOLOGY LAYER -->
 <div class="tab-content" id="tab-5">
   <span class="tag tag-cabinet">CABINET</span> <span class="tag tag-faculty">FACULTY</span>
+  <p class="small" style="color:var(--gray500); margin-bottom:8px; font-size:0.78rem;">OPTIONAL APPENDIX — by Jeff Ritter</p>
   <h2>Appendix C: The Technology Layer</h2>
-  <p class="phase-intro">A college that restructures its programs and governance but runs them on the same technology has solved half the problem. This appendix covers the other half.</p>
+  <p class="phase-intro">This appendix is a companion to the core workbook. A college that restructures its programs and governance but runs them on the same technology has solved half the problem. This section covers the other half — how AI and integrated systems can change the cost structure of the rebuilt college.</p>
 
   <div class="card" style="border-left: 4px solid var(--gold);">
     <h3>The Duolingo Ceiling</h3>
@@ -902,7 +876,6 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
     <div class="card"><h4>A3</h4><p>A one-page problem-solving format with seven boxes, used here to test each idea.</p></div>
     <div class="card"><h4>Contribution</h4><p>What a program brings in minus the costs that go away without it.</p></div>
     <div class="card"><h4>Discount Rate</h4><p>College-funded aid as a share of sticker tuition.</p></div>
-    <div class="card" style="border-left: 4px solid var(--gold);"><h4>Duolingo Ceiling</h4><p>The limit of what AI can do alone without human pedagogy. AI handles structured work; humans handle judgment, meaning and relationship.</p></div>
     <div class="card"><h4>Red Team</h4><p>A small group whose job is to show how a plan could fail.</p></div>
     <div class="card"><h4>Runway</h4><p>Months of spendable cash at the current rate of loss.</p></div>
     <div class="card"><h4>Stopping Rule</h4><p>A line set in advance that triggers a set action when crossed.</p></div>
@@ -960,7 +933,6 @@ function calcGap() {
   const otherRev = parseFloat(document.getElementById('gc_otherrev').value) || 0;
   const spending = parseFloat(document.getElementById('gc_spending').value) || 0;
   const varCost = parseFloat(document.getElementById('gc_varcost').value) || 0;
-  const hours = parseFloat(document.getElementById('gc_hours').value) || 0;
 
   const netTuition = sticker * (1 - discount / 100);
   const netRev = netTuition + housing;
@@ -970,7 +942,6 @@ function calcGap() {
   const contrib = netRev - varCost;
   const needed = contrib !== 0 ? Math.abs(gap / contrib) : 0;
   const discEffect = sticker * 0.01 * students;
-  const hoursCost = hours * 48 * 35; // 48 weeks, $35/hr avg
 
   document.getElementById('gc_nettuition').value = netTuition ? Math.round(netTuition) : '';
   document.getElementById('gc_netrev').value = netRev ? Math.round(netRev) : '';
@@ -980,7 +951,6 @@ function calcGap() {
   document.getElementById('gc_contrib').value = contrib ? Math.round(contrib) : '';
   document.getElementById('gc_needed').value = needed ? Math.round(needed) : '';
   document.getElementById('gc_disceffect').value = discEffect ? Math.round(discEffect) : '';
-  document.getElementById('gc_hourscost').value = hours ? Math.round(hoursCost) : '';
 
   // Style the gap field
   const gapInput = document.getElementById('gc_gap');
@@ -1004,7 +974,7 @@ function calcGap() {
       summaryText.innerHTML = `<strong>Annual deficit: $${(absGap/1000000).toFixed(2)}M</strong> ($${Math.abs(Math.round(gapStud)).toLocaleString()} per student). ` +
         `You need <strong>${Math.round(needed)} additional students</strong> at current contribution to close the gap. ` +
         `A one-point increase in discount rate costs <strong>$${Math.round(discEffect).toLocaleString()}</strong> per year.` +
-        (hours ? ` AI-automatable staff time is worth approximately <strong>$${Math.round(hoursCost).toLocaleString()}/year</strong>.` : '');
+        '';
     } else {
       summary.className = 'callout';
       summaryText.innerHTML = `<strong>Operating surplus: $${(gap/1000000).toFixed(2)}M.</strong> The college is covering its costs.`;
