@@ -21,7 +21,7 @@ Updated 2026-11-19. Read this first; it is the session state that travels betwee
 ## Vercel
 
 - Team `huddlehealth` (team_VQpNZDgcr3AMHl5U6P8KSIaj), project `college-reboot` (prj_8426UxeXrXhRFkbmbJ7qOi573KSL), linked to the fork.
-- Domain: **collegerunway.org** (Cloudflare DNS). Apex redirects 308 to `www.collegerunway.org`, which is attached to the project.
+- Domain: **collegerunway.org** (a second domain, collegereboot.org, is registered but not set up) (Cloudflare DNS). Apex redirects 308 to `www.collegerunway.org`, which is attached to the project.
 - Production is `main`, which is still the old static workbook. It becomes the workspace when PR #2 merges.
 - Preview of `team-app` with all settings: college-reboot-396g7qaqi-huddlehealth.vercel.app (rebuilt 2026-11-19). Vercel Authentication is on.
 
@@ -32,10 +32,10 @@ Updated 2026-11-19. Read this first; it is the session state that travels betwee
 | `TURSO_DATABASE_URL` | libsql://collegereboot-jacobr.aws-us-east-1.turso.io | same |
 | `TURSO_AUTH_TOKEN` | secret; SOPS `College_Reboot_token` | same |
 | `RESEND_API_KEY` | secret; SOPS `COLLEGE_RUNWAY_RESEND_API_KEY` (send-only, scoped to collegerunway.org) | same |
-| `EMAIL_FROM` | `College Runway <signin@collegerunway.org>` | same |
+| `EMAIL_FROM` | `College Reboot <signin@collegerunway.org>` (display name changed 2026-11-19; JMR keeps the College Reboot name) | same |
 | `APP_URL` | `https://www.collegerunway.org` | not set, so links use the preview host |
 
-- The preview and production share one Turso database. Test rows from 2026-11-19 are in it (see below).
+- The preview and production share one Turso database. Name any test rows "Test ... (delete me)" and delete them before go-live. The 2026-11-19 test rows were deleted the same day; every table is empty.
 - Resend: click and open tracking are **off** for collegerunway.org on purpose; sign-in links carry one-time tokens. DKIM, SPF and inbound MX verified. Only the unused tracking CNAME fails.
 - Inbound mail on collegerunway.org lands in Resend (Receiving), so an agent can sign in as `claude-test@collegerunway.org` and read the link through the Resend API.
 
@@ -44,18 +44,17 @@ Updated 2026-11-19. Read this first; it is the session state that travels betwee
 Sign-in email delivered, link pointed at the preview host (not a tracking redirect), signed in, set a name, created "Test College (delete me)", added an A3 team and a Money hard-question team, started an A3, autosave, sent draft 1 for review (locked), logged a question, started draft 2 citing it, version history filled in. No errors.
 
 Seen, not fixed:
-- Branding mismatch: page says "College Reboot", email subject says "College Reboot", sender and domain say College Runway.
+- Name: JMR keeps "College Reboot" (2026-11-19). The domain is still collegerunway.org.
 - A question cited by draft 2 stays "Open" in the log until someone marks it answered.
 - A team card's "Add someone" list still offers people already on that team.
 - "Asking for" only lists teams the asker is on.
 
 ## Next steps
 
-1. Delete the test data (user `claude-test@collegerunway.org`, workspace "Test College (delete me)") before go-live.
-2. Decide the name in the page copy and emails (College Reboot or College Runway).
-3. Merge PR #2 when happy (Jacob's call). Production then serves `/app` on www.collegerunway.org.
-4. Invite Jeff: People tab, invite as lead. Adding him to the GitHub repo is separate.
-5. Resend has an older full-access key named "collegerunway" (2026-11-18) that nothing reads; revoke it.
+1. **collegereboot.org** was registered at Cloudflare on 2026-11-19 with no DNS records and not yet in Vercel or Resend. Decide whether it becomes the main address and sender.
+2. Merge PR #2 when happy (Jacob's call). Production then serves `/app` on www.collegerunway.org.
+3. Invite Jeff: People tab, invite as lead. Adding him to the GitHub repo is separate.
+4. Resend has an older full-access key named "collegerunway" (2026-11-18) that nothing reads; revoke it.
 
 ## Other places that trace to Jacob
 
