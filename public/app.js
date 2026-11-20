@@ -142,7 +142,7 @@ function renderSignIn(expired) {
       ${config.emailConfigured ? "" : `<div class="notice blue">Email sign-in isn't switched on yet. If your workspace lead sent you an invite link, open that link to sign in.</div>`}
       <form id="f">
         <label for="email">Your email</label>
-        <input id="email" type="email" autocomplete="email" required>
+        <input id="email" type="email" autocomplete="email" autocapitalize="none" spellcheck="false" enterkeyhint="send" required>
         <div class="actions"><button class="btn">Email me a sign-in link</button></div>
       </form>
       <div id="msg"></div>
@@ -168,7 +168,7 @@ function renderName() {
     <div class="card narrow">
       <h1>Welcome</h1>
       <p>What name should your colleagues see?</p>
-      <form id="f"><label for="n">Your name</label><input id="n" type="text" required maxlength="120">
+      <form id="f"><label for="n">Your name</label><input id="n" type="text" required maxlength="120" autocomplete="name" autocapitalize="words" enterkeyhint="done">
       <div class="actions"><button class="btn">Continue</button></div></form>
     </div>`;
   $("#f").onsubmit = async (e) => {
@@ -195,7 +195,7 @@ async function renderHome() {
     <h2>Start a workspace for a college</h2>
     <div class="card">
       <form id="f" class="row">
-        <div><label for="cn">College name</label><input id="cn" type="text" required maxlength="160"></div>
+        <div><label for="cn">College name</label><input id="cn" type="text" required maxlength="160" autocapitalize="words"></div>
         <button class="btn">Create workspace</button>
       </form>
       <p class="muted small">You'll be its lead: you invite people, set up teams and start A3s.</p>
@@ -258,7 +258,7 @@ function collegeA3s(c, pane) {
         <label for="t">The idea</label><input id="t" type="text" required maxlength="200" placeholder="e.g. Evening degree completion for working adults">
         <label for="team">A3 team that holds the pen</label><select id="team">${a3Teams.map((t) => `<option value="${esc(t.id)}">${esc(t.name)}</option>`).join("")}</select>
         <label>Hard-question teams that review every draft</label>
-        <div class="chips">${reviewTeams.map((t) => `<label class="badge"><input type="checkbox" value="${esc(t.id)}" checked> ${esc(t.name)}</label>`).join("") || `<span class="muted small">None yet. Add them on the Teams tab.</span>`}</div>
+        <div class="chips">${reviewTeams.map((t) => `<label class="badge check"><input type="checkbox" value="${esc(t.id)}" checked> ${esc(t.name)}</label>`).join("") || `<span class="muted small">None yet. Add them on the Teams tab.</span>`}</div>
         <div class="actions"><button class="btn">Start the A3</button></div>
       </form>` : `<p class="muted">First create an A3 team on the Teams tab.</p>`}
     </div>` : ""}`;
@@ -298,7 +298,7 @@ function collegeTeams(c, pane) {
     <h2>Add a team</h2>
     <div class="card"><form id="f" class="row">
       <div><label for="k">Kind</label><select id="k">${opts(config.teamKinds, "a3")}</select></div>
-      <div><label for="n">Name (optional)</label><input id="n" type="text" maxlength="120" placeholder="e.g. Adult degree team"></div>
+      <div><label for="n">Name (optional)</label><input id="n" type="text" maxlength="120" autocapitalize="words" placeholder="e.g. Adult degree team"></div>
       <button class="btn">Add team</button>
     </form></div>` : ""}`;
   if (!c.isLead) return;
@@ -329,13 +329,13 @@ function collegeTeams(c, pane) {
 
 function collegePeople(c, pane) {
   pane.innerHTML = `
-    <table>
-      <tr><th>Name</th><th>Email</th><th>Role</th><th></th></tr>
+    <table class="stack">
+      <tr class="head"><th>Name</th><th>Email</th><th>Role</th><th></th></tr>
       ${c.members.map((m) => `
       <tr data-user="${esc(m.id)}">
-        <td>${esc(m.name || "")}${m.signed_in ? "" : ` <span class="badge">not signed in yet</span>`}</td>
-        <td>${esc(m.email)}</td>
-        <td>${c.isLead ? `<select class="role">${opts(config.roles, m.role)}</select>` : esc(config.roles[m.role] || m.role)}</td>
+        <td data-label="Name">${esc(m.name || "")}${m.signed_in ? "" : ` <span class="badge">not signed in yet</span>`}</td>
+        <td data-label="Email" class="email">${esc(m.email)}</td>
+        <td data-label="Role">${c.isLead ? `<select class="role" aria-label="Role">${opts(config.roles, m.role)}</select>` : esc(config.roles[m.role] || m.role)}</td>
         <td>${c.isLead ? `<button class="link link-new">New invite</button> · <button class="link rm">Remove</button>` : ""}</td>
       </tr>`).join("")}
     </table>
@@ -343,8 +343,8 @@ function collegePeople(c, pane) {
     ${c.isLead ? `
     <h2>Invite someone</h2>
     <div class="card"><form id="f" class="row">
-      <div><label for="e">Email</label><input id="e" type="email" required></div>
-      <div><label for="n">Name</label><input id="n" type="text" maxlength="120"></div>
+      <div><label for="e">Email</label><input id="e" type="email" required autocomplete="off" autocapitalize="none" spellcheck="false"></div>
+      <div><label for="n">Name</label><input id="n" type="text" maxlength="120" autocomplete="off" autocapitalize="words"></div>
       <div><label for="r">Role</label><select id="r">${opts(config.roles, "faculty_staff")}</select></div>
       <button class="btn">Invite</button>
     </form>
@@ -554,7 +554,7 @@ function drawNextPanel(state, el) {
     <h3>Start draft ${v.number + 1}</h3>
     <p class="muted small">The new draft starts as a copy of draft ${v.number}. Say what you're changing and which questions drove it, so the version history tells the story.</p>
     <label for="wc">What changes in this draft</label><textarea id="wc" style="min-height:70px"></textarea>
-    ${asked.length ? `<label>Which questions drove it</label>${asked.map((q) => `<label style="font-weight:400"><input type="checkbox" value="${esc(q.id)}"> ${esc(q.body)}</label>`).join("")}` : ""}
+    ${asked.length ? `<label>Which questions drove it</label>${asked.map((q) => `<label class="check"><input type="checkbox" value="${esc(q.id)}"> <span>${esc(q.body)}</span></label>`).join("")}` : ""}
     <div class="actions"><button class="btn gold" id="go">Start draft ${v.number + 1}</button></div>
   </div>`;
   $("#go", el).onclick = async () => {
@@ -570,22 +570,22 @@ function drawLog(state, pane) {
   const maxV = state.latest.number;
   pane.innerHTML = `
     <p class="muted">Every question from every review, and what the A3 team changed because of it.</p>
-    <table>
-      <tr><th>Draft</th><th>Box</th><th>Question</th><th>Asked by</th><th>What we changed</th></tr>
+    <table class="stack">
+      <tr class="head"><th>Draft</th><th>Box</th><th>Question</th><th>Asked by</th><th>What we changed</th></tr>
       ${data.questions.map((q) => {
         const asker = c.people[q.asked_by];
         const team = q.asked_by_team_id ? c.teamById[q.asked_by_team_id] : null;
         const canDel = q.asked_by === data.me || data.role === "lead";
         return `<tr data-q="${esc(q.id)}">
-          <td>${esc(q.version_number)}</td>
-          <td>${q.box ? esc(q.box + ". " + BOXES[q.box - 1].name) : "Whole draft"}</td>
-          <td>${esc(q.body)}${canDel ? `<br><button class="link small del">Remove</button>` : ""}</td>
-          <td>${esc(nameOf(asker))}${team ? `<br><span class="muted small">${esc(team.name)}</span>` : ""}</td>
-          <td style="min-width:240px">${data.canEdit ? `
-            <textarea class="ans" style="min-height:60px">${esc(q.answer)}</textarea>
+          <td data-label="Draft">${esc(q.version_number)}</td>
+          <td data-label="Box">${q.box ? esc(q.box + ". " + BOXES[q.box - 1].name) : "Whole draft"}</td>
+          <td data-label="Question">${esc(q.body)}${canDel ? `<br><button class="link small del">Remove</button>` : ""}</td>
+          <td data-label="Asked by">${esc(nameOf(asker))}${team ? `<br><span class="muted small">${esc(team.name)}</span>` : ""}</td>
+          <td data-label="What we changed" class="wide">${data.canEdit ? `
+            <textarea class="ans" aria-label="What we changed" style="min-height:60px">${esc(q.answer)}</textarea>
             <div class="row" style="margin-top:6px">
-              <select class="inv"><option value="">Changed in draft…</option>${Array.from({ length: maxV }, (_, i) => i + 1).map((n) => `<option value="${n}"${Number(q.answered_in_version) === n ? " selected" : ""}>Draft ${n}</option>`).join("")}</select>
-              <select class="qs"><option value="open"${q.status === "open" ? " selected" : ""}>Open</option><option value="answered"${q.status === "answered" ? " selected" : ""}>Answered</option></select>
+              <select class="inv" aria-label="Changed in draft"><option value="">Changed in draft…</option>${Array.from({ length: maxV }, (_, i) => i + 1).map((n) => `<option value="${n}"${Number(q.answered_in_version) === n ? " selected" : ""}>Draft ${n}</option>`).join("")}</select>
+              <select class="qs" aria-label="Status"><option value="open"${q.status === "open" ? " selected" : ""}>Open</option><option value="answered"${q.status === "answered" ? " selected" : ""}>Answered</option></select>
               <button class="btn secondary save">Save</button>
             </div>` : `${esc(q.answer) || `<span class="muted">Not yet</span>`}${q.answered_in_version ? `<br><span class="muted small">Draft ${esc(q.answered_in_version)}</span>` : ""}`}
           </td></tr>`;
@@ -613,12 +613,12 @@ function drawHistory(state, pane) {
   const qById = Object.fromEntries(data.questions.map((q) => [q.id, q]));
   pane.innerHTML = `
     <p class="muted">If an A3 looks the same after review as it did before, nobody really reviewed it.</p>
-    <table>
-      <tr><th>Draft</th><th>Started</th><th>What changed</th><th>Which questions drove it</th><th></th></tr>
+    <table class="stack">
+      <tr class="head"><th>Draft</th><th>Started</th><th>What changed</th><th>Which questions drove it</th><th></th></tr>
       ${data.versions.map((v) => `<tr>
-        <td>${v.number}</td><td>${esc(fmtDate(v.created_at))}<br><span class="muted small">${v.status === "draft" ? "being written" : "sent " + esc(fmtDate(v.submitted_at))}</span></td>
-        <td>${esc(v.what_changed) || `<span class="muted">${v.number === 1 ? "First draft" : "Not described"}</span>`}</td>
-        <td>${v.driven_by.map((id) => qById[id] ? `<div class="small">${esc(qById[id].body)} <span class="muted">(${esc(nameOf(c.people[qById[id].asked_by]))})</span></div>` : "").join("") || `<span class="muted">None</span>`}</td>
+        <td data-label="Draft">${v.number}</td><td data-label="Started">${esc(fmtDate(v.created_at))}<br><span class="muted small">${v.status === "draft" ? "being written" : "sent " + esc(fmtDate(v.submitted_at))}</span></td>
+        <td data-label="What changed">${esc(v.what_changed) || `<span class="muted">${v.number === 1 ? "First draft" : "Not described"}</span>`}</td>
+        <td data-label="Which questions drove it">${v.driven_by.map((id) => qById[id] ? `<div class="small">${esc(qById[id].body)} <span class="muted">(${esc(nameOf(c.people[qById[id].asked_by]))})</span></div>` : "").join("") || `<span class="muted">None</span>`}</td>
         <td>${v.number > 1 ? `<button class="link cmp" data-n="${v.number}">Compare with draft ${v.number - 1}</button>` : ""}</td>
       </tr>`).join("")}
     </table>
@@ -646,4 +646,13 @@ async function refreshA3(state) {
     const sig = (d) => JSON.stringify([d.a3, d.versions.map((v) => [v.number, v.status, v.updated_at]), d.questions.map((q) => [q.id, q.updated_at])]);
     if (sig(fresh) !== sig(state.data)) render();
   } catch {}
+}
+
+// Text boxes grow with what's typed, so nobody scrolls inside a small box on a phone.
+// Browsers with CSS field-sizing do this themselves; others get this fallback.
+if (!(window.CSS && CSS.supports("field-sizing", "content"))) {
+  const grow = (t) => { t.style.height = "auto"; t.style.height = t.scrollHeight + 2 + "px"; };
+  document.addEventListener("input", (e) => { if (e.target.tagName === "TEXTAREA") grow(e.target); });
+  new MutationObserver(() => { for (const t of document.querySelectorAll("textarea")) if (t.scrollHeight > t.clientHeight) grow(t); })
+    .observe(document.getElementById("view"), { childList: true, subtree: true });
 }
