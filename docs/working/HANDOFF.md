@@ -1,6 +1,6 @@
 # Handoff: College Reboot team workspace
 
-Updated 2026-11-18. Read this first; it is the session state that travels between sessions.
+Updated 2026-11-19. Read this first; it is the session state that travels between sessions.
 
 ## Where things are
 
@@ -21,41 +21,46 @@ Updated 2026-11-18. Read this first; it is the session state that travels betwee
 ## Vercel
 
 - Team `huddlehealth` (team_VQpNZDgcr3AMHl5U6P8KSIaj), project `college-reboot` (prj_8426UxeXrXhRFkbmbJ7qOi573KSL), linked to the fork.
+- Domain: **collegerunway.org** (Cloudflare DNS). Apex redirects 308 to `www.collegerunway.org`, which is attached to the project.
 - Production is `main`, which is still the old static workbook. It becomes the workspace when PR #2 merges.
-- A preview of `team-app` built cleanly: college-reboot-git-team-app-huddlehealth.vercel.app. Vercel Authentication is on, so open it while signed in to Vercel.
-- The env vars below weren't set when that preview was built, so it needs a redeploy after they're added.
+- Preview of `team-app` with all settings: college-reboot-396g7qaqi-huddlehealth.vercel.app (rebuilt 2026-11-19). Vercel Authentication is on.
 
-## Settings still to add (Vercel, then redeploy)
+## Settings (all set 2026-11-19)
 
-| Variable | Status |
-| --- | --- |
-| `TURSO_DATABASE_URL` | Database created (Turso `collegereboot`, aws-us-east-1). Jacob has the URL. |
-| `TURSO_AUTH_TOKEN` | Stored in the 636 SOPS file as `College_Reboot_token`. Not yet in Vercel. |
-| `RESEND_API_KEY` | Not yet. |
-| `EMAIL_FROM` | Not yet. **Not mical.net**: Jacob doesn't want the sender traced to him. |
-| `APP_URL` | Optional; set once there's a custom domain. |
+| Variable | Production | Preview (team-app only) |
+| --- | --- | --- |
+| `TURSO_DATABASE_URL` | libsql://collegereboot-jacobr.aws-us-east-1.turso.io | same |
+| `TURSO_AUTH_TOKEN` | secret; SOPS `College_Reboot_token` | same |
+| `RESEND_API_KEY` | secret; SOPS `COLLEGE_RUNWAY_RESEND_API_KEY` (send-only, scoped to collegerunway.org) | same |
+| `EMAIL_FROM` | `College Runway <signin@collegerunway.org>` | same |
+| `APP_URL` | `https://www.collegerunway.org` | not set, so links use the preview host |
 
-Without the two email variables, email sign-in is off in production, so nobody (Jacob included) can sign in. The sender is the real blocker.
+- The preview and production share one Turso database. Test rows from 2026-11-19 are in it (see below).
+- Resend: click and open tracking are **off** for collegerunway.org on purpose; sign-in links carry one-time tokens. DKIM, SPF and inbound MX verified. Only the unused tracking CNAME fails.
+- Inbound mail on collegerunway.org lands in Resend (Receiving), so an agent can sign in as `claude-test@collegerunway.org` and read the link through the Resend API.
 
-## Sender options (not tied to Jacob)
+## Clicked through on the preview (2026-11-19)
 
-1. **Recommended:** register the product's own domain, with registrar WHOIS privacy. The name is still open; candidates from Nov 18 are Next Charter, Durable College, Margin & Mission and College Bearing. Verify it in Resend and send from something like `College Reboot <signin@thatdomain>`. The same domain then serves the site, which also hides the Vercel URL.
-2. Any neutral domain Jacob already holds that isn't publicly connected to him.
-3. Resend's test sender is for testing only: it delivers only to the Resend account owner's own address.
+Sign-in email delivered, link pointed at the preview host (not a tracking redirect), signed in, set a name, created "Test College (delete me)", added an A3 team and a Money hard-question team, started an A3, autosave, sent draft 1 for review (locked), logged a question, started draft 2 citing it, version history filled in. No errors.
 
-## Other places that trace to Jacob
-
-- The `huddlehealth` team slug in every `*.vercel.app` URL. A custom domain fixes the public one.
-- GitHub `jacobmr`: repo owner, PR author, Vercel bot comments, and the repository and homepage fields in `package.json`.
-- The Turso host name includes Jacob's Turso org name. It's server-side only; visitors never see it.
+Seen, not fixed:
+- Branding mismatch: page says "College Reboot", email subject says "College Reboot", sender and domain say College Runway.
+- A question cited by draft 2 stays "Open" in the log until someone marks it answered.
+- A team card's "Add someone" list still offers people already on that team.
+- "Asking for" only lists teams the asker is on.
 
 ## Next steps
 
-1. Pick the name and register the domain (Jacob's call; costs money).
-2. Add the four env vars in Vercel; redeploy the `team-app` preview.
-3. Sign in on the preview, create a workspace, click through an A3 loop. The screens haven't been clicked through in a browser yet; only the API is tested.
-4. Merge PR #2 when happy (Jacob's call), point the domain at the project, set `APP_URL`.
-5. Invite Jeff: People tab, invite as lead. Adding him to the GitHub repo is separate.
+1. Delete the test data (user `claude-test@collegerunway.org`, workspace "Test College (delete me)") before go-live.
+2. Decide the name in the page copy and emails (College Reboot or College Runway).
+3. Merge PR #2 when happy (Jacob's call). Production then serves `/app` on www.collegerunway.org.
+4. Invite Jeff: People tab, invite as lead. Adding him to the GitHub repo is separate.
+5. Resend has an older full-access key named "collegerunway" (2026-11-18) that nothing reads; revoke it.
+
+## Other places that trace to Jacob
+
+- GitHub `jacobmr`: repo owner, PR author, Vercel bot comments, and the repository and homepage fields in `package.json`.
+- The Turso host name includes Jacob's Turso org name (`jacobr`). Server-side only.
 
 ## Open questions (Jacob's, not decided)
 
