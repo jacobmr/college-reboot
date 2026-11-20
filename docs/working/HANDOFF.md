@@ -1,12 +1,11 @@
 # Handoff: College Reboot team workspace
 
-Updated 2026-11-19. Read this first; it is the session state that travels between sessions.
+Updated 2026-11-20. Read this first; it is the session state that travels between sessions.
 
 ## Where things are
 
 - **Repo:** jacobmr/college-reboot (Jacob's fork of Jeff Ritter's repo). Jeff's original still serves his live site; nothing here touches it.
-- **PR #1** (`workbook-proposal`): the workbook changes (TAM/SAM/SOM up front, A3 as an iterative loop, six market-read examples, wording and voice passes).
-- **PR #2** (`team-app` into `main`): the stored team workspace. It includes PR #1's commits. CI is green and it has no conflicts. Nobody has merged it.
+- **Live:** https://www.collegereboot.org (workbook) and https://www.collegereboot.org/app (team workspace). PR #1 (workbook) and PR #2 (workspace) were merged by Jacob on 2026-11-20.
 - **Plan doc for the app:** https://claude.ai/artifact/MPfMLtV5dUKD1BAHKu4xwC
 
 ## What the app is
@@ -20,26 +19,31 @@ Updated 2026-11-19. Read this first; it is the session state that travels betwee
 
 ## Vercel
 
-- Team `huddlehealth` (team_VQpNZDgcr3AMHl5U6P8KSIaj), project `college-reboot` (prj_8426UxeXrXhRFkbmbJ7qOi573KSL), linked to the fork.
-- Domain: **collegerunway.org** (a second domain, collegereboot.org, is registered but not set up) (Cloudflare DNS). Apex redirects 308 to `www.collegerunway.org`, which is attached to the project.
-- Production is `main`, which is still the old static workbook. It becomes the workspace when PR #2 merges.
-- Preview of `team-app` with all settings: college-reboot-396g7qaqi-huddlehealth.vercel.app (rebuilt 2026-11-19). Vercel Authentication is on.
+- Team `huddlehealth` (team_VQpNZDgcr3AMHl5U6P8KSIaj), project `college-reboot` (prj_8426UxeXrXhRFkbmbJ7qOi573KSL), linked to the fork. Production is `main`.
+- Main address: **www.collegereboot.org**. `collegereboot.org`, `collegerunway.org` and `www.collegerunway.org` all redirect 308 to it. Both domains are registered at Cloudflare, DNS only (grey cloud).
+- Preview builds of `team-app` (now merged) still have their own settings scoped to that branch; other branches get none.
 
-## Settings (all set 2026-11-19)
+## Settings (production, as of 2026-11-20)
 
-| Variable | Production | Preview (team-app only) |
-| --- | --- | --- |
-| `TURSO_DATABASE_URL` | libsql://collegereboot-jacobr.aws-us-east-1.turso.io | same |
-| `TURSO_AUTH_TOKEN` | secret; SOPS `College_Reboot_token` | same |
-| `RESEND_API_KEY` | secret; SOPS `COLLEGE_RUNWAY_RESEND_API_KEY` (send-only, scoped to collegerunway.org) | same |
-| `EMAIL_FROM` | `College Reboot <signin@collegerunway.org>` (display name changed 2026-11-19; JMR keeps the College Reboot name) | same |
-| `APP_URL` | `https://www.collegerunway.org` | not set, so links use the preview host |
+| Variable | Value |
+| --- | --- |
+| `TURSO_DATABASE_URL` | libsql://collegereboot-jacobr.aws-us-east-1.turso.io |
+| `TURSO_AUTH_TOKEN` | secret; SOPS `College_Reboot_token` |
+| `RESEND_API_KEY` | secret; SOPS `COLLEGE_REBOOT_RESEND_API_KEY` (send-only, scoped to collegereboot.org) |
+| `EMAIL_FROM` | `College Reboot <signin@collegereboot.org>` |
+| `APP_URL` | `https://www.collegereboot.org` |
 
-- The preview and production share one Turso database. Name any test rows "Test ... (delete me)" and delete them before go-live. The 2026-11-19 test rows were deleted the same day; every table is empty.
-- Resend: click and open tracking are **off** for collegerunway.org on purpose; sign-in links carry one-time tokens. DKIM, SPF and inbound MX verified. Only the unused tracking CNAME fails.
-- Inbound mail on collegerunway.org lands in Resend (Receiving), so an agent can sign in as `claude-test@collegerunway.org` and read the link through the Resend API.
+- Vercel env vars apply at build time: change one, then redeploy.
+- Both secrets are registered in inventory `secrets/placements.yaml`.
+- Resend: collegereboot.org verified (DKIM, SPF). Click and open tracking are **off** on purpose; sign-in links carry one-time tokens. collegereboot.org has no inbound mail.
+- collegerunway.org stays in Resend with inbound mail on, so an agent can sign in as `claude-test@collegerunway.org` and read the link through the Resend API (Receiving).
+- Production and preview share one Turso database. Name test rows "Test ... (delete me)" and delete them right after. As of 2026-11-20 every table is empty.
 
-## Clicked through on the preview (2026-11-19)
+## Checked on production (2026-11-20)
+
+Redirects from all three other hosts land on www.collegereboot.org. A sign-in email went out from `College Reboot <signin@collegereboot.org>`, its link pointed at www.collegereboot.org, it set a session, and the same link was refused a second time. The test user was then deleted.
+
+## Clicked through on the preview (2026-11-19, before the domain change)
 
 Sign-in email delivered, link pointed at the preview host (not a tracking redirect), signed in, set a name, created "Test College (delete me)", added an A3 team and a Money hard-question team, started an A3, autosave, sent draft 1 for review (locked), logged a question, started draft 2 citing it, version history filled in. No errors.
 
@@ -51,10 +55,10 @@ Seen, not fixed:
 
 ## Next steps
 
-1. **collegereboot.org** was registered at Cloudflare on 2026-11-19 with no DNS records and not yet in Vercel or Resend. Decide whether it becomes the main address and sender.
-2. Merge PR #2 when happy (Jacob's call). Production then serves `/app` on www.collegerunway.org.
-3. Invite Jeff: People tab, invite as lead. Adding him to the GitHub repo is separate.
-4. Resend has an older full-access key named "collegerunway" (2026-11-18) that nothing reads; revoke it.
+1. Invite Jeff: People tab, invite as lead. Adding him to the GitHub repo is separate.
+2. The small UI issues listed above.
+
+Done 2026-11-20: the two unused Resend keys were revoked; the only College Reboot key left is `college-reboot-vercel-sending`.
 
 ## Other places that trace to Jacob
 
