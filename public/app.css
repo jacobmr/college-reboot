@@ -24,7 +24,12 @@ p { margin: 6px 0; }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
 label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--g700); margin: 10px 0 4px; }
 input[type=text], input[type=email], select, textarea { width: 100%; font: inherit; font-size: 0.92rem; padding: 8px 10px; border: 1px solid var(--g300); border-radius: 6px; background: #fff; }
-textarea { min-height: 96px; resize: vertical; line-height: 1.5; }
+textarea { min-height: 96px; resize: vertical; line-height: 1.5; field-sizing: content; max-height: 70vh; }
+input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--navy); vertical-align: -3px; flex: 0 0 auto; }
+label.check { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; font-size: 0.88rem; color: var(--g900); margin: 6px 0; cursor: pointer; }
+label.badge.check { display: inline-flex; align-items: center; gap: 6px; font-size: 0.8rem; padding: 6px 12px; margin: 0; border-radius: 16px; }
+td.wide { min-width: 240px; }
+td.email { word-break: break-all; }
 input:focus, select:focus, textarea:focus { outline: 2px solid var(--steel); outline-offset: 0; border-color: var(--steel); }
 button { font: inherit; cursor: pointer; }
 .btn { display: inline-block; border: 1px solid var(--navy); background: var(--navy); color: #fff; padding: 8px 14px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; }
@@ -73,4 +78,29 @@ th { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; colo
 .compare .text { white-space: pre-wrap; font-size: 0.85rem; background: var(--g100); padding: 8px; border-radius: 6px; min-height: 2em; }
 #toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--navy); color: #fff; padding: 10px 16px; border-radius: 6px; font-size: 0.85rem; opacity: 0; transition: opacity 0.2s; pointer-events: none; max-width: 90vw; }
 #toast.show { opacity: 1; }
-@media (max-width: 640px) { .compare { grid-template-columns: 1fr; } h1 { font-size: 1.45rem; } }
+@media (max-width: 640px) {
+  .compare { grid-template-columns: 1fr; }
+  h1 { font-size: 1.45rem; }
+  main { padding: 20px 14px 80px; }
+  .card { padding: 14px; }
+  /* 16px text stops iPhones zooming in on focus; 44px is a comfortable tap height. */
+  input[type=text], input[type=email], select, textarea { font-size: 16px; padding: 10px 12px; }
+  input[type=text], input[type=email], select { min-height: 44px; }
+  input[type=checkbox] { width: 22px; height: 22px; }
+  label.check { font-size: 0.95rem; padding: 6px 0; }
+  .btn { min-height: 44px; padding: 10px 16px; font-size: 0.95rem; }
+  button.link { min-height: 32px; }
+  .row > * { flex-basis: 100%; }
+  .row > .btn, .row > button { flex: 1 1 100%; }
+  .tabs a { padding: 10px 12px; }
+  .list a.item { flex-direction: column; gap: 6px; }
+  .list a.item .chips { align-items: flex-start; }
+  /* Wide tables become one card per row, each cell labelled. */
+  table.stack, .stack tbody, .stack tr, .stack td { display: block; width: 100%; }
+  table.stack { background: none; }
+  .stack tr.head { display: none; }
+  .stack tr { background: #fff; border: 1px solid var(--g200); border-radius: var(--radius); margin: 10px 0; padding: 6px 0; }
+  .stack td { border: 0; padding: 6px 14px; min-width: 0; }
+  .stack td[data-label]::before { content: attr(data-label); display: block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--g500); margin-bottom: 2px; }
+  .stack td:empty { display: none; }
+}
