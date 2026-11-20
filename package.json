@@ -1,0 +1,23 @@
+{
+  "name": "college-reboot",
+  "scripts": {
+    "test": "node --test \"test/**/*.test.mjs\"",
+    "dev": "node scripts/dev.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jacobmr/college-reboot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jacobmr/college-reboot/issues"
+  },
+  "homepage": "https://github.com/jacobmr/college-reboot#readme",
+  "dependencies": {
+    "@libsql/client": "^0.15.15"
+  },
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  }
+}

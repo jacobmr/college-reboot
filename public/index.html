@@ -153,6 +153,16 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
 .module-card p { font-size: 0.8rem; color: var(--gray500); margin: 0; }
 .module-num { font-family: 'JetBrains Mono'; font-size: 0.7rem; color: var(--steel); font-weight: 700; }
 
+/* Market examples */
+.market-card { border-left: 4px solid var(--gold); }
+.market-claim { font-size: 1rem; color: var(--navy); }
+.market-list { margin: 0 0 8px 18px; }
+.market-list li { font-size: 0.86rem; color: var(--gray700); margin-bottom: 6px; }
+.src-wrap { font-size: 0.75rem; color: var(--gray500); white-space: nowrap; }
+a.src { color: var(--steel); }
+details.card summary { list-style: revert; }
+@media print { details.card { display: block; } details.card > * { display: block; } }
+
 /* AI table */
 .ai-table td:nth-child(2), .ai-table td:nth-child(3), .ai-table td:nth-child(4) { text-align: center; width: 100px; }
 .ai-check { color: var(--green); font-weight: 700; font-size: 1.1rem; }
@@ -188,6 +198,7 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
         <div class="header-sub">A fill-in-the-blanks guide for presidents, boards and campus teams</div>
       </div>
       <div class="header-actions">
+        <a class="btn-print" href="/app" style="text-decoration:none;">Team workspace</a>
         <button class="btn-print" onclick="window.print()">Print / PDF</button>
       </div>
     </div>
@@ -198,7 +209,7 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
       <div class="tab" data-tab="2"><span class="tab-num">3</span>Market Research</div>
       <div class="tab" data-tab="3"><span class="tab-num">4</span>Design &amp; Test</div>
       <div class="tab" data-tab="4"><span class="tab-num">5</span>Decide &amp; Rebuild</div>
-      <div class="tab" data-tab="5"><span class="tab-num">6</span>Tech Layer (Optional)</div>
+      <div class="tab" data-tab="5"><span class="tab-num">6</span>Market Examples</div>
       <div class="tab" data-tab="6"><span class="tab-num">7</span>Appendices</div>
     </div>
   </div>
@@ -209,7 +220,7 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
 <!-- TAB 1: HERE WE ARE -->
 <div class="tab-content active" id="tab-0">
   <h2>Here We Are</h2>
-  <p class="phase-intro">Our college spends more each year than it brings in, and doing a little less of the same thing will not fix that. This section explains why in plain terms, and why the answer depends on all of us.</p>
+  <p class="phase-intro">Our college spends more each year than it brings in, and doing a little less of the same thing won't fix that. This section explains why, in plain terms, and why the fix depends on all of us.</p>
 
   <div class="card">
     <h3>Fewer students, more choices</h3>
@@ -224,24 +235,60 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
 
   <div class="card">
     <h3>What the market wants decides what we can sell</h3>
-    <p>Think of a concert hall with empty seats. If people do not want to hear the program, a bigger poster will not fill the hall. Better marketing tells more people what we offer. It cannot make them want it.</p>
+    <p>Think of a concert hall with empty seats. If people don't want to hear the program, a bigger poster won't fill the hall. Better marketing tells more people what we offer. It can't make them want it.</p>
     <p>Business people call this <strong>product/market fit</strong>: offering something enough people want, at a price they will pay, that costs less to deliver than it brings in. When a college has a fit problem, the offering has to change: what we teach, how, when, where, for whom and at what price.</p>
   </div>
 
   <div class="card">
-    <h3>Why the people closest to the college should not set the direction</h3>
-    <p>Current students chose us. Faculty built what we offer. Both are the people for whom the current college already works. That makes them the right people to tell us <strong>what must not be lost</strong>, and the wrong people to tell us what the students who are not choosing us want.</p>
+    <h3>How big is the market? TAM, SAM and SOM</h3>
+    <p>Before anyone argues for an idea, we should know how many people might want it. Investors size a market in three steps, and the same steps work for a college.</p>
+    <table>
+      <tr><th style="width:170px;">Term</th><th>What it means for a college</th></tr>
+      <tr><td class="label">TAM: Total Addressable Market</td><td>Everyone who could want this kind of education and whom we could plausibly reach. For example, adults in our region who started college and never finished.</td></tr>
+      <tr><td class="label">SAM: Serviceable Available Market</td><td>The part of the TAM we can actually serve: close enough to campus or within our online reach, interested in fields we teach, ready for our academic level and able to pay our net price.</td></tr>
+      <tr><td class="label">SOM: Serviceable Obtainable Market</td><td>The share of the SAM we can realistically win each year within three years, after the community college, the state university and the big online programs take their share.</td></tr>
+    </table>
+    <p style="margin-top:14px;">The TAM always looks big. The SOM is the number that matters, because it's the students who will actually enroll. Be wary of any SOM above a few percent of the SAM unless the interviews in Phase 2 back it up, because every competitor is reading the same demographic charts we are.</p>
+  </div>
+
+  <div class="worksheet">
+    <div class="worksheet-header">Example College: Sizing One Idea</div>
+    <table>
+      <tr><td class="label">The idea</td><td>Evening degree completion for working adults</td><td class="how">Numbers are imaginary</td></tr>
+      <tr><td class="label">TAM</td><td>400,000 people</td><td class="how">Adults in our region with some college and no degree</td></tr>
+      <tr><td class="label">SAM</td><td>30,000 people</td><td class="how">Within a 45-minute drive or our online reach, in fields we teach, able to pay about $14,000 a year</td></tr>
+      <tr><td class="label">SOM</td><td>150 students a year</td><td class="how">0.5% of the SAM</td></tr>
+      <tr><td class="label">Contribution per student</td><td>$8,000</td><td class="how">$14,000 net revenue − $6,000 in costs that come with each added student</td></tr>
+      <tr class="result-row"><td class="label">Annual contribution at SOM</td><td>$1.2 million</td><td class="how">150 × $8,000</td></tr>
+      <tr class="warning-row"><td class="label">Share of the $11.25 million gap</td><td>About 11%</td><td class="how">$1.2M ÷ $11.25M</td></tr>
+    </table>
+  </div>
+
+  <div class="callout insight">
+    <div class="callout-label">What the example teaches</div>
+    <p>A good idea with real demand closed about a tenth of the gap. Most colleges will need two or three ideas, a smaller cost base, or both. The board should expect that answer and plan for it from the start.</p>
+  </div>
+
+  <div class="card">
+    <h3>Every college needs to find its own path</h3>
+    <p>No two colleges will get there the same way. What works for a nursing college in a small city won't work for an arts college in the mountains or a faith-based college in the suburbs. Our plan has to build on what's already true about us: our place, our people, our reputation and the things students say we do better than anyone nearby.</p>
+    <p>This workbook gives every college the same tools. Where they lead depends on the evidence we gather in Phase 2 and an honest look at who we are.</p>
+  </div>
+
+  <div class="card">
+    <h3>Why the people closest to the college shouldn't set the direction</h3>
+    <p>Current students chose us. Faculty built what we offer. The current college already works for both groups. So they're the people to tell us <strong>what must not be lost</strong>. To learn what the students who aren't choosing us want, we have to ask those students.</p>
     <p>This workbook asks faculty and students to do real work: supply facts, propose ideas, test them, design the new offering and deliver it. The direction itself comes from evidence about the students we are trying to reach.</p>
   </div>
 
   <div class="card">
     <h3>Why we are sharing more than usual</h3>
-    <p>Colleges in trouble often keep the numbers quiet, hope next year's class is bigger and protect the identity they have. Each of those feels prudent. Together they use up the time and money needed to change.</p>
-    <p>Plans also fail when leaders decide in a small room, agree too quickly and avoid being wrong in public. The cure is more people looking at the same facts, and someone whose job is to say the plan will not work.</p>
+    <p>Colleges in trouble often keep the numbers quiet, hope next year's class is bigger and protect the identity they have. Each step feels prudent, but together they burn the time and money the college needs to change.</p>
+    <p>Plans also fail when leaders decide in a small room, agree too quickly and avoid being wrong in public. The fix is to put the same facts in front of more people, and to give someone the job of arguing that the plan won't work.</p>
   </div>
 
   <h3>The Six Ideas That Explain Every College Budget</h3>
-  <p>You do not need a business degree to use them, and you do need all six to judge any idea for the college's future.</p>
+  <p>You don't need a business degree to use them. You do need all six to judge any idea for the college's future.</p>
 
   <div class="card-grid">
     <div class="card">
@@ -266,7 +313,7 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
     </div>
     <div class="card">
       <h4>6. Cash Runway</h4>
-      <p>How many months the college can pay its bills from cash and investments it is allowed to spend, at its current rate of loss. <strong>Runway is the clock.</strong></p>
+      <p>How many months the college can pay its bills from cash and investments it is allowed to spend, at its current rate of loss. <strong>It tells you how much time you have.</strong></p>
     </div>
   </div>
 
@@ -274,7 +321,7 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
   <p>This is an imaginary college. You will replace every number with yours in Phase 1.</p>
 
   <div class="worksheet">
-    <div class="worksheet-header">Example College — The Gap</div>
+    <div class="worksheet-header">Example College: The Gap</div>
     <table>
       <tr><td class="label">Students</td><td>1,500</td><td class="how">Fall enrollment</td></tr>
       <tr><td class="label">Sticker tuition</td><td>$50,000</td><td class="how">Published price</td></tr>
@@ -296,8 +343,8 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
   <h3>Three Rules for the Whole Year</h3>
   <ol class="num-list">
     <li><strong>Numbers first, opinions second.</strong> Every idea gets tested against the same worksheets.</li>
-    <li><strong>The people who are here help build the future, and the people who are not here tell us what it must be.</strong> Prospective students set the direction.</li>
-    <li><strong>Change moves at the speed of trust.</strong> Share more than feels comfortable, on a schedule, and never share a number you will have to take back.</li>
+    <li><strong>Prospective students set the direction.</strong> Current students and faculty help build what comes next.</li>
+    <li><strong>Build trust by sharing early.</strong> Share more than feels comfortable, on a regular schedule, and never share a number you'll have to take back.</li>
   </ol>
 
   <h3>Who Does What</h3>
@@ -336,7 +383,7 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
   </ul>
 
   <h3>The Gap Calculator</h3>
-  <p>Enter your numbers. The workbook computes the rest.</p>
+  <p>Enter your numbers. The workbook computes the rest. Nothing you type in these calculators is saved or sent anywhere, and you don't need to sign in to use them.</p>
 
   <div class="worksheet">
     <div class="worksheet-header">
@@ -355,22 +402,22 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
         <td><input type="number" id="gc_students" placeholder="e.g. 1500" oninput="calcGap()"></td>
       </tr>
       <tr>
-        <td><strong>—</strong></td>
+        <td></td>
         <td class="label">Sticker tuition ($)</td>
         <td><input type="number" id="gc_sticker" placeholder="e.g. 50000" oninput="calcGap()"></td>
       </tr>
       <tr>
-        <td><strong>—</strong></td>
+        <td></td>
         <td class="label">Discount rate (%)</td>
         <td><input type="number" id="gc_discount" placeholder="e.g. 55" step="0.1" oninput="calcGap()"></td>
       </tr>
       <tr>
-        <td><strong>—</strong></td>
+        <td></td>
         <td class="label">Net tuition per student ($)</td>
         <td><input type="number" id="gc_nettuition" class="computed" readonly></td>
       </tr>
       <tr>
-        <td><strong>—</strong></td>
+        <td></td>
         <td class="label">Housing, dining &amp; other net revenue per student ($)</td>
         <td><input type="number" id="gc_housing" placeholder="e.g. 8000" oninput="calcGap()"></td>
       </tr>
@@ -484,8 +531,8 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
   </div>
 
   <div class="callout insight">
-    <div class="callout-label">Habits that keep a small room honest</div>
-    <p><strong>The president speaks last</strong> in every decision meeting. <strong>Run a premortem:</strong> before approving a plan, everyone writes privately why it failed two years from now. <strong>Write forecasts down</strong> with dates and authors. <strong>Reward the bad news.</strong></p>
+    <div class="callout-label">Habits for honest decision meetings</div>
+    <p><strong>The president speaks last</strong> in every decision meeting. <strong>Run a premortem:</strong> before approving a plan, everyone writes privately why it failed two years from now. <strong>Write forecasts down</strong> with dates and authors. <strong>Thank the people who bring bad news.</strong></p>
   </div>
 
   <div class="tab-nav">
@@ -497,7 +544,7 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
 <!-- TAB 3: PHASE 2 -->
 <div class="tab-content" id="tab-2">
   <span class="tag tag-cabinet">CABINET</span> <span class="tag tag-students">STUDENTS</span>
-  <h2>Phase 2: Ask the People Who Did Not Choose Us</h2>
+  <h2>Phase 2: Ask the People Who Didn't Choose Us</h2>
   <p class="phase-intro">By day 60, enrollment leadership delivers a demand brief built on professional research with people who looked at the college and went elsewhere, and people who never looked. Their answers set the direction.</p>
 
   <div class="card">
@@ -506,7 +553,7 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
       <tr><th>Group</th><th>Why They Matter</th><th>Minimum</th></tr>
       <tr><td class="label">Admitted students who enrolled elsewhere</td><td>They wanted us enough to apply and still said no. Their reasons are the most useful data we have.</td><td>30 interviews + survey</td></tr>
       <tr><td class="label">People who inquired and never applied</td><td>They looked and lost interest</td><td>20 interviews</td></tr>
-      <tr><td class="label">People who never considered us</td><td>The students we need and do not reach</td><td>30 interviews</td></tr>
+      <tr><td class="label">People who never considered us</td><td>The students we need and don't reach</td><td>30 interviews</td></tr>
       <tr><td class="label">Current students</td><td>What we do well and must protect</td><td>20 interviews</td></tr>
       <tr><td class="label">Employers and community partners</td><td>What work students can count on</td><td>10 interviews</td></tr>
     </table>
@@ -516,7 +563,7 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
     <h3>Interview Guide</h3>
     <ol class="num-list">
       <li>Tell me how you decided where to go. What were the finalists?</li>
-      <li>What did the place you chose offer that the others did not?</li>
+      <li>What did the place you chose offer that the others didn't?</li>
       <li>What did you think of us? Where did that impression come from?</li>
       <li>What did it cost you in the end, after aid? How much did price matter?</li>
       <li>What would have to be true for you to choose a college like ours?</li>
@@ -538,17 +585,40 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
     </table>
   </div>
 
+  <h3>Market Sizing Worksheet</h3>
+  <p>Fill this in once for each group of students in the demand brief. Write down where every number came from, so the red team can check it.</p>
+  <div class="worksheet">
+    <div class="worksheet-header">Worksheet 2.2: TAM, SAM and SOM <span class="ws-tag">INTERACTIVE</span></div>
+    <table>
+      <tr><th style="width:40px;">Line</th><th>Item</th><th style="width:170px;">Your Number</th><th>Source</th></tr>
+      <tr><td><strong>M1</strong></td><td class="label">Group of students</td><td colspan="2"><input type="text" placeholder="e.g. working adults within 45 minutes"></td></tr>
+      <tr><td><strong>M2</strong></td><td class="label">TAM: everyone who could want this (people)</td><td><input type="number" id="ms_tam" oninput="calcMarket()"></td><td><input type="text"></td></tr>
+      <tr><td><strong>M3</strong></td><td class="label">SAM: those we can actually serve (people)</td><td><input type="number" id="ms_sam" oninput="calcMarket()"></td><td><input type="text"></td></tr>
+      <tr><td><strong>M4</strong></td><td class="label">SOM: share of SAM we can win each year (%)</td><td><input type="number" id="ms_somp" step="0.1" oninput="calcMarket()"></td><td><input type="text"></td></tr>
+      <tr><td><strong>M5</strong></td><td class="label">SOM: students per year</td><td><input type="number" id="ms_som" class="computed" readonly></td><td class="how">M3 × M4</td></tr>
+      <tr><td><strong>M6</strong></td><td class="label">Net revenue per student ($)</td><td><input type="number" id="ms_netrev" oninput="calcMarket()"></td><td><input type="text"></td></tr>
+      <tr><td><strong>M7</strong></td><td class="label">Costs that come with each added student ($)</td><td><input type="number" id="ms_var" oninput="calcMarket()"></td><td><input type="text"></td></tr>
+      <tr><td><strong>M8</strong></td><td class="label">Annual contribution at SOM ($)</td><td><input type="number" id="ms_contrib" class="computed" readonly></td><td class="how">M5 × (M6 − M7)</td></tr>
+      <tr><td><strong>M9</strong></td><td class="label">Share of the annual gap it closes (%)</td><td><input type="number" id="ms_gapshare" class="computed" readonly></td><td class="how">M8 ÷ line F of the Gap Calculator</td></tr>
+    </table>
+  </div>
+
+  <div id="marketSummary" class="callout" style="display:none;">
+    <div class="callout-label">Market Check</div>
+    <p id="marketSummaryText"></p>
+  </div>
+
   <h3>Prompts for Faculty</h3>
   <div class="card-grid">
     <div class="card"><p>Which students outside our current pool could your field serve well, and how would they study?</p></div>
     <div class="card"><p>Which courses could be shared across programs, or with a partner college?</p></div>
-    <div class="card"><p>What does your program do that students cannot get cheaper or closer to home?</p></div>
+    <div class="card"><p>What does your program do that students can't get cheaper or closer to home?</p></div>
     <div class="card"><p>If your program had to double enrollment or halve its cost in three years, what would you change first?</p></div>
   </div>
 
   <h3>Demand Brief Deliverable (Due Day 60)</h3>
   <ul class="checklist">
-    <li><input type="checkbox"> The three groups of students most likely to choose us, and how many are within reach</li>
+    <li><input type="checkbox"> The three groups of students most likely to choose us, with a TAM, SAM and SOM for each (Worksheet 2.2)</li>
     <li><input type="checkbox"> The top reasons admitted students went elsewhere, with counts</li>
     <li><input type="checkbox"> The net price each group will pay</li>
     <li><input type="checkbox"> What current students say we must not lose</li>
@@ -565,15 +635,20 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
 <div class="tab-content" id="tab-3">
   <span class="tag tag-cabinet">CABINET</span> <span class="tag tag-faculty">FACULTY</span> <span class="tag tag-students">STUDENTS</span>
   <h2>Phase 3: Design and Test Ideas</h2>
-  <p class="phase-intro">By day 120, working teams turn the strongest ideas into one-page A3 proposals that the red team has tried to break and the CFO has priced. Anyone can submit an idea.</p>
+  <p class="phase-intro">By day 120, working teams turn the strongest ideas into one-page A3 proposals. Each A3 goes through at least three rounds of hard questions, gets priced by the CFO and faces the red team before the board sees it. Anyone can submit an idea.</p>
 
   <h3>Step 1: The Idea Card</h3>
-  <p>One idea per card. Keep it to one page.</p>
+  <p>One idea per card. Keep it to one page. To see what a market read looks like, study the <a href="#" onclick="goTab(5); return false;" style="color:var(--steel); font-weight:600;">Market Examples</a> tab, then do your own.</p>
 
   <div class="idea-card">
     <div class="input-group"><label class="input-label">Name of the idea</label><input type="text"></div>
     <div class="input-group"><label class="input-label">Who is the student? (age, location, current situation)</label><textarea></textarea></div>
     <div class="input-group"><label class="input-label">Why would they choose us over their next best option?</label><textarea></textarea></div>
+    <div class="input-group"><label class="input-label">What about us makes this believable? (our place, people, reputation, strengths)</label><textarea></textarea></div>
+    <div class="input-row">
+      <div class="input-group"><label class="input-label">SAM for this idea (people we can serve)</label><input type="number"></div>
+      <div class="input-group"><label class="input-label">SOM (students we can win each year)</label><input type="number"></div>
+    </div>
     <div class="input-row">
       <div class="input-group"><label class="input-label">What would they pay after aid?</label><input type="number" placeholder="$"></div>
       <div class="input-group"><label class="input-label">How many students by year three?</label><input type="number"></div>
@@ -587,25 +662,90 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
   <h3>Step 2: The Screen</h3>
   <p>An idea moves to an A3 team only if the answer to all six is yes.</p>
   <ul class="checklist">
-    <li><input type="checkbox"> We have evidence of demand from people who are not current students</li>
+    <li><input type="checkbox"> We have evidence of demand from people who aren't current students</li>
     <li><input type="checkbox"> At full size it closes a meaningful percent of the annual gap within three years</li>
     <li><input type="checkbox"> We can test it with real applications and deposits within twelve months</li>
     <li><input type="checkbox"> We have, or can affordably get, the people and space to deliver it</li>
-    <li><input type="checkbox"> It does not weaken a program or school that earns a real surplus</li>
+    <li><input type="checkbox"> It doesn't weaken a program or school that earns a real surplus</li>
+    <li><input type="checkbox"> It fits who we are: it builds on a strength, place or reputation we already have</li>
   </ul>
 
-  <h3>Step 3: The Strategy A3 Proposal</h3>
+  <h3>Step 3: Build the A3, Then Rebuild It</h3>
+  <p>Every idea that passes the screen gets an A3: one page, seven boxes, written by a small team. Expect the first draft to be wrong. The idea gets better with the second and third drafts, once the hard-question teams have weighed in.</p>
+  <p>The paper worksheets below show the shape of the work. To run the loop with real teams, use the <a href="/app">team workspace</a>: each A3 team writes its drafts there, the hard-question teams log their questions against each draft, and every version is kept.</p>
+
+  <h4>Form the A3 team</h4>
+  <div class="worksheet">
+    <div class="worksheet-header">A3 Team <span class="ws-tag">FILL IN</span></div>
+    <table>
+      <tr><th style="width:190px;">Role</th><th>Job</th><th style="width:200px;">Name</th></tr>
+      <tr><td class="label">Owner</td><td>Holds the pen, writes every version and decides what changes.</td><td><input type="text"></td></tr>
+      <tr><td class="label">Numbers person</td><td>From the CFO's office. Makes sure every figure matches the CFO's.</td><td><input type="text"></td></tr>
+      <tr><td class="label">Voice of the students we want</td><td>Someone who ran Phase 2 interviews. Brings the demand evidence.</td><td><input type="text"></td></tr>
+      <tr><td class="label">Builder</td><td>A faculty or staff member who would deliver it. Says what it takes to run.</td><td><input type="text"></td></tr>
+    </table>
+  </div>
+
+  <h4>Assign the hard-question teams</h4>
+  <p>Two or three people from outside the A3 team take each role below and review every draft of the A3s assigned to them. Rotate assignments so no group only reviews the work of friends. Their job is to ask, and the owner's job is to answer in the next draft.</p>
+  <div class="card-grid">
+    <div class="card"><h4>Demand</h4><p>Who outside this campus said they want this? How many? What did they choose instead? What would they pay?</p><input type="text" placeholder="Team members"></div>
+    <div class="card"><h4>Money</h4><p>Do these numbers match the CFO's? What happens if enrollment comes in at half the target? What does it cost to stop?</p><input type="text" placeholder="Team members"></div>
+    <div class="card"><h4>Identity</h4><p>Does this build on something true about us? Would our best graduates still recognize the college?</p><input type="text" placeholder="Team members"></div>
+    <div class="card"><h4>What we lose</h4><p>What does this draw people, money or space from? Does it weaken anything that earns a surplus? How do current students finish?</p><input type="text" placeholder="Team members"></div>
+    <div class="card"><h4>Delivery</h4><p>Who teaches it, where, starting when? What has to be true about accreditation, hiring and space?</p><input type="text" placeholder="Team members"></div>
+  </div>
+
+  <h4>Run the loop</h4>
+  <ol class="num-list">
+    <li><div><strong>Draft 1 (one week).</strong> Fill in boxes 1 to 4 only: background, current state, target and root cause. No solutions yet. Teams that jump to a solution tend to miss why students aren't coming.</div></li>
+    <li><div><strong>Review 1 (one hour).</strong> Each hard-question team asks its questions. The owner writes every question in the question log and doesn't argue in the room.</div></li>
+    <li><div><strong>Draft 2.</strong> Rewrite boxes 1 to 4 using what you learned. Add box 5 with at least three countermeasures.</div></li>
+    <li><div><strong>Review 2.</strong> Same teams. Did the answers hold up? What new questions did the rewrite raise?</div></li>
+    <li><div><strong>Draft 3.</strong> Add the test plan and follow-up. The CFO prices it.</div></li>
+    <li><div><strong>Review 3.</strong> The red team reads it. The A3 team decides to send it to the board, rework it once more, or stop.</div></li>
+  </ol>
+
+  <div class="callout insight">
+    <div class="callout-label">How to tell the loop is working</div>
+    <p>Each version should change in ways the team didn't predict. If an A3 looks the same after review as it did before, nobody really reviewed it. Stopping an A3 is a good outcome too, because it saves time and money the college doesn't have.</p>
+  </div>
 
   <div class="worksheet">
     <div class="worksheet-header">Worksheet 3.1: Strategy A3 <span class="ws-tag">FILL IN</span></div>
     <table>
-      <tr><td class="label" style="width:180px;">1. Background</td><td><textarea placeholder="Why this matters to the college, in two sentences. Which line of the gap calculator does it change?"></textarea></td></tr>
-      <tr><td class="label">2. Current State</td><td><textarea placeholder="The numbers today: students, net revenue, cost, contribution."></textarea></td></tr>
-      <tr><td class="label">3. Target State</td><td><textarea placeholder="What success looks like by a date: students, net revenue per student, contribution."></textarea></td></tr>
-      <tr><td class="label">4. Gap &amp; Root Cause</td><td><textarea placeholder="Why are students not choosing this today? Cite the demand brief."></textarea></td></tr>
-      <tr><td class="label">5. Countermeasures</td><td><textarea placeholder="Two or three ways to close the gap. Which one we pick, and why."></textarea></td></tr>
-      <tr><td class="label">6. Test Plan</td><td><textarea placeholder="The smallest real pilot: who, how many, what price, what deposit target, by what date."></textarea></td></tr>
-      <tr><td class="label">7. Follow-up</td><td><textarea placeholder="Owner, check dates, what gets reported to the board and when."></textarea></td></tr>
+      <tr><th style="width:170px;">Box</th><th>Your answer</th><th style="width:240px;">The hard question for this box</th></tr>
+      <tr><td class="label">1. Background</td><td><textarea placeholder="Why this matters to the college, in two sentences. Which line of the gap calculator does it change?"></textarea></td><td class="how">Is this tied to the gap, or is it a project someone already wanted?</td></tr>
+      <tr><td class="label">2. Current State</td><td><textarea placeholder="The numbers today: students, net revenue, cost, contribution."></textarea></td><td class="how">Are these the same numbers the CFO uses? What is missing?</td></tr>
+      <tr><td class="label">3. Target State</td><td><textarea placeholder="What success looks like by a date: students, net revenue per student, contribution. Include the SOM from Worksheet 2.2."></textarea></td><td class="how">Is the target big enough to matter, and specific enough that we'd know if we missed it?</td></tr>
+      <tr><td class="label">4. Gap &amp; Root Cause</td><td><textarea placeholder="Why are students not choosing this today? Cite the demand brief."></textarea></td><td class="how">Whose voice is this: current students, or the people we need to attract?</td></tr>
+      <tr><td class="label">5. Countermeasures</td><td><textarea placeholder="At least three ways to close the gap, including one that costs less and one that stops doing something. Which one we pick, and why."></textarea></td><td class="how">Was a cheaper option considered? Was stopping something an option?</td></tr>
+      <tr><td class="label">6. Test Plan</td><td><textarea placeholder="The smallest real pilot: who, how many, what price, what deposit target, by what date."></textarea></td><td class="how">Does the pilot ask for real money? Were the stop results set before launch?</td></tr>
+      <tr><td class="label">7. Follow-up</td><td><textarea placeholder="Owner, check dates, what gets reported to the board and when."></textarea></td><td class="how">Is one person accountable? Will the board see results against the original targets?</td></tr>
+    </table>
+  </div>
+
+  <div class="worksheet">
+    <div class="worksheet-header">Worksheet 3.2: Question Log <span class="ws-tag">FILL IN</span></div>
+    <table>
+      <tr><th style="width:70px;">Box</th><th>Question</th><th style="width:150px;">Asked by</th><th>What we changed</th></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+    </table>
+  </div>
+
+  <div class="worksheet">
+    <div class="worksheet-header">Worksheet 3.3: Version History <span class="ws-tag">FILL IN</span></div>
+    <table>
+      <tr><th style="width:80px;">Version</th><th style="width:120px;">Date</th><th>What changed</th><th>Which question drove it</th></tr>
+      <tr><td>1</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <tr><td>2</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <tr><td>3</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <tr><td>4</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
     </table>
   </div>
 
@@ -647,7 +787,7 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
   </ul>
 
   <h3>Step 2: Pilot with Real Deposits</h3>
-  <p>A survey says what people would like. A deposit says what they will do.</p>
+  <p>Surveys tell you what people like. Deposits tell you what they'll actually do.</p>
 
   <div class="worksheet">
     <div class="worksheet-header">Pilot Design <span class="ws-tag">FILL IN</span></div>
@@ -667,7 +807,7 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
 
   <div class="callout warning">
     <div class="callout-label">Critical rule</div>
-    <p>Set the three results before the pilot opens. <strong>Do not change them after.</strong></p>
+    <p>Set the three results before the pilot opens. <strong>Don't change them after.</strong></p>
   </div>
 
   <h3>Step 3: Restructure Once</h3>
@@ -703,102 +843,192 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
 
   <div class="tab-nav">
     <button class="btn btn-secondary" onclick="goTab(3)">← Design &amp; Test</button>
-    <button class="btn btn-primary" onclick="goTab(5)">Technology Layer (Optional) →</button>
+    <button class="btn btn-primary" onclick="goTab(5)">Market Examples →</button>
   </div>
 </div>
 
-<!-- TAB 6: TECHNOLOGY LAYER -->
+<!-- TAB 6: MARKET EXAMPLES -->
 <div class="tab-content" id="tab-5">
-  <span class="tag tag-cabinet">CABINET</span> <span class="tag tag-faculty">FACULTY</span>
-  <p class="small" style="color:var(--gray500); margin-bottom:8px; font-size:0.78rem;">OPTIONAL APPENDIX — by Jeff Ritter</p>
-  <h2>Appendix C: The Technology Layer</h2>
-  <p class="phase-intro">This appendix is a companion to the core workbook. A college that restructures its programs and governance but runs them on the same technology has solved half the problem. This section covers the other half — how AI and integrated systems can change the cost structure of the rebuilt college.</p>
+  <span class="tag tag-cabinet">CABINET</span> <span class="tag tag-board">BOARD</span> <span class="tag tag-faculty">FACULTY</span>
+  <h2>Market Examples: What a Market Read Looks Like</h2>
+  <p class="phase-intro">Six identities a college could choose to own, each with a real market read: who wants it, how big the demand is and which way it is moving, who already does it well, a warning, and the hard questions to ask. They show the kind of thinking each college has to do for itself.</p>
 
-  <div class="card" style="border-left: 4px solid var(--gold);">
-    <h3>The Duolingo Ceiling</h3>
-    <p>Duolingo teaches 100 million people a month with almost no human instructors. It is also, for most learners, a vocabulary drill. It works brilliantly for the structured, repetitive part of learning. It fails at the rest: holding a real conversation, understanding a poem, navigating a culture.</p>
-    <p>No amount of AI improvement fixes this, because the limitation is not the technology. <strong>It is the nature of the work.</strong></p>
-    <p>AI handles the individual, repetitive, structured parts of learning very well and at very low cost. It does not handle judgment, meaning, relationship or surprise.</p>
-    <div class="callout" style="margin-top:16px;">
-      <div class="callout-label">The principle</div>
-      <p><strong>AI prepares the ground. Humans lead the learning that matters.</strong></p>
-    </div>
-    <p style="margin-top:16px;"><strong>Practical example:</strong> An AI tool clusters student responses to a reading assignment before class. The professor sees that 40% misunderstood the central argument, 30% understood it but cannot apply it, and 30% are ready to move on. The professor walks in and teaches three different groups in one session. Without the tool, the professor lectures to the middle and hopes for the best. The AI did not teach. It made the teaching better.</p>
+  <div class="callout">
+    <div class="callout-label">Read this first</div>
+    <p>None of these is meant to be copied. Your college's identity has to come from what's already true about you (your place, your people, your history, what students say you do better than anyone nearby) and from the evidence you gather in Phase 2. Use these examples to practice asking the questions, then answer them for your own college.</p>
   </div>
 
-  <h3>Where AI Changes the Cost</h3>
+  <div class="card">
+    <h3>The anatomy of a market read</h3>
+    <ol class="num-list">
+      <li><div><strong>The claim.</strong> One sentence a family would repeat: what we are best at, and for whom.</div></li>
+      <li><div><strong>Who wants it.</strong> Students, employers and funders, with numbers, and whether those numbers are rising or falling.</div></li>
+      <li><div><strong>Who is doing it.</strong> The colleges that already own this space, and what they did to earn it.</div></li>
+      <li><div><strong>A warning.</strong> Someone who tried and failed, and why.</div></li>
+      <li><div><strong>What it takes to win.</strong> The assets, partners and price it requires.</div></li>
+      <li><div><strong>Hard questions.</strong> The ones the A3 team and its hard-question teams should press on.</div></li>
+    </ol>
+  </div>
+
+  <div class="card market-card">
+    <span class="module-num">EXAMPLE 1</span>
+    <h3 style="margin-top:4px;">Faith and mission</h3>
+    <p class="market-claim"><strong>The claim:</strong> The college most fully shaped by the values of Christ, for families who want faith at the center of education.</p>
+    <h4>Who wants it</h4>
+    <ul class="market-list"><li>Catholic schools enrolled 1,683,506 students in 2024-25, a large pipeline of families who already pay for faith-based education. <span class="src-wrap">(<a href="https://ncea.org/NCEA/How_We_Serve/News/Press_Releases/Catholic-Schools-by-the-Numbers-New-Data-Reveals-Trends-in-Enrollment-Staffing-and-Demographics.aspx" target="_blank" rel="noopener" class="src">NCEA, 2025</a>)</span></li><li>That pipeline is shrinking: the number of Catholic K-12 schools fell 27% from 2000 to 2023, and 63 closed in 2024-25 while 24 opened. <span class="src-wrap">(<a href="https://www.highereddive.com/news/catholic-college-mergers-consolidation-demographics/754117/" target="_blank" rel="noopener" class="src">Higher Ed Dive, 2025</a>)</span></li><li>The sector is splitting. Colleges with a strong, explicit Catholic identity posted record enrollment in fall 2024, while 21 Catholic colleges announced closure or merger from 2016 to 2024. <span class="src-wrap">(<a href="https://www.ewtnnews.com/world/us/colleges-with-strong-catholic-identity-see-record-enrollment-in-fall-2024" target="_blank" rel="noopener" class="src">EWTN News, 2024; OSV News, 2025</a>)</span></li></ul>
+    <h4>Who is doing it</h4>
+    <ul class="market-list"><li>Franciscan University of Steubenville (Ohio) reported its tenth straight year of record enrollment in fall 2024, with 3,977 students, in the same region where other Catholic colleges are closing. <span class="src-wrap">(<a href="https://www.ewtnnews.com/world/us/colleges-with-strong-catholic-identity-see-record-enrollment-in-fall-2024" target="_blank" rel="noopener" class="src">EWTN News, 2024</a>)</span></li><li>Benedictine College (Kansas) grew to 2,247 full-time undergraduates in 2025 and recruits most students from out of state, from 48 states. <span class="src-wrap">(<a href="https://www.benedictine.edu/about/at-a-glance" target="_blank" rel="noopener" class="src">Benedictine College</a>)</span></li></ul>
+    <h4>A warning</h4>
+    <ul class="market-list"><li>Catholic affiliation alone didn't save Cabrini University (Pennsylvania, closed 2024) or Notre Dame College (Ohio, closed 2024). Both cited years of deficits and falling enrollment. <span class="src-wrap">(<a href="https://phillyvoice.com/cabrini-university-closes-spring-2024-villanova-buys-campus-property" target="_blank" rel="noopener" class="src">PhillyVoice; EWTN News</a>)</span></li></ul>
+    <div class="input-row" style="margin-top:8px;">
+      <div><h4>What it takes to win</h4><ul class="market-list"><li>Faith that shows up in classes, residence life and service every week.</li><li>National recruiting, so the college doesn't depend on a local school pipeline that is closing schools every year.</li><li>Willingness to stay small: several of the growing colleges cap enrollment near 550.</li></ul></div>
+      <div><h4>Hard questions for the A3 team</h4><ul class="market-list"><li>Are we willing to become more explicit about faith, knowing some current faculty, students and donors may leave? Or are we a Catholic-heritage college competing on price?</li><li>Can we recruit from 40 states, or only from nearby schools?</li><li>Why would a family choose us over the colleges that already own this niche nationally?</li></ul></div>
+    </div>
+  </div>
+  <div class="card market-card">
+    <span class="module-num">EXAMPLE 2</span>
+    <h3 style="margin-top:4px;">Career and the new economy</h3>
+    <p class="market-claim"><strong>The claim:</strong> The college where every student graduates with real work experience and a job that uses the degree.</p>
+    <h4>Who wants it</h4>
+    <ul class="market-list"><li>Business is the largest bachelor&#x27;s field: 375,400 degrees in 2021-22, 19% of all bachelor&#x27;s degrees. <span class="src-wrap">(<a href="https://nces.ed.gov/fastfacts/display.asp?id=37" target="_blank" rel="noopener" class="src">NCES Fast Facts</a>)</span></li><li>BLS projects about 886,600 openings a year in business and financial occupations through 2035, with a median wage of $82,660 against $50,980 for all occupations. <span class="src-wrap">(<a href="https://www.bls.gov/ooh/business-and-financial/" target="_blank" rel="noopener" class="src">BLS Occupational Outlook Handbook</a>)</span></li><li>Employers name internship experience among the most influential factors when choosing between equal candidates. <span class="src-wrap">(<a href="https://naceweb.org/talent-acquisition/candidate-selection/internship-experience-often-the-deciding-factor-between-equal-candidates" target="_blank" rel="noopener" class="src">NACE Job Outlook 2026</a>)</span></li></ul>
+    <h4>Who is doing it</h4>
+    <ul class="market-list"><li>Endicott College (Massachusetts) requires three internships of every student. It reports 99% of the Class of 2024 employed, in graduate school or in service, with 89% of those employed in work related to their major (college survey). <span class="src-wrap">(<a href="https://www.endicott.edu/experiential-edge" target="_blank" rel="noopener" class="src">Endicott College</a>)</span></li><li>Bentley University reports 98% of the Class of 2025 employed or in graduate school within six months, with a median starting salary of $75,000. <span class="src-wrap">(<a href="https://www.bentley.edu/news/98-bentley-class-2025-employed-or-graduate-school" target="_blank" rel="noopener" class="src">Bentley University, 2026</a>)</span></li></ul>
+    <h4>A warning</h4>
+    <ul class="market-list"><li>This is the most crowded market in higher education. Southern New Hampshire University enrolled 189,531 students in fall 2024, almost all online, and awarded 8,012 business bachelor&#x27;s degrees in one year. A small college selling only a business degree competes on price with that scale. <span class="src-wrap">(<a href="https://nces.ed.gov/collegenavigator/?id=183026" target="_blank" rel="noopener" class="src">NCES College Navigator</a>)</span></li></ul>
+    <div class="input-row" style="margin-top:8px;">
+      <div><h4>What it takes to win</h4><ul class="market-list"><li>Required, structured work experience in every year of the degree.</li><li>Enough employers nearby to take interns every term.</li><li>Outcome numbers a skeptic would accept, including how many graduates responded.</li></ul></div>
+      <div><h4>Hard questions for the A3 team</h4><ul class="market-list"><li>Can we name the employers who will take every one of our students each year?</li><li>What would a student get here that a large online university can't give them for less?</li><li>Will we publish outcomes with a response rate?</li></ul></div>
+    </div>
+  </div>
+  <div class="card market-card">
+    <span class="module-num">EXAMPLE 3</span>
+    <h3 style="margin-top:4px;">Public service</h3>
+    <p class="market-claim"><strong>The claim:</strong> The college that prepares people to serve: teachers, social workers, nonprofit and community leaders.</p>
+    <h4>Who wants it</h4>
+    <ul class="market-list"><li>At least 411,549 teaching positions, about 1 in 8, were vacant or filled by teachers not fully certified in 2025. <span class="src-wrap">(<a href="https://learningpolicyinstitute.org/product/overview-teacher-shortages-2025-factsheet" target="_blank" rel="noopener" class="src">Learning Policy Institute, 2025</a>)</span></li><li>BLS projects about 293,400 openings a year in community and social service occupations through 2035, growing much faster than average. <span class="src-wrap">(<a href="https://www.bls.gov/ooh/community-and-social-service/" target="_blank" rel="noopener" class="src">BLS Occupational Outlook Handbook</a>)</span></li><li>Nonprofits employed 12.8 million people in 2022, about 10% of private-sector jobs. <span class="src-wrap">(<a href="https://www.bls.gov/opub/mlr/2025/article/nonprofit-organizations-state-and-regional-employment-trends.htm" target="_blank" rel="noopener" class="src">BLS Monthly Labor Review, 2025</a>)</span></li></ul>
+    <h4>Who is doing it</h4>
+    <ul class="market-list"><li>Berea College (Kentucky) asks no admitted student to pay tuition out of pocket. Every student works on campus, and the endowment covers most of the $54,700 cost per student. <span class="src-wrap">(<a href="https://berea.smartcatalogiq.com/en/current/catalog/admissions-and-financial-aid/financial-aid-and-student-accounts" target="_blank" rel="noopener" class="src">Berea College catalog</a>)</span></li><li>Nine federally recognized work colleges, including Berea, Warren Wilson and Paul Quinn, build work and service into every residential student&#x27;s week. <span class="src-wrap">(<a href="https://wtop.com/news/2026/07/attending-a-federal-work-college-what-to-know/" target="_blank" rel="noopener" class="src">U.S. News via WTOP, 2026</a>)</span></li></ul>
+    <h4>A warning</h4>
+    <ul class="market-list"><li>Pay limits what students can borrow. Social workers earn a median $61,780 and elementary teachers $63,820. Federal loan forgiveness for public service is changing, with a new rule effective July 2026, so a plan shouldn't depend on it. <span class="src-wrap">(<a href="https://www.ed.gov/about/news/press-release/us-department-of-education-announces-final-rule-public-service-loan-forgiveness-protect-american-taxpayers" target="_blank" rel="noopener" class="src">BLS; U.S. Department of Education, 2025</a>)</span></li></ul>
+    <div class="input-row" style="margin-top:8px;">
+      <div><h4>What it takes to win</h4><ul class="market-list"><li>A low net price, through endowment, a work model or partners who share the cost.</li><li>Signed pipelines: school districts and agencies that place and hire graduates.</li><li>Service built into the degree through field placements and work.</li></ul></div>
+      <div><h4>Hard questions for the A3 team</h4><ul class="market-list"><li>At our net price, can a teacher or social worker repay what they borrow here without loan forgiveness?</li><li>Which districts and agencies will sign placement and hiring agreements, and will any help pay?</li><li>Without Berea&#x27;s endowment, what keeps our price low enough?</li></ul></div>
+    </div>
+  </div>
+  <div class="card market-card">
+    <span class="module-num">EXAMPLE 4</span>
+    <h3 style="margin-top:4px;">Environment and the outdoors</h3>
+    <p class="market-claim"><strong>The claim:</strong> The college for people who want to work on conservation, climate, energy and the land.</p>
+    <h4>Who wants it</h4>
+    <ul class="market-list"><li>BLS projects environmental scientists at 93,400 jobs, growing 6% through 2035, with about 7,300 openings a year and a median wage of $82,220. <span class="src-wrap">(<a href="https://www.bls.gov/ooh/life-physical-and-social-science/environmental-scientists-and-specialists.htm" target="_blank" rel="noopener" class="src">BLS Occupational Outlook Handbook</a>)</span></li><li>Solar installers and wind turbine technicians remain among the fastest-growing occupations, though BLS lowered both projections in its newest table, and the numbers of jobs are small. <span class="src-wrap">(<a href="https://www.bls.gov/emp/tables/fastest-growing-occupations.htm" target="_blank" rel="noopener" class="src">BLS Employment Projections</a>)</span></li><li>US demand for workers with green skills grew 9.8% while the supply grew 3.1%. <span class="src-wrap">(<a href="https://careers.environment.yale.edu/blog/2024/12/04/linkedin-2024-green-skills-report/" target="_blank" rel="noopener" class="src">LinkedIn Green Skills Report 2024, via Yale</a>)</span></li></ul>
+    <h4>Who is doing it</h4>
+    <ul class="market-list"><li>College of the Atlantic (Maine) has about 350 students, no departments and one degree, human ecology, with a required internship and capstone. <span class="src-wrap">(<a href="https://www.coa.edu/about/the-basics/index.php" target="_blank" rel="noopener" class="src">College of the Atlantic</a>)</span></li><li>Unity Environmental University (Maine) grew from about 600 students to more than 7,500 by 2023, almost entirely through distance education. Its residential program closed. <span class="src-wrap">(<a href="https://unity.edu/unity-news/unity-environmental-university-announces-largest-ever-incoming-class-after-embracing-innovative-model/" target="_blank" rel="noopener" class="src">Unity Environmental University</a>)</span></li></ul>
+    <h4>A warning</h4>
+    <ul class="market-list"><li>Green Mountain College (Vermont) built its brand on sustainability and closed in 2019, after undergraduate enrollment fell from 709 to 468. The mission fit, but a small residential campus in a shrinking region couldn't pay its bills. The 2025 federal tax law also cut clean energy credits, which makes that part of the job outlook less certain. <span class="src-wrap">(<a href="https://www.highereddive.com/news/vermonts-green-mountain-college-to-close-and-more-are-on-the-rocks/547082/" target="_blank" rel="noopener" class="src">Seven Days, 2019; FTI Consulting, 2025</a>)</span></li></ul>
+    <div class="input-row" style="margin-top:8px;">
+      <div><h4>What it takes to win</h4><ul class="market-list"><li>Place-based assets students can't get elsewhere: land, water, farms, field stations.</li><li>Hiring partners beyond advocacy groups: agencies, utilities, land trusts and consultancies.</li><li>A delivery model whose costs match demand.</li></ul></div>
+      <div><h4>Hard questions for the A3 team</h4><ul class="market-list"><li>Which bachelor&#x27;s-level jobs will our graduates fill, and who hires them in our region?</li><li>Does our plan still hold if federal clean energy money shrinks further?</li><li>What do we offer that College of the Atlantic, Unity&#x27;s online programs and the state flagship don't?</li></ul></div>
+    </div>
+  </div>
+  <div class="card market-card">
+    <span class="module-num">EXAMPLE 5</span>
+    <h3 style="margin-top:4px;">Government and policy</h3>
+    <p class="market-claim"><strong>The claim:</strong> The college that turns its location in a state capital or near Washington into careers in public life.</p>
+    <h4>Who wants it</h4>
+    <ul class="market-list"><li>State and local governments employed 20.3 million people in March 2025, up 1.4% in a year. <span class="src-wrap">(<a href="https://www.census.gov/library/publications/2025/econ/g25-aspep3.html" target="_blank" rel="noopener" class="src">Census Bureau, 2025</a>)</span></li><li>46% of state and local HR leaders say their biggest retirement wave is still ahead, and 61% have no succession plan. <span class="src-wrap">(<a href="https://www.missionsquare.com/about-us/news/msri-state-local-government-fewer-hiring-challenges" target="_blank" rel="noopener" class="src">MissionSquare Research Institute, 2025</a>)</span></li><li>Federal employment is shrinking: about 317,000 people left federal jobs in 2025 and 68,000 were hired. Universities near Washington have reported enrollment effects. <span class="src-wrap">(<a href="https://fedmanager.com/news/opm-reports-317000-fed-departures-in-2025-dod-largest-drop-by-number" target="_blank" rel="noopener" class="src">OPM via FEDmanager, 2026</a>)</span></li></ul>
+    <h4>Who is doing it</h4>
+    <ul class="market-list"><li>Willamette University sits across the street from Oregon&#x27;s capitol and leads with capitol internships. Full-time undergraduates rose from 1,637 to 1,715 in fall 2025, though the growth can't be tied to the policy identity alone. <span class="src-wrap">(<a href="https://www.willamettecollegian.com/post/willamette-sees-positive-enrollment-trends-despite-demographic-cliff" target="_blank" rel="noopener" class="src">Willamette Collegian, 2025</a>)</span></li><li>Patrick Henry College (Virginia) built a government-focused college of 436 students with internships across federal agencies and Congress, and reports all of its 2024 graduates employed or in graduate school (college survey). <span class="src-wrap">(<a href="https://www.phc.edu/facts-about-phc" target="_blank" rel="noopener" class="src">Patrick Henry College</a>)</span></li></ul>
+    <h4>A warning</h4>
+    <ul class="market-list"><li>Being in the capital isn't enough on its own. Millsaps College, in Mississippi&#x27;s capital, fell from 850 students in 2019 to 637 undergraduates in 2022. <span class="src-wrap">(<a href="https://www.yahoo.com/news/millsaps-turn-tide-declining-enrollment-095022256.html" target="_blank" rel="noopener" class="src">Clarion Ledger, 2024</a>)</span></li></ul>
+    <div class="input-row" style="margin-top:8px;">
+      <div><h4>What it takes to win</h4><ul class="market-list"><li>A placement pipeline families can see: named offices, agencies and employers, every year.</li><li>A focus on state and local jobs, where the retirement wave is coming.</li><li>Published outcomes.</li></ul></div>
+      <div><h4>Hard questions for the A3 team</h4><ul class="market-list"><li>Is our plan tied to federal hiring that is shrinking, or to state and local hiring that is growing?</li><li>Which offices will take our students every year, in writing?</li><li>Why would a student pay our price instead of interning at the capitol from the public university nearby?</li></ul></div>
+    </div>
+  </div>
+  <div class="card market-card">
+    <span class="module-num">EXAMPLE 6</span>
+    <h3 style="margin-top:4px;">Working with AI</h3>
+    <p class="market-claim"><strong>The claim:</strong> The college whose graduates know how to do their field&#x27;s work well alongside AI.</p>
+    <h4>Who wants it</h4>
+    <ul class="market-list"><li>Job postings that ask for AI skills pay 28% more, about $18,000 a year, and 51% of them in 2024 were outside IT and computer science. <span class="src-wrap">(<a href="https://lightcast.io/resources/blog/beyond-the-buzz-press-release-2025-07-23" target="_blank" rel="noopener" class="src">Lightcast, 2025</a>)</span></li><li>86% of students use AI in their studies, and 58% say they lack enough AI knowledge and skill. <span class="src-wrap">(<a href="https://www.digitaleducationcouncil.com/post/what-students-want-key-results-from-dec-global-ai-student-survey-2024" target="_blank" rel="noopener" class="src">Digital Education Council, 2024</a>)</span></li><li>Employers are dropping degree requirements for AI-augmented jobs, from 66% to 59% between 2019 and 2024, which raises the bar for showing that a degree pays. <span class="src-wrap">(<a href="https://pwc.com/gx/en/news-room/press-releases/2025/ai-linked-to-a-fourfold-increase-in-productivity-growth.html" target="_blank" rel="noopener" class="src">PwC AI Jobs Barometer, 2025</a>)</span></li></ul>
+    <h4>Who is doing it</h4>
+    <ul class="market-list"><li>Babson College tied AI to its existing identity in entrepreneurship: an interdisciplinary AI lab, peer training for faculty and AI in the first-year management course. <span class="src-wrap">(<a href="https://www.newsfilecorp.com/release/225402/Babson-College-Announces-The-Generator-Interdisciplinary-Artificial-Intelligence-Lab?lang=fr" target="_blank" rel="noopener" class="src">Babson College, 2024</a>)</span></li><li>Connecticut College funded a three-year AI program for faculty with a bequest and plans to share its materials with other small liberal arts colleges. <span class="src-wrap">(<a href="https://aspen.conncoll.edu/news/news-archive/2025/aiconn" target="_blank" rel="noopener" class="src">Connecticut College, 2025</a>)</span></li></ul>
+    <h4>A warning</h4>
+    <ul class="market-list"><li>Everyone is claiming this. Ohio State promised AI fluency for every graduate starting with the Class of 2029, and Purdue made AI competency a graduation requirement. AI readiness alone will soon be expected everywhere and won't set a college apart. <span class="src-wrap">(<a href="https://news.osu.edu/ohio-state-launches-bold-ai-fluency-initiative-to-redefine-learning-and-innovation/" target="_blank" rel="noopener" class="src">Ohio State, 2025</a>)</span></li></ul>
+    <div class="input-row" style="margin-top:8px;">
+      <div><h4>What it takes to win</h4><ul class="market-list"><li>AI applied inside a field the college already owns, such as nursing, accounting, teaching or design.</li><li>Every faculty member trained, and paid for the time.</li><li>Proof: graduate portfolios and employers who hire for AI-augmented roles.</li></ul></div>
+      <div><h4>Hard questions for the A3 team</h4><ul class="market-list"><li>Large public universities promise AI fluency at public prices. What does our version give that theirs can't?</li><li>Can our faculty teach this credibly within 18 months, and what does that cost?</li><li>Which of our existing strengths does AI make more valuable?</li></ul></div>
+    </div>
+  </div>
+
+  <p class="input-hint">Figures were gathered from public sources in November 2026 and are linked so teams can check them. Numbers that colleges report about themselves are marked as college surveys.</p>
+
+  <h3>Your College's Market Read</h3>
+  <p>Draft one row for each identity your college could credibly claim, from this list or, more likely, your own. Anything marked "Write an idea card" goes into Phase 3, where it gets sized with Worksheet 2.2 and built into an A3.</p>
   <div class="worksheet">
-    <div class="worksheet-header">AI Capability Map</div>
-    <table class="ai-table">
-      <tr><th>Work</th><th>AI Handles Well</th><th>AI Assists</th><th>AI Adds Little</th></tr>
+    <div class="worksheet-header">Worksheet C.1: Our Market Read <span class="ws-tag">FILL IN</span></div>
+    <table>
+      <tr><th>The claim we could own</th><th>Evidence of demand</th><th>Who already owns it near us</th><th>What we have that they don't</th><th style="width:170px;">Next step</th></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><select><option>—</option><option>Write an idea card</option><option>Watch for now</option><option>Not for us</option></select></td></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><select><option>—</option><option>Write an idea card</option><option>Watch for now</option><option>Not for us</option></select></td></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><select><option>—</option><option>Write an idea card</option><option>Watch for now</option><option>Not for us</option></select></td></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><select><option>—</option><option>Write an idea card</option><option>Watch for now</option><option>Not for us</option></select></td></tr>
+    </table>
+  </div>
+
+  <details class="card">
+    <summary style="cursor:pointer; font-weight:600; color:var(--navy);">More on AI inside the college: where it helps, what faculty worry about, and a technology audit (from Jeff Ritter's original appendix)</summary>
+
+    <h4>Where software helps, and where people matter most</h4>
+    <p>Duolingo teaches more than 100 million people a month with almost no human instructors. For most learners it is a vocabulary drill. It handles the structured, repetitive part of learning well and leaves the rest to people: holding a real conversation, reading a poem, finding your way in another culture. AI tools behave the same way on campus. They are good at sorting, drafting, answering routine questions and giving practice. Judgment, meaning and relationships stay with faculty and staff.</p>
+
+    <div class="worksheet">
+      <div class="worksheet-header">AI Capability Map</div>
+      <table class="ai-table">
+        <tr><th>Work</th><th>AI Handles Well</th><th>AI Assists</th><th>AI Adds Little</th></tr>
       <tr><td>Advising triage, scheduling, routine questions</td><td class="ai-check">●</td><td></td><td></td></tr>
       <tr><td>First-pass feedback on writing and problem sets</td><td class="ai-check">●</td><td></td><td></td></tr>
       <tr><td>Personalized study plans and practice</td><td class="ai-check">●</td><td></td><td></td></tr>
       <tr><td>Translation and accessibility</td><td class="ai-check">●</td><td></td><td></td></tr>
-      <tr><td>Report generation, dashboards, compliance</td><td class="ai-check">●</td><td></td><td></td></tr>
+      <tr><td>Reports, dashboards, compliance</td><td class="ai-check">●</td><td></td><td></td></tr>
       <tr><td>Curriculum mapping and outcome alignment</td><td></td><td class="ai-check" style="color:var(--steel);">●</td><td></td></tr>
       <tr><td>Assessment design and rubric calibration</td><td></td><td class="ai-check" style="color:var(--steel);">●</td><td></td></tr>
       <tr><td>Career exploration and job matching</td><td></td><td class="ai-check" style="color:var(--steel);">●</td><td></td></tr>
       <tr><td>Enrollment prediction and financial modeling</td><td></td><td class="ai-check" style="color:var(--steel);">●</td><td></td></tr>
-      <tr><td>Mentoring, coaching, relationship-building</td><td></td><td></td><td class="ai-check" style="color:var(--gray500);">●</td></tr>
+      <tr><td>Mentoring, coaching, relationship building</td><td></td><td></td><td class="ai-check" style="color:var(--gray500);">●</td></tr>
       <tr><td>Judging complex, ambiguous, creative work</td><td></td><td></td><td class="ai-check" style="color:var(--gray500);">●</td></tr>
       <tr><td>Leading discussion, debate, lab, clinical</td><td></td><td></td><td class="ai-check" style="color:var(--gray500);">●</td></tr>
       <tr><td>Crisis intervention, counseling, pastoral care</td><td></td><td></td><td class="ai-check" style="color:var(--gray500);">●</td></tr>
-    </table>
-  </div>
-  <p><em>Read the left column as cost you can reduce. Read the right column as value you must protect.</em></p>
+      </table>
+    </div>
+    <p><em>The left column is where costs can come down. The right column is the value to protect.</em></p>
 
-  <h3>Technology Audit</h3>
-  <div class="worksheet">
-    <div class="worksheet-header">Worksheet C.1: Current Technology Costs <span class="ws-tag">FILL IN</span></div>
-    <table>
-      <tr><th>System</th><th>What It Does</th><th style="width:120px;">Annual Cost ($)</th><th style="width:110px;">Contract Ends</th><th style="width:120px;">AI Replace?</th></tr>
-      <tr><td>LMS (Canvas, Blackboard, etc.)</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partially</option><option>No</option></select></td></tr>
-      <tr><td>SIS (student info system)</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partially</option><option>No</option></select></td></tr>
-      <tr><td>ERP (finance, HR, facilities)</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partially</option><option>No</option></select></td></tr>
-      <tr><td>CRM (enrollment, advancement)</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partially</option><option>No</option></select></td></tr>
-      <tr><td>Assessment tools</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partially</option><option>No</option></select></td></tr>
-      <tr><td>Advising platform</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partially</option><option>No</option></select></td></tr>
-      <tr><td>Other</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partially</option><option>No</option></select></td></tr>
-      <tr class="result-row"><td class="label" colspan="2">Total Annual Technology Cost</td><td><input type="number" id="ta_total" class="computed" readonly></td><td></td><td></td></tr>
-    </table>
-  </div>
+    <h4>What faculty worry about, and how to respond</h4>
+    <ol class="num-list">
+      <li><div><strong>Say where the tools stop.</strong> AI can handle drill, practice and routine feedback. Teaching, judging and mentoring stay with faculty.</div></li>
+      <li><div><strong>Start with tools that help faculty.</strong> A tool that sorts student responses before class makes the professor more effective. A tool that grades essays makes the professor feel watched. Start with the first kind.</div></li>
+      <li><div><strong>Let faculty choose their pace.</strong> Begin with volunteers. Others will follow when they see it work for colleagues.</div></li>
+      <li><div><strong>Protect academic judgment.</strong> The professor sets the grade, designs the assignment and leads the class.</div></li>
+      <li><div><strong>Show the math.</strong> If better advising tools free 200 staff hours a month, show faculty where those hours went.</div></li>
+    </ol>
 
-  <h3>What Faculty Fear and What to Do About It</h3>
-  <ol class="num-list">
-    <li><strong>Name the ceiling.</strong> AI handles drill, practice and routine feedback. It does not handle what you do. We are investing in AI so that more of your time goes to the work only you can do.</li>
-    <li><strong>Start with tools that help faculty.</strong> An AI that clusters student responses before class makes the professor more effective. An AI that grades essays makes the professor feel watched. Start with the first kind.</li>
-    <li><strong>Let faculty choose their pace.</strong> The pilot should have early adopters who want to experiment, not a mandate. Adoption spreads through proof, not policy.</li>
-    <li><strong>Protect academic judgment.</strong> The professor decides the grade, designs the assignment, leads the class. AI prepares, sorts, drafts, and flags. The human decides.</li>
-    <li><strong>Show the math.</strong> If AI-assisted advising frees 200 staff hours a month, show faculty that those hours went to student support, not to a budget line that disappeared.</li>
-  </ol>
+    <div class="worksheet">
+      <div class="worksheet-header">Worksheet C.2: Current Technology Costs <span class="ws-tag">FILL IN</span></div>
+      <table>
+        <tr><th>System</th><th>What It Does</th><th style="width:120px;">Annual Cost ($)</th><th style="width:110px;">Contract Ends</th><th style="width:130px;">Could We Spend Less?</th></tr>
+        <tr><td>LMS (Canvas, Blackboard, etc.)</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partly</option><option>No</option></select></td></tr>
+        <tr><td>SIS (student info system)</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partly</option><option>No</option></select></td></tr>
+        <tr><td>ERP (finance, HR, facilities)</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partly</option><option>No</option></select></td></tr>
+        <tr><td>CRM (enrollment, advancement)</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partly</option><option>No</option></select></td></tr>
+        <tr><td>Assessment tools</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partly</option><option>No</option></select></td></tr>
+        <tr><td>Advising platform</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partly</option><option>No</option></select></td></tr>
+        <tr><td>Other</td><td><input type="text"></td><td><input type="number" class="ta-cost" oninput="calcTechAudit()"></td><td><input type="text"></td><td><select><option>—</option><option>Yes</option><option>Partly</option><option>No</option></select></td></tr>
+        <tr class="result-row"><td class="label" colspan="2">Total Annual Technology Cost</td><td><input type="number" id="ta_total" class="computed" readonly></td><td></td><td></td></tr>
+      </table>
+    </div>
 
-  <h3>Campus OS: A Worked Example</h3>
-  <p>What an AI-integrated campus operating system looks like when the pieces are designed as one system instead of twelve vendor platforms.</p>
-
-  <div class="module-grid">
-    <div class="module-card"><span class="module-num">01</span><h5>Instruction Engine</h5><p>AI-powered personalized learning paths. Faculty set goals and judge outcomes.</p></div>
-    <div class="module-card"><span class="module-num">02</span><h5>Student Pulse</h5><p>Real-time early alerts from attendance, grades, engagement and advising data.</p></div>
-    <div class="module-card"><span class="module-num">03</span><h5>Skill Map</h5><p>Bayesian proficiency tracking — what a student actually knows, not just courses passed.</p></div>
-    <div class="module-card"><span class="module-num">04</span><h5>Entry Ticket</h5><p>AI clusters student responses before class so the professor knows where everyone stands.</p></div>
-    <div class="module-card"><span class="module-num">05</span><h5>Advisor Hub</h5><p>AI handles scheduling, routine questions, triage. Humans handle the conversations that matter.</p></div>
-    <div class="module-card"><span class="module-num">06</span><h5>Program Analytics</h5><p>Contribution, enrollment trends and outcome data for every program on one screen.</p></div>
-    <div class="module-card"><span class="module-num">07</span><h5>Enrollment Intelligence</h5><p>Predictive modeling for yield, retention and net revenue per student.</p></div>
-    <div class="module-card"><span class="module-num">08</span><h5>Operations Dashboard</h5><p>Facilities, finance, HR and compliance in one view.</p></div>
-    <div class="module-card"><span class="module-num">09</span><h5>Community Bridge</h5><p>Employer partnerships, internship matching, career exploration.</p></div>
-  </div>
-
-  <p>No college needs all nine on day one. Start with one or two modules during Phase 3 pilots and add others as the restructuring proceeds.</p>
-
-  <div class="callout" style="margin-top: 24px;">
-    <div class="callout-label">See the prototype</div>
-    <p><a href="https://jeffritter.ai/projects/campus-os.html" target="_blank" style="color:var(--steel); font-weight:600;">jeffritter.ai/projects/campus-os.html</a></p>
-  </div>
-
-  <div class="callout" style="border-left-color: var(--navy); margin-top: 20px;">
-    <div class="callout-label" style="color: var(--navy);">The one sentence to remember</div>
-    <p><strong>Technology does not save a college.</strong> A better offering for students who will pay for it saves a college. Technology makes that offering cheaper to deliver, better for the student, and possible to run with the smaller staff and budget the restructured college will have.</p>
-  </div>
+    <p>Jeff Ritter's Campus OS prototype shows how several of these pieces can work as one system: <a href="https://jeffritter.ai/projects/campus-os.html" target="_blank" style="color:var(--steel); font-weight:600;">jeffritter.ai/projects/campus-os.html</a>.</p>
+  </details>
 
   <div class="tab-nav">
     <button class="btn btn-secondary" onclick="goTab(4)">← Decide &amp; Rebuild</button>
@@ -810,8 +1040,8 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
 <div class="tab-content" id="tab-6">
   <h2>Appendices</h2>
 
-  <h3>A3 Thinking</h3>
-  <p>An A3 is a single page that walks one idea from the facts to a plan. Two kinds matter here:</p>
+  <h3>A3 Quick Reference</h3>
+  <p>The workflow lives in Phase 3, Step 3. Two kinds of A3 come up during the year:</p>
 
   <div class="card-grid">
     <div class="card">
@@ -832,21 +1062,7 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
 
   <div class="callout insight">
     <div class="callout-label">Common mistake</div>
-    <p>Treating a fit problem as a delivery problem. If several problem A3s point back to the same answer — people do not want this enough at this price — stop fixing and write a strategy A3.</p>
-  </div>
-
-  <h3>A3 Review Questions</h3>
-  <div class="worksheet">
-    <div class="worksheet-header">What the Reviewer Asks</div>
-    <table>
-      <tr><td class="label">Background</td><td>Is this tied to the gap, or is it a project someone already wanted?</td></tr>
-      <tr><td class="label">Current state</td><td>Are these the same numbers the CFO uses? What is missing?</td></tr>
-      <tr><td class="label">Target state</td><td>Is the target big enough to matter and specific enough to miss?</td></tr>
-      <tr><td class="label">Gap analysis</td><td>Whose voice is this? Current students, or the people we need to attract?</td></tr>
-      <tr><td class="label">Options</td><td>Was a cheaper option considered? Was "stop doing something" an option?</td></tr>
-      <tr><td class="label">Test plan</td><td>Does the pilot ask for real money? Were the stop results set before launch?</td></tr>
-      <tr><td class="label">Follow-up</td><td>Is one person accountable? Will the board see results on original targets?</td></tr>
-    </table>
+    <p>Treating a fit problem as a delivery problem. If several problem A3s point back to the same answer, that people don't want this enough at this price, stop fixing and write a strategy A3.</p>
   </div>
 
   <h3>The Year at a Glance</h3>
@@ -859,10 +1075,10 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
       <tr><td>35</td><td>Faculty and staff briefing; owners named</td><td><span class="tag tag-pres">PRES</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
       <tr><td>40</td><td>Student briefing; completion promise published</td><td><span class="tag tag-pres">PRES</span><span class="tag tag-cabinet">CABINET</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
       <tr><td>60</td><td>Demand brief and program fact sheets delivered</td><td><span class="tag tag-cabinet">CABINET</span><span class="tag tag-faculty">FACULTY</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
-      <tr><td>75</td><td>Idea card window closes; program review done</td><td><span class="tag tag-cabinet">CABINET</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
-      <tr><td>90</td><td>A3 proposals drafted; student panel and donor map done</td><td><span class="tag tag-cabinet">CABINET</span><span class="tag tag-faculty">FACULTY</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
+      <tr><td>75</td><td>Idea card window closes; A3 teams and hard-question teams named</td><td><span class="tag tag-cabinet">CABINET</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
+      <tr><td>90</td><td>A3 second drafts reviewed; student panel and donor map done</td><td><span class="tag tag-cabinet">CABINET</span><span class="tag tag-faculty">FACULTY</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
       <tr><td>100</td><td>Transition cost estimate and space plan done</td><td><span class="tag tag-cabinet">CABINET</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
-      <tr><td>110</td><td>CFO prices every surviving A3 and alternatives</td><td><span class="tag tag-cfo">CFO</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
+      <tr><td>110</td><td>A3 third reviews done; CFO prices every surviving A3 and alternatives</td><td><span class="tag tag-cfo">CFO</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
       <tr><td>120</td><td>Board chooses a direction and funds it</td><td><span class="tag tag-board">BOARD</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
       <tr><td>150</td><td>Pilot opens for applications and deposits</td><td><span class="tag tag-cabinet">CABINET</span><span class="tag tag-faculty">FACULTY</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
       <tr><td>240</td><td>Pilot deposit deadline; expand, revise or stop</td><td><span class="tag tag-pres">PRES</span><span class="tag tag-board">BOARD</span></td><td><input type="text"></td><td><input type="checkbox"></td></tr>
@@ -873,10 +1089,12 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
 
   <h3>Words to Know</h3>
   <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
-    <div class="card"><h4>A3</h4><p>A one-page problem-solving format with seven boxes, used here to test each idea.</p></div>
+    <div class="card"><h4>A3</h4><p>A one-page format with seven boxes. A small team writes it, hears hard questions and rewrites it, several times.</p></div>
     <div class="card"><h4>Contribution</h4><p>What a program brings in minus the costs that go away without it.</p></div>
     <div class="card"><h4>Discount Rate</h4><p>College-funded aid as a share of sticker tuition.</p></div>
+    <div class="card"><h4>Hard-Question Team</h4><p>Two or three people outside an A3 team who review each draft from one angle, such as demand or money.</p></div>
     <div class="card"><h4>Red Team</h4><p>A small group whose job is to show how a plan could fail.</p></div>
+    <div class="card"><h4>TAM, SAM, SOM</h4><p>Everyone who could want an offering, the part we can serve, and the share we can realistically win.</p></div>
     <div class="card"><h4>Runway</h4><p>Months of spendable cash at the current rate of loss.</p></div>
     <div class="card"><h4>Stopping Rule</h4><p>A line set in advance that triggers a set action when crossed.</p></div>
     <div class="card"><h4>Teach-out</h4><p>A plan that lets current students finish their degree when a program ends.</p></div>
@@ -889,7 +1107,7 @@ textarea { min-height: 60px; resize: vertical; font-family: 'Inter', sans-serif;
   </div>
 
   <div class="tab-nav">
-    <button class="btn btn-secondary" onclick="goTab(5)">← Technology Layer</button>
+    <button class="btn btn-secondary" onclick="goTab(5)">← Market Examples</button>
     <button class="btn btn-gold" onclick="goTab(0)">Back to Start</button>
   </div>
 </div>
@@ -973,12 +1191,45 @@ function calcGap() {
       summary.className = 'callout warning';
       summaryText.innerHTML = `<strong>Annual deficit: $${(absGap/1000000).toFixed(2)}M</strong> ($${Math.abs(Math.round(gapStud)).toLocaleString()} per student). ` +
         `You need <strong>${Math.round(needed)} additional students</strong> at current contribution to close the gap. ` +
-        `A one-point increase in discount rate costs <strong>$${Math.round(discEffect).toLocaleString()}</strong> per year.` +
-        '';
+        `A one-point increase in discount rate costs <strong>$${Math.round(discEffect).toLocaleString()}</strong> per year.`;
     } else {
       summary.className = 'callout';
       summaryText.innerHTML = `<strong>Operating surplus: $${(gap/1000000).toFixed(2)}M.</strong> The college is covering its costs.`;
     }
+  } else {
+    summary.style.display = 'none';
+  }
+  calcMarket();
+}
+
+// Market sizing (TAM, SAM, SOM)
+function calcMarket() {
+  const tam = parseFloat(document.getElementById('ms_tam').value) || 0;
+  const sam = parseFloat(document.getElementById('ms_sam').value) || 0;
+  const somPct = parseFloat(document.getElementById('ms_somp').value) || 0;
+  const netRev = parseFloat(document.getElementById('ms_netrev').value) || 0;
+  const varCost = parseFloat(document.getElementById('ms_var').value) || 0;
+  const gap = parseFloat(document.getElementById('gc_gap').value) || 0;
+
+  const som = sam * somPct / 100;
+  const contrib = som * (netRev - varCost);
+  const share = gap < 0 ? contrib / Math.abs(gap) * 100 : 0;
+
+  document.getElementById('ms_som').value = som ? Math.round(som) : '';
+  document.getElementById('ms_contrib').value = contrib ? Math.round(contrib) : '';
+  document.getElementById('ms_gapshare').value = share ? share.toFixed(1) : '';
+
+  const summary = document.getElementById('marketSummary');
+  const text = document.getElementById('marketSummaryText');
+  const notes = [];
+  if (tam && sam > tam) notes.push('The SAM is larger than the TAM. The SAM should be a slice of the TAM; check both numbers.');
+  if (somPct > 5) notes.push(`A SOM of ${somPct}% of the SAM is ambitious. Show the interview evidence that supports it.`);
+  if (contrib && gap < 0) notes.push(`At this SOM the idea closes about <strong>${share.toFixed(1)}%</strong> of the annual gap.`);
+  else if (contrib) notes.push(`At this SOM the idea contributes <strong>$${Math.round(contrib).toLocaleString()}</strong> a year. Fill in the Gap Calculator to see its share of the gap.`);
+  if (notes.length) {
+    summary.style.display = 'block';
+    summary.className = (tam && sam > tam) || somPct > 5 ? 'callout warning' : 'callout';
+    text.innerHTML = notes.join(' ');
   } else {
     summary.style.display = 'none';
   }
@@ -1012,7 +1263,7 @@ function calcRunway() {
     summary.style.display = 'block';
     if (cushion < 12) {
       summary.className = 'callout warning';
-      summaryText.innerHTML = `<strong>Cushion is ${cushion.toFixed(1)} months — under 12.</strong> Brief the board this week. The college has ${months.toFixed(1)} months of runway and needs ${transition} months to transition.`;
+      summaryText.innerHTML = `<strong>Cushion is ${cushion.toFixed(1)} months, under the 12 to aim for.</strong> Brief the board this week. The college has ${months.toFixed(1)} months of runway and needs ${transition} months to transition.`;
     } else {
       summary.className = 'callout';
       summaryText.innerHTML = `<strong>${months.toFixed(1)} months of runway</strong> with a ${cushion.toFixed(1)}-month cushion after transition. You have time to plan, but start now.`;
