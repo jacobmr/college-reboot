@@ -56,8 +56,9 @@ Seen, not fixed:
 ## Next steps
 
 1. Invite Jeff: People tab, invite as lead. Adding him to the GitHub repo is separate.
-2. Revoke two unused Resend keys: "collegerunway" (full access, 2026-11-18) and "college-runway-vercel-sending" (2026-11-19, replaced). Then drop `COLLEGE_RUNWAY_RESEND_API_KEY` from the catalog.
-3. The small UI issues listed above.
+2. The small UI issues listed above.
+
+Done 2026-11-20: the two unused Resend keys were revoked; the only College Reboot key left is `college-reboot-vercel-sending`.
 
 ## Other places that trace to Jacob
 
